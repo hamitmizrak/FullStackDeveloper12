@@ -1,6 +1,5 @@
 package com.hamitmizrak.fullstackdeveloper12.runner;
 
-import com.hamitmizrak.FullStackDeveloper11.business.services.IRegisterServices;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.boot.CommandLineRunner;
@@ -26,7 +25,8 @@ public class BlogCommandLineRunner {
 
     // Injection
     @Bean
-    public CommandLineRunner blogCommandLineRunnerMethod(IRegisterServices iRegisterServices) {
+    //public CommandLineRunner blogCommandLineRunnerMethod(IRegisterServices iRegisterServices) {
+    public CommandLineRunner blogCommandLineRunnerMethod() {
         // Lambda Expression
         return args -> {
             System.out.println("CommandLineRunner Çalıştı");

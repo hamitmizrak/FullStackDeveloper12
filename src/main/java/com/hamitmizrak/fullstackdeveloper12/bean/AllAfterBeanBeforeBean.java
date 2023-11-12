@@ -1,7 +1,8 @@
 package com.hamitmizrak.fullstackdeveloper12.bean;
 
-import com.hamitmizrak.FullStackDeveloper11.audit.AuditorAwareBeanClass;
-import com.hamitmizrak.FullStackDeveloper11.runner.BlogCommandLineRunner;
+
+import com.hamitmizrak.fullstackdeveloper12.audit.AuditorAwareBeanClass;
+import com.hamitmizrak.fullstackdeveloper12.runner.BlogCommandLineRunner;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
