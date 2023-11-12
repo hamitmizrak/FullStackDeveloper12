@@ -62,6 +62,12 @@ As [John Gruber] writes on the [Markdown site][df1]
 ---
 ## Road Map
 My Project Road Map
+- [Install](#Installation)
+- [Plugin](#plugins-data)
+- [VS Code](#vs-code-extensions)
+- [Google Chrome](#google-chrome-plugins)
+- [Port](#port)
+- [Docker](#docker)
 
 
 And of course Dillinger itself is open source with a [public repository][dill]
@@ -82,7 +88,7 @@ cd blog
 npm start
 ```
 ---
-## Plugins
+## Plugins Data
 
 Dillinger is currently extended with the following plugins.
 Instructions on how to use them in your own application are linked below.
