@@ -1,6 +1,6 @@
 ![](https://komarev.com/ghpvc/?username=hamitmizrak)
 
-![readme](./picture/readme.jpg)
+![readme](./image/readme.png)
  
 ---
 https://github.com/hamitmizrak/
