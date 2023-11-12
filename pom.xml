@@ -357,7 +357,7 @@
                 <version>3.0.2</version>
             </plugin>
 
-            <!-- for maven target 17 -->
+            <!-- for maven target 21 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
