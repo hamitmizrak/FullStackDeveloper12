@@ -11,7 +11,7 @@ package com.hamitmizrak.fullstackdeveloper12.exception;
 // My Special Exception
 public class HamitMizrakException extends RuntimeException{
 
-    // Override
+    //Constructor(Parametreli)
     public HamitMizrakException(String message) {
         super(message);
     }

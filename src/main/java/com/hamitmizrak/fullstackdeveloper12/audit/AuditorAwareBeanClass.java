@@ -1,6 +1,5 @@
 package com.hamitmizrak.fullstackdeveloper12.audit;
 
-
 import lombok.extern.log4j.Log4j2;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -27,10 +26,9 @@ public class AuditorAwareBeanClass {
         return new AuditorAwareImpl();
     }
 
-
     //LAST
     public void auditorAwareAfterBeanMethod(){
         log.info("auditor Aware After bean bitti");
         System.out.println("auditor Aware After bean bitti");
     }
-}
+}// end class

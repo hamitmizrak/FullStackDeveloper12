@@ -36,4 +36,4 @@ public class AuditorAwareImpl implements AuditorAware<String> {
         //return Optional.ofNullable(authentication!=null? authentication.getName() : null)
         return Optional.of("HamitM.");
     }
-}
+} // end class

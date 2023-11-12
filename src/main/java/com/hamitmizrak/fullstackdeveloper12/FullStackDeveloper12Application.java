@@ -31,9 +31,8 @@ import java.util.TimeZone;
         //SecurityAutoConfiguration.class,
         org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration.class,
         org.springframework.boot.actuate.autoconfigure.security.servlet.ManagementWebSecurityAutoConfiguration.class
-}
+  }
 )
-
 // @SpringBootApplication
 public class FullStackDeveloper12Application {
 

@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @Log4j2
-public class BlogCommandLineRunner {
+public class BlogCommandLineRunner1 {
 
     // INJECTION
     // 1.YOL

@@ -1,6 +1,5 @@
 package com.hamitmizrak.fullstackdeveloper12.runner;
 
-
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.boot.CommandLineRunner;
@@ -14,12 +13,12 @@ import org.springframework.stereotype.Component;
 public class BlogCommandLineRunner2 implements CommandLineRunner {
 
     /*
-      private final IRoleRepository iRoleRepository;
+    private final IRoleRepository iRoleRepository;
     private final IRegisterRepository iRegisterRepository;
     private final IRegisterServices iRegisterServices;
      */
 
-
+    // Senkron(Aynı anda sadece 1 iş yapan processtir)
     private void justOneMailSend() {
 
         /*
@@ -32,12 +31,12 @@ public class BlogCommandLineRunner2 implements CommandLineRunner {
             Long userRoleId = iRoleRepository.save(RoleEntity.builder().rolesId(0L).roleName(ERole.USER.toString()).build()).getRolesId();
             // Multithreading Senkron
 
-       Thread thread = new Thread(new Runnable() {
-            @Override
-            public void run() {
+           Thread thread = new Thread(new Runnable() {
+                @Override
+                public void run() {
 
-            }
-        });
+                }
+            });
 
         for (long i = 1; i <= 4; i++) {
             //USER
@@ -61,8 +60,10 @@ public class BlogCommandLineRunner2 implements CommandLineRunner {
         } //end for
          }
          */
-    }
+    } //end justOneMailSend
 
+    // ...= Rest parameter
+    // String... = String dizisidir.
     @Override
     public void run(String... args) throws Exception {
         // Uygulama başladığında çalışmasını istediğimiz komutlar

@@ -1,8 +1,7 @@
 package com.hamitmizrak.fullstackdeveloper12.bean;
 
-
 import com.hamitmizrak.fullstackdeveloper12.audit.AuditorAwareBeanClass;
-import com.hamitmizrak.fullstackdeveloper12.runner.BlogCommandLineRunner;
+import com.hamitmizrak.fullstackdeveloper12.runner.BlogCommandLineRunner1;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,8 +15,8 @@ public class AllAfterBeanBeforeBean {
 
     // Command Line Runner Bean Method
     @Bean(initMethod = "blogCommandLineRunnerAfterBeanMethod",destroyMethod ="blogCommandLineRunnerBeforeBeanMethod")
-    public BlogCommandLineRunner blogCommandLineRunner(){
-        return new BlogCommandLineRunner();
+    public BlogCommandLineRunner1 blogCommandLineRunner(){
+        return new BlogCommandLineRunner1();
     }
 
     // Model Mapper

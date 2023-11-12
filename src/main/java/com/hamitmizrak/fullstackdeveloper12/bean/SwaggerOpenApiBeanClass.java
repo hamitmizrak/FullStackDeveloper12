@@ -12,6 +12,8 @@ import org.springframework.context.annotation.Configuration;
 // LOMBOK
 @Log4j2 // for log
 
+// http://localhost:4444/swagger-ui.html
+
 // @Configuration: Spring Boota , Classın Bean nesnesi olması için kullanıyoruz.
 @Configuration
 public class SwaggerOpenApiBeanClass {
@@ -47,5 +49,4 @@ public class SwaggerOpenApiBeanClass {
         log.info("swagger Open Api After Bean bitti");
         System.out.println("swagger Open Api After Bean bitti");
     }
-
-}
+} //end class

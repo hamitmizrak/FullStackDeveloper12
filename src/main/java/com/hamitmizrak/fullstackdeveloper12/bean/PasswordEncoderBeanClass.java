@@ -46,4 +46,4 @@ public class PasswordEncoderBeanClass {
         Boolean isPasswordMatch=passwordEncoder.matches(rawPassword,encodedPassword);
         System.out.println("Sistemdeki şifre ile kullanıcının girdiği şifre aynı mı ? "+isPasswordMatch);
     }
-}
+} //end class

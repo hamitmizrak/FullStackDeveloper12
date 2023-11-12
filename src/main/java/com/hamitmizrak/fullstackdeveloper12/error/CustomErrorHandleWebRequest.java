@@ -17,7 +17,6 @@ import java.util.List;
 import java.util.Map;
 
 // LOMBOK
-// LOMBOK
 @Log4j2 // Loglama
 @RequiredArgsConstructor //Injection (Autowired)
 
@@ -34,7 +33,7 @@ public class CustomErrorHandleWebRequest implements ErrorController {
     // @Autowired
     // private ErrorAttributes errorAttributes;
 
-    // 2.YOL (Constructor Injecftion)
+    // 2.YOL (Constructor Injection)
     /*private ErrorAttributes errorAttributes;
     @Autowired
     public CustomErrorHandleWebRequest(ErrorAttributes errorAttributes) {
@@ -45,6 +44,7 @@ public class CustomErrorHandleWebRequest implements ErrorController {
     private final ErrorAttributes errorAttributes;
 
     // Pırasa Vali MESC
+    // Variable
     private ApiResult apiResult;
     private String path;
     private String message;
@@ -52,9 +52,9 @@ public class CustomErrorHandleWebRequest implements ErrorController {
     private Map<String,String> validationErrors;
 
     // http://localhost:4444/error
+    // Spring Frameworkten gelen hataları kendimize göre hataları belirledik (ApiResult)
     @RequestMapping("/error")
     public ApiResult handleErrorMethod(WebRequest webRequest){
-
         // Spring >=2.3
         Map<String,Object> attributes=errorAttributes.getErrorAttributes(
                 webRequest,

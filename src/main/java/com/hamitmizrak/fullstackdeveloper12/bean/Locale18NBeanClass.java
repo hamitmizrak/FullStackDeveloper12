@@ -34,8 +34,10 @@ public class Locale18NBeanClass  extends AcceptHeaderLocaleResolver {
         return interceptor;
     }
 
+    // LIST
     List<Locale> localeList = Arrays.asList(new Locale("tr"), new Locale("en"), new Locale("ge"));
 
+    // ResolveLocale
     @Override
     public Locale resolveLocale(HttpServletRequest request) {
         List<Locale.LanguageRange> list = Locale.LanguageRange.parse(request.getHeader("Accept-Language"));
@@ -53,4 +55,4 @@ public class Locale18NBeanClass  extends AcceptHeaderLocaleResolver {
         log.info("locale 18N After Bean Method bitti");
         System.out.println("locale 18N After Bean Method bitti");
     }
-}
+} // end class
