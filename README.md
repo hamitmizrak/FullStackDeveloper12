@@ -48,9 +48,10 @@ Spring Boot And React JS
 - JAVA CORE
 - SPRING FRAMEWORK
 - SPRING BOOT
+
 ---
 Support
-As [John Gruber] writes on the [Markdown site][df1]
+As [Hamit Mızrak] writes on the [Markdown site][hm]
 
 > Who am I:
 > Computer Engineering  
@@ -69,14 +70,12 @@ My Project Road Map
 - [Port](#port)
 - [Docker](#docker)
 
-
 And of course Dillinger itself is open source with a [public repository][dill]
 on GitHub.
 ---
+
 ## Installation
-
 Dillinger requires [Node.js](https://nodejs.org/) v10+ to run.
-
 REACT JS
 
 ```sh
@@ -88,8 +87,8 @@ cd blog
 npm start
 ```
 ---
-## Plugins Data
 
+## Plugins Data
 Dillinger is currently extended with the following plugins.
 Instructions on how to use them in your own application are linked below.
 
@@ -149,9 +148,7 @@ for project , Port
 ---
 
 ## Docker
-
 Project Deployment
-
 ```sh
 *STEP-1*
 npx create-react-app frontend
@@ -181,7 +178,6 @@ docker container run -d -p 4444:4444 --name backend blog
 docker run -d -p 8000:8080 --restart=always --cap-add=SYS_ADMIN --name=dillinger <youruser>/dillinger:${package.json.version}
 ```
 
-
 ```sh
 127.0.0.1:4444
 ```
@@ -196,10 +192,7 @@ docker run -d -p 8000:8080 --restart=always --cap-add=SYS_ADMIN --name=dillinger
 [FRONTEND]: <https://github.com/denemed>
 [BACKEND]: <https://github.com/denemed>
 
-[dill]: <https://github.com/joemccann/dillinger>
-[git-repo-url]: <https://github.com/joemccann/dillinger.git>
-[john gruber]: <http://daringfireball.net>
-[df1]: <http://daringfireball.net/projects/markdown/>
+[hm]: <https://github.com/hamitmizrak>
 [markdown-it]: <https://github.com/markdown-it/markdown-it>
 [Ace Editor]: <http://ace.ajax.org>
 [node.js]: <http://nodejs.org>
@@ -208,7 +201,3 @@ docker run -d -p 8000:8080 --restart=always --cap-add=SYS_ADMIN --name=dillinger
 [@tjholowaychuk]: <http://twitter.com/tjholowaychuk>
 [express]: <http://expressjs.com>
 [AngularJS]: <http://angularjs.org>
-[Gulp]: <http://gulpjs.com>
-
-  
-

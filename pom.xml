@@ -43,8 +43,7 @@
         <!--  <swagger.fox.version>3.0.0</swagger.fox.version>-->
     </properties>
 
-
-    <!--dependencies-->
+    <!-- start dependencies-->
     <dependencies>
         <!-- #### ÖNEMLİ KÜTÜPHANLER #################################################  -->
         <!-- MAİL-->
@@ -219,7 +218,7 @@
             <artifactId>spring-boot-starter-jdbc</artifactId>
         </dependency>
 
-        <!--Database-->
+        <!--RDBMS Database-->
         <!--h2DB-->
         <dependency>
             <groupId>com.h2database</groupId>
@@ -314,7 +313,6 @@
               <artifactId>jedis</artifactId>
           </dependency>-->
 
-        <!--other libraries-->
         <!--grapQL: Dikkat: graphql ve graphiql aynı sürüm olmalıdır.-->
         <!--   <dependency>
                <groupId>com.graphql-java</groupId>
@@ -344,16 +342,15 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+    <!--end dependencies-->
 
-
+    <!--build-->
     <build>
-
         <!--manuel deployment için-->
         <defaultGoal>spring-boot:run</defaultGoal>
         <finalName>${project.artifactId}}</finalName>
 
         <plugins>
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
@@ -388,5 +385,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>
