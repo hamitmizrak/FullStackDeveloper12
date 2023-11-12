@@ -1,53 +1,114 @@
+# Spring Boot & React JS
 ![](https://komarev.com/ghpvc/?username=hamitmizrak)
+## _N-Tier Architecture_
 
-![readme](./image/readme.png)
- 
+[![N|GitHub](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/GitHub_Invertocat_Logo.svg/200px-GitHub_Invertocat_Logo.svg.png)](https://github.com/hamitmizrak/FullStackDeveloper12.git)
+
+[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://github.com/hamitmizrak/FullStackDeveloper12.git)
+![README PNG](./image/readme.png)
+
 ---
-https://github.com/hamitmizrak/
+## Blog Project:
+Spring Boot And React JS
+
+- Backend: Java Core, Spring Framework
+- Frontend:  React JS, JS, +ES5
+- 🎁 BLOG
+--- 
+
+## TECHNOLOGY &&Features
+- HTML5
+- CSS3
+- RESPONSIVE DESIGN
+- JS
+- BOOTSTRAP5
+- JQUERY
+- JAVASCRIPT
+- SQL
+- H2DB
+- MYSQL
+- POSTGRESQL
+- JAVA CORE
+- SPRING FRAMEWORK
+- SPRING BOOT
 ---
 
+## Libraries & Programming
+- Thymeleaf
+- Lombok
+- Validation
+- Mysql
+- Postgresql
+- ModelMapper
+- PasswordEncoder
+- OpenApiConfiguration
+- H2DB
+- MYSQL
+- POSTGRESQL
+- JAVA CORE
+- SPRING FRAMEWORK
+- SPRING BOOT
+---
+Support
+As [John Gruber] writes on the [Markdown site][df1]
+
+> Who am I:
+> Computer Engineering  
+> Senior Full Stack Developer & DEVOPS & MOBIL APP
+
+[Mail Addres ](hamitmizrak@gmail.com)
+[Tel](hamitmizrak@gmail.com)
 
 ---
-## RolMap
+## Tech
+Dillinger uses a number of open source projects to work properly:
 
-### Bean
+- [AngularJS] - HTML enhanced for web apps!
+- [Ace Editor] - awesome web-based text editor
+- [markdown-it] - Markdown parser done right. Fast and easy to extend.
+- [Twitter Bootstrap] - great UI boilerplate for modern web apps
+- [node.js] - evented I/O for the backend
+- [Express] - fast node.js network app framework [@tjholowaychuk]
+- [Gulp] - the streaming build system
+- [Breakdance](https://breakdance.github.io/breakdance/) - HTML
+  to Markdown converter
+- [jQuery] - duh
+
+And of course Dillinger itself is open source with a [public repository][dill]
+on GitHub.
+---
+## Installation
+
+Dillinger requires [Node.js](https://nodejs.org/) v10+ to run.
+
+REACT JS
+
 ```sh
-ModelMapper
-PasswordEncoder
-OpenApiConfiguration
+npm -v
+node -v
+npx create-react-app blog
+npm i
+cd blog
+npm start
 ```
-
-### Exception
-```sh
-HamitMizrakException
-ResourceAuthorizedException
-ResourceNotFoundException
-ResourceCreatedException
-ResourceBadRequestException
-```
-
-### 
-```sh
-RegisterDto
-BaseEntity
-RegisterEntity
-IRegisterRepository
-```
-
-
 ---
-#  Java Full Stack Developer -7 (1 Nisan  2023)
-* [GitHub](https://github.com/hamitmizrak/Turgut_Ozal_University_JavaTutorialsCommonData)
-*
-### Gereksinimler
-Java 19
-intellij idea Ultimate
-Visual Studio Code
-Node js
+## Plugins
+
+Dillinger is currently extended with the following plugins.
+Instructions on how to use them in your own application are linked below.
+
+| Plugin | README |
+| ------ | ------ |
+| Dropbox | [plugins/dropbox/README.md][PlDb] |
+| GitHub | [plugins/github/README.md][PlGh] |
+| Google Drive | [plugins/googledrive/README.md][PlGd] |
+| OneDrive | [plugins/onedrive/README.md][PlOd] |
+| Medium | [plugins/medium/README.md][PlMe] |
+| Google Analytics | [plugins/googleanalytics/README.md][PlGa] |
 ---
 
-## Visual Studio codes
-Extensisons
+## VS CODE EXTENSIONS
+```sh
 - Browser preview
 - Auto Close tag
 - tabnine
@@ -66,74 +127,92 @@ Extensisons
 - Prettier Code formatter
 - Project Manager
 - Reactjs code Snippets
+```
 ---
 
-## Tecnology
-##FrontEnd
-- Html5
-- Css3
-- responsive design
-- Js
-- jquery
-- Bootstrap
-- react
+## Google Chrome Plugins
+for project , plugins
 
-
+| Google | CHROME |
+| ------ | ------ |
+| React Developer Tools | [React Developer Tools][RTool] |
+| React DevTools | [React Devtool][RDevtool] |
+| Google Drive | [Frontend][FRONTEND] |
+| OneDrive | [Backend][BACKEND] |
 ---
 
-## BackEnd
-* javase
-* jdbc crud native
-* hibernate
-* spring core
-* spring mvc
-* spring data
-* spring rest
-* spring security
+## PORT
+for project , Port
 
+| NAME | PORT |
+| ------ | ------ |
+| React JS| [React][http://localhost:3000] |
+| SPRING| [Spring][http://localhost:4444] |
+| H2-CONSOLE| [H2][http://localhost:4444/h2-console] |
+| SWAGGER| [API DOCUMENT][http://localhost:4444/swagger-ui.html] |
 ---
 
-## Libraries
-Thymeleaf
-Lombok
-Validation
+## Docker
 
-## Database
-H2 Database
-Mysql
-Postgresql
+Project Deployment
 
----
-## dependency
-Spring Web
-Spring Data JPA
-Spring Rest
-Spring Security
-
----
-# Spring Tools
-Spring Boot DevTools
-Spring Configuration Processor
-Spring Boot Actuator
-
----
-
-## Docker Deployment
-
-1.ADIM
+```sh
+*STEP-1*
 npx create-react-app frontend
 cd frontend
 npm start
 code .
 
-2.ADIM
+*STEP-2*
 NOT: node_modules siliyoruz bunu sonrasında
 npm i
 
-3.ADIM
+*STEP-3*
 terminal: package.json seviyesinde olacak şekilde
 npm install axios
 npm install bootstrap --save
 npm install node-sass --save
+```
 
+port 8080 of the Docker (or whatever port was exposed in the Dockerfile):
+
+```sh
+docker-compose up -d
+docker-compose down
+Dockerfile build -t .
+
+docker container run -d -p 4444:4444 --name backend blog
+docker run -d -p 8000:8080 --restart=always --cap-add=SYS_ADMIN --name=dillinger <youruser>/dillinger:${package.json.version}
+```
+
+
+```sh
+127.0.0.1:4444
+```
+
+## License
+
+**BLOG PROJECT !**
+
+[//]: # (Variable)
+[RTool]: <https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi>
+[RDevtool]: <https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd>
+[FRONTEND]: <https://github.com/denemed>
+[BACKEND]: <https://github.com/denemed>
+
+[dill]: <https://github.com/joemccann/dillinger>
+[git-repo-url]: <https://github.com/joemccann/dillinger.git>
+[john gruber]: <http://daringfireball.net>
+[df1]: <http://daringfireball.net/projects/markdown/>
+[markdown-it]: <https://github.com/markdown-it/markdown-it>
+[Ace Editor]: <http://ace.ajax.org>
+[node.js]: <http://nodejs.org>
+[Twitter Bootstrap]: <http://twitter.github.com/bootstrap/>
+[jQuery]: <http://jquery.com>
+[@tjholowaychuk]: <http://twitter.com/tjholowaychuk>
+[express]: <http://expressjs.com>
+[AngularJS]: <http://angularjs.org>
+[Gulp]: <http://gulpjs.com>
+
+  
 
