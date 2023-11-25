@@ -17,29 +17,21 @@ abstract public class AuditingAwareBaseDto implements Serializable {
     // Serileştirme
     public static final Long serialVersionUID=1L;
 
-    // ID
-    protected  Long id;
-
-    // DATE
-    @Builder.Default // Lombok Default
-    protected Date systemDate=new Date(System.currentTimeMillis());
-
-    //////////////////////////////////////////////////////////////////
     // AUDITING
     // Kim ekledi
-    // @JsonIgnore // Backte giden veride bunu göstermek
+    // @JsonIgnore // Backte giden veride bunu göstermemek için kullanılır.
     protected String createdUser;
 
     // Kim ne zaman ekledi
-    // @JsonIgnore
+    // @JsonIgnore // Backte giden veride bunu göstermemek için kullanılır.
     protected Date createdDate;
 
     // Kim güncelledi
-    // @JsonIgnore
+    // @JsonIgnore // Backte giden veride bunu göstermemek için kullanılır.
     protected String lastUser;
 
     // Kim ne zaman güncelledi
-    // @JsonIgnore
+    // @JsonIgnore // Backte giden veride bunu göstermemek için kullanılır.
     protected Date lastDate;
 
 } //end class
