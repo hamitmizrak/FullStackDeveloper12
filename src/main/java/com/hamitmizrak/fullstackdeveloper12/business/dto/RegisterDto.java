@@ -9,8 +9,8 @@ import jakarta.validation.constraints.Size;
 import lombok.Builder;
 import lombok.Data;
 import lombok.extern.log4j.Log4j2;
-
 import java.io.Serializable;
+import java.util.Date;
 
 // LOMBOK
 @Data
@@ -23,7 +23,13 @@ public class RegisterDto extends AuditingAwareBaseDto  implements Serializable {
     // Serileştirme
     public static final Long serialVersionUID=1L;
 
-    //Global Variable
+    // ID
+    private  Long registerId;
+
+    // DATE
+    private Date systemDate;
+
+    // Global Variable
     // NICKNAME
     @NotEmpty(message = "{register.nickname.validation.constraints.NotNull.message}")
     private String rNickname;
@@ -54,7 +60,6 @@ public class RegisterDto extends AuditingAwareBaseDto  implements Serializable {
 
     ///////////////////////////////////////////////
     // CONSTRUCTOR (Parametresiz)
-
     public RegisterDto() {
     }
 
@@ -69,6 +74,7 @@ public class RegisterDto extends AuditingAwareBaseDto  implements Serializable {
         this.isActive = isActive;
     }
     // TOSTRING
+
     @Override
     public String toString() {
         return "RegisterDto{" +
@@ -78,10 +84,36 @@ public class RegisterDto extends AuditingAwareBaseDto  implements Serializable {
                 ", rEmail='" + rEmail + '\'' +
                 ", rPassword='" + rPassword + '\'' +
                 ", isActive=" + isActive +
+                ", isAccountNonLocked=" + isAccountNonLocked +
+                ", isAccountNonExpired=" + isAccountNonExpired +
+                ", isCredentialsNonExpired=" + isCredentialsNonExpired +
+                ", isEnabled=" + isEnabled +
                 ", createdUser='" + createdUser + '\'' +
                 ", createdDate=" + createdDate +
                 ", lastUser='" + lastUser + '\'' +
                 ", lastDate=" + lastDate +
                 '}';
     }
+
+    ///////////////////////////////////////////////
+    // Kullanıcı register olduktan sonra Mail göndersin ve kullanıcı aktif etsin
+    // USER DETAILS
+
+    // Kullanıcı başlangıçta kilitli yani sisteme giremez sadece mail ile onaylanırsa aktif olur
+    // @Builder.Default
+    private Boolean isAccountNonLocked;
+
+    // Eğer yaptığımız uygulamada kullanıcı 1 yıl kullanmazsa hesabı pasif olsun
+    // Kullanıcı Hesap Süresi Doldu mu ?
+    // @Builder.Default
+    private Boolean isAccountNonExpired;
+
+    // Kullanıcı Hesap Bilgileri Süresi (Authorization)
+    // @Builder.Default
+    private Boolean isCredentialsNonExpired;
+
+    // Kullanıcı Sistemde mi ?  eğer login olmuşsa
+    // @Builder.Default
+    private Boolean isEnabled;
+
 } //end class
