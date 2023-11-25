@@ -66,10 +66,6 @@ public class RegisterEntity extends AuditingAwareBaseEntity implements Serializa
     private Boolean isActive = false;
 
     ///////////////////////////////////////////////
-    // CONSTRUCTOR ( Parametresiz )
-    // CONSTRUCTOR ( Parametreli )
-    // TOSTRING
-    ///////////////////////////////////////////////
 
     // USER DETAILS (Mail Confirmation)
     // @Embeddable
