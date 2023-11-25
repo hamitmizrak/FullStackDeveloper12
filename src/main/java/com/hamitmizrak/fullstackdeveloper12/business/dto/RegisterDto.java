@@ -2,10 +2,8 @@ package com.hamitmizrak.fullstackdeveloper12.business.dto;
 
 import com.hamitmizrak.fullstackdeveloper12.annotation.AnnotationUniqueEmailAddress;
 import com.hamitmizrak.fullstackdeveloper12.audit.AuditingAwareBaseDto;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.extern.log4j.Log4j2;
@@ -15,7 +13,13 @@ import java.util.Date;
 // LOMBOK
 @Data
 @Log4j2
+@AllArgsConstructor
 @Builder
+
+// NOT: Validation işlemleri Dto yapalım.
+// NOT: Eğer kullanıcı boşluk yazarsa trim ile almam gerekecek
+// Validation Constraints Reference
+// https://symfony.com/doc/current/reference/constraints.html
 
 // REGISTER
 public class RegisterDto extends AuditingAwareBaseDto  implements Serializable {
@@ -30,6 +34,7 @@ public class RegisterDto extends AuditingAwareBaseDto  implements Serializable {
     private Date systemDate;
 
     // Global Variable
+    // @NotEmpty:  Boş değilse
     // NICKNAME
     @NotEmpty(message = "{register.nickname.validation.constraints.NotNull.message}")
     private String rNickname;
@@ -52,10 +57,10 @@ public class RegisterDto extends AuditingAwareBaseDto  implements Serializable {
     @NotEmpty(message = "{register.password.validation.constraints.NotNull.message}")
     @Size(min = 7,max = 15,message = "{register.password.validation.constraints.MinMax.NotNull.message}")
     @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–[{}]:;',?/*~$^+=<>]).*$",message = "{register.password.pattern.validation.constraints.NotNull.message}")
+    // @Positive
     private String rPassword;
 
     // ISACTIVE
-    @NotEmpty(message = "")
     private Boolean isActive=false;
 
     ///////////////////////////////////////////////
