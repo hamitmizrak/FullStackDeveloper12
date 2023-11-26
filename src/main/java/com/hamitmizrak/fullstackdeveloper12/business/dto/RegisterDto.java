@@ -31,7 +31,7 @@ public class RegisterDto extends AuditingAwareBaseDto  implements Serializable {
     private  Long registerId;
 
     // DATE
-    private Date systemDate;
+    private Date systemCreatedDate;
 
     // Global Variable
     // @NotEmpty:  Boş değilse
@@ -79,7 +79,6 @@ public class RegisterDto extends AuditingAwareBaseDto  implements Serializable {
         this.isActive = isActive;
     }
     // TOSTRING
-
     @Override
     public String toString() {
         return "RegisterDto{" +
