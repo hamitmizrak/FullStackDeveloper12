@@ -3,13 +3,14 @@ package com.hamitmizrak.fullstackdeveloper12.business.services.impl;
 
 import com.hamitmizrak.fullstackdeveloper12.bean.ModelMapperBeanClass;
 import com.hamitmizrak.fullstackdeveloper12.business.dto.RoleDto;
-import com.hamitmizrak.fullstackdeveloper12.business.services.IRoleRegisterService;
+import com.hamitmizrak.fullstackdeveloper12.business.services.IRoleService;
 import com.hamitmizrak.fullstackdeveloper12.data.entity.RoleEntity;
 import com.hamitmizrak.fullstackdeveloper12.data.repository.IRoleRepository;
 import com.hamitmizrak.fullstackdeveloper12.exception.HamitMizrakException;
 import com.hamitmizrak.fullstackdeveloper12.exception.Resource404NotFoundException;
 import lombok.RequiredArgsConstructor;
 // import org.springframework.beans.factory.annotation.Autowired;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,11 +22,12 @@ import java.util.UUID;
 
 // LOMBOK
 @RequiredArgsConstructor
+@Log4j2
 
 // Asıl iş Yükünü yapan yer
 @Service
 @Component("roleServicesImpl") //Spring'in bir parçasıdır.
-public class RoleServicesImpl implements IRoleRegisterService<RoleDto, RoleEntity> {
+public class RoleServicesImpl implements IRoleService<RoleDto, RoleEntity> {
 
     // INJECTION
     // 1.YOL (Field Injection)
