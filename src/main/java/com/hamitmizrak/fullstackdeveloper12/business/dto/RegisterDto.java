@@ -2,6 +2,7 @@ package com.hamitmizrak.fullstackdeveloper12.business.dto;
 
 import com.hamitmizrak.fullstackdeveloper12.annotation.AnnotationUniqueEmailAddress;
 import com.hamitmizrak.fullstackdeveloper12.audit.AuditingAwareBaseDto;
+import com.hamitmizrak.fullstackdeveloper12.business.users.IUserDetailsData;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -22,7 +23,7 @@ import java.util.Date;
 // https://symfony.com/doc/current/reference/constraints.html
 
 // REGISTER
-public class RegisterDto extends AuditingAwareBaseDto  implements Serializable {
+public class RegisterDto extends AuditingAwareBaseDto implements IUserDetailsData, Serializable {
 
     // Serileştirme
     public static final Long serialVersionUID=1L;
@@ -37,31 +38,31 @@ public class RegisterDto extends AuditingAwareBaseDto  implements Serializable {
     // @NotEmpty:  Boş değilse
     // NICKNAME
     @NotEmpty(message = "{register.nickname.validation.constraints.NotNull.message}")
-    private String rNickname;
+    private String regNickname;
 
     // NAME
     @NotEmpty(message = "{register.name.validation.constraints.NotNull.message}")
-    private String rName;
+    private String regName;
 
     // SURNAME
     @NotEmpty(message = "{register.surname.validation.constraints.NotNull.message}")
-    private String rSurname;
+    private String regSurname;
 
     // EMAIL
     @NotEmpty(message = "{register.email.validation.constraints.NotNull.message}")
     @Email(message = "{register.email.validation.constraints.regex.message}")
     @AnnotationUniqueEmailAddress
-    private String rEmail;
+    private String regEmail;
 
     // PASSWORD
     @NotEmpty(message = "{register.password.validation.constraints.NotNull.message}")
     @Size(min = 7,max = 15,message = "{register.password.validation.constraints.MinMax.NotNull.message}")
     @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–[{}]:;',?/*~$^+=<>]).*$",message = "{register.password.pattern.validation.constraints.NotNull.message}")
     // @Positive
-    private String rPassword;
+    private String regPassword;
 
     // ISACTIVE
-    private Boolean isActive=false;
+    private Boolean regIsActive=false;
 
     ///////////////////////////////////////////////
     // CONSTRUCTOR (Parametresiz)
@@ -70,28 +71,46 @@ public class RegisterDto extends AuditingAwareBaseDto  implements Serializable {
 
 
     // CONSTRUCTOR (Parametreli)
-    public RegisterDto(String rNickname, String rName, String rSurname, String rEmail, String rPassword, Boolean isActive) {
-        this.rNickname = rNickname;
-        this.rName = rName;
-        this.rSurname = rSurname;
-        this.rEmail = rEmail;
-        this.rPassword = rPassword;
-        this.isActive = isActive;
+    public RegisterDto(String regNickname, String regName, String regSurname,
+                       String regEmail, String regPassword, Boolean regIsActive) {
+        this.regNickname = regNickname;
+        this.regName = regName;
+        this.regSurname = regSurname;
+        this.regEmail = regEmail;
+        this.regPassword = regPassword;
+        this.regIsActive = regIsActive;
     }
+
+    // CONSTRUCTOR (Parametreli)
+    public RegisterDto(String regNickname, String regName, String regSurname,
+                       String regEmail, String regPassword, Boolean regIsActive,
+                       Boolean isAccountNonLocked, Boolean isAccountNonExpired,
+                       Boolean isCredentialsNonExpired, Boolean isEnabled) {
+        this.regNickname = regNickname;
+        this.regName = regName;
+        this.regSurname = regSurname;
+        this.regEmail = regEmail;
+        this.regPassword = regPassword;
+        this.regIsActive = regIsActive;
+    }
+
     // TOSTRING
+
     @Override
     public String toString() {
         return "RegisterDto{" +
-                "rNickname='" + rNickname + '\'' +
-                ", rName='" + rName + '\'' +
-                ", rSurname='" + rSurname + '\'' +
-                ", rEmail='" + rEmail + '\'' +
-                ", rPassword='" + rPassword + '\'' +
-                ", isActive=" + isActive +
-                ", isAccountNonLocked=" + isAccountNonLocked +
-                ", isAccountNonExpired=" + isAccountNonExpired +
-                ", isCredentialsNonExpired=" + isCredentialsNonExpired +
-                ", isEnabled=" + isEnabled +
+                "registerId=" + registerId +
+                ", systemCreatedDate=" + systemCreatedDate +
+                ", regNickname='" + regNickname + '\'' +
+                ", regName='" + regName + '\'' +
+                ", regSurname='" + regSurname + '\'' +
+                ", regEmail='" + regEmail + '\'' +
+                ", regPassword='" + regPassword + '\'' +
+                ", regIsActive=" + regIsActive +
+                ", isAccountNonLocked=" + isAccountNonLocked() +
+                ", isAccountNonExpired=" + isAccountNonExpired() +
+                ", isCredentialsNonExpired=" + isCredentialsNonExpired() +
+                ", isEnabled=" + isEnabled() +
                 ", createdUser='" + createdUser + '\'' +
                 ", createdDate=" + createdDate +
                 ", lastUser='" + lastUser + '\'' +
@@ -99,25 +118,38 @@ public class RegisterDto extends AuditingAwareBaseDto  implements Serializable {
                 '}';
     }
 
+
     ///////////////////////////////////////////////
     // Kullanıcı register olduktan sonra Mail göndersin ve kullanıcı aktif etsin
-    // USER DETAILS
+    // USER DETAILS (INTERFACE)
 
     // Kullanıcı başlangıçta kilitli yani sisteme giremez sadece mail ile onaylanırsa aktif olur
     // @Builder.Default
-    private Boolean isAccountNonLocked;
+    @Override
+    public Boolean isAccountNonLocked() {
+        return false;
+    }
+
 
     // Eğer yaptığımız uygulamada kullanıcı 1 yıl kullanmazsa hesabı pasif olsun
     // Kullanıcı Hesap Süresi Doldu mu ?
     // @Builder.Default
-    private Boolean isAccountNonExpired;
+    @Override
+    public Boolean isAccountNonExpired() {
+        return false;
+    }
 
     // Kullanıcı Hesap Bilgileri Süresi (Authorization)
     // @Builder.Default
-    private Boolean isCredentialsNonExpired;
+    @Override
+    public Boolean isCredentialsNonExpired() {
+        return false;
+    }
 
     // Kullanıcı Sistemde mi ?  eğer login olmuşsa
     // @Builder.Default
-    private Boolean isEnabled;
-
+    @Override
+    public Boolean isEnabled() {
+        return false;
+    }
 } //end class

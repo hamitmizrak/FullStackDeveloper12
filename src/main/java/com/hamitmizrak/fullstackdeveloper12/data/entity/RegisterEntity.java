@@ -21,11 +21,11 @@ import java.util.Date;
 // NOT: Eğer Entity'i camelCase yazarsanız RDBMS'de underscore yazarak gösterir.
 
 // ENTITY
-@Entity(name = "Registers") // Sql JOIN için yazdım
-@Table(name = "registers")
+@Entity(name = "EntityNameRegisters") // Sql JOIN için yazdım
+@Table(name = "TableNameRegisters")
 public class RegisterEntity extends AuditingAwareBaseEntity implements Serializable {
 
-    // Serileştirme
+    // SERILEŞTIRME
     public static final Long serialVersionUID = 1L;
 
     // ID: import jakarta.persistence.Id
@@ -37,21 +37,21 @@ public class RegisterEntity extends AuditingAwareBaseEntity implements Serializa
     // Date ( otomatik tarih ekler)
     @CreationTimestamp // org.hibernate.annotation
     @Temporal(TemporalType.TIMESTAMP) // jakarta.persistence
-    private Date systemDate;
+    private Date systemCreatedDate;
 
     // Global Variable
     // NICKNAME
-    private String rNickname;
+    private String regNickname;
 
     // NAME
-    private String rName;
+    private String regName;
 
     // SURNAME
-    private String rSurname;
+    private String regSurname;
 
     // EMAIL
     @Column(
-            name = "r_email",
+            name = "reg_email",
             nullable = false,
             updatable = false,
             insertable = true,
@@ -60,10 +60,10 @@ public class RegisterEntity extends AuditingAwareBaseEntity implements Serializa
     private String rEmail;
 
     // PASSWORD
-    private String rPassword;
+    private String regPassword;
 
     // ISACTIVE
-    private Boolean isActive = false;
+    private Boolean regIsActive = false;
 
     ///////////////////////////////////////////////
 
