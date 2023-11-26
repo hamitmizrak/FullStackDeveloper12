@@ -6,13 +6,19 @@ import com.hamitmizrak.fullstackdeveloper12.business.dto.RoleDto;
 import com.hamitmizrak.fullstackdeveloper12.business.services.IRoleRegisterService;
 import com.hamitmizrak.fullstackdeveloper12.data.entity.RoleEntity;
 import com.hamitmizrak.fullstackdeveloper12.data.repository.IRoleRepository;
+import com.hamitmizrak.fullstackdeveloper12.exception.HamitMizrakException;
+import com.hamitmizrak.fullstackdeveloper12.exception.Resource404NotFoundException;
 import lombok.RequiredArgsConstructor;
 // import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+
+// NOT: @Transaction Create, Delete, Update
 
 // LOMBOK
 @RequiredArgsConstructor
@@ -32,7 +38,6 @@ public class RoleServicesImpl implements IRoleRegisterService<RoleDto, RoleEntit
     private IRoleRepository  iRoleRepository;
     */
 
-
     // 2.YOL (Constructor Injection)
     // NOT: final yazarsam beni constructor'a zorlar
     /*
@@ -48,7 +53,6 @@ public class RoleServicesImpl implements IRoleRegisterService<RoleDto, RoleEntit
     // 3.YOL (Lombok Constructor)
     private final ModelMapperBeanClass modelMapperBeanClass;
     private final IRoleRepository iRoleRepository;
-
 
     // MODEL MAPPER
     @Override
@@ -78,6 +82,8 @@ public class RoleServicesImpl implements IRoleRegisterService<RoleDto, RoleEntit
     //////////////////////////////////////////////////////////
     // ROLE CRUD
     // ROLE CREATE
+    // @Transaction Create, Delete, Update
+    @Transactional //org.springFramework.Transaction.Optional
     @Override
     public RoleDto roleServiceCreate(RoleDto roleDto) {
         RoleEntity roleSaveFirstEntity;
@@ -115,16 +121,40 @@ public class RoleServicesImpl implements IRoleRegisterService<RoleDto, RoleEntit
     // ROLE  FIND ID
     @Override
     public RoleDto roleServiceFindById(Long id) {
-        return null;
+        //1.YOL (Optional)
+        /*
+         Optional<RoleEntity> roleFindByIdFirstEntity =iRoleRepository.findById(id);
+        if(roleFindByIdFirstEntity.isPresent()){ // isPresent: Entity veri varsa
+            return  entityToDto(roleFindByIdFirstEntity.get()); //get: veriyi getirmek
+        }
+         */
+
+        // 2.YOL
+        boolean resultFindData=iRoleRepository.findById(id).isPresent();
+        RoleEntity roleFindByIdThirdEntity=null; // initialize:
+        if(id!=null){ //eğer veri varsa
+            roleFindByIdThirdEntity=iRoleRepository.findById(id)
+                    .orElseThrow(
+                            ()->new Resource404NotFoundException(id+" nolu ID Yoktur")
+                    );
+            return entityToDto(roleFindByIdThirdEntity);
+        }else if(id==null){
+            throw new HamitMizrakException("Roles Dto null geldi ");
+        }
+        return null; // eğer veri yoksa null dönder
     }
 
     // ROLE  UPDATE ID, OBJECT
+    // @Transaction Create, Delete, Update
+    @Transactional //org.springFramework.Transaction.Optional
     @Override
     public RoleDto roleServiceUpdate(Long id, RoleDto roleDto) {
         return null;
     }
 
     // ROLE  DELETE ID
+    // @Transaction Create, Delete, Update
+    @Transactional //org.springFramework.Transaction.Optional
     @Override
     public RoleDto roleServiceDeleteById(Long id) {
         return null;
