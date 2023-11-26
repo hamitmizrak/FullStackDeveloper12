@@ -1,4 +1,4 @@
-package com.hamitmizrak.fullstackdeveloper12.business.services.impl;
+package com.hamitmizrak.fullstackdeveloper12.controller.api.impl;
 
 import com.hamitmizrak.fullstackdeveloper12.business.dto.RoleDto;
 import com.hamitmizrak.fullstackdeveloper12.business.services.IRoleService;
@@ -19,7 +19,7 @@ import java.util.Date;
 @RequestMapping("/role/api/v1.0.0")
 @CrossOrigin
 //@CrossOrigin(origins = FrontendPortUrl.REACT_FRONTEND_PORT_URL) // http://localhost:3000
-public class RoleServiceImpl implements IRoleApi<RoleDto> {
+public class RoleApiImpl implements IRoleApi<RoleDto> {
 
     // INJECTION
     private final IRoleService iRoleService;
