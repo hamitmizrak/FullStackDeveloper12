@@ -13,10 +13,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
+import java.util.UUID;
 
 // NOT: @Transaction Create, Delete, Update
 
@@ -65,11 +64,20 @@ public class RoleServicesImpl implements IRoleRegisterService<RoleDto, RoleEntit
         return modelMapperBeanClass.modelMapperMethod().map(roleDto, RoleEntity.class);
     }
 
-    /////////////////////////
+    //////////////////////////////////////////////////////////
     // SPEED DATA
     @Override
     public String roleSpeedData(Long data) {
-        return null;
+        RoleEntity roleSpeedDataEntity=null; //initialize
+        // RoleDto daha öncede database varsa eklemesin. NOTTTTTTTTTTTTTTTTT
+        // Eğer RoleDto null değilse
+        if (data != null) {
+            for (int i = 1; i <=data ; i++) {
+                roleSpeedDataEntity.setRoleName("role_name"+UUID.randomUUID().toString()); // Büyük karakter olarak database kaydet
+                RoleEntity roleSaveSecondEntity = iRoleRepository.save(roleSpeedDataEntity);
+            }
+        }
+        return null; // Random Null ise ; null dönder.
     }
 
     // ALL DELETE
@@ -99,7 +107,7 @@ public class RoleServicesImpl implements IRoleRegisterService<RoleDto, RoleEntit
             return roleDto;
         }
         return null; // RoleDto Null ise ; null dönder.
-    }
+    } //end Create
 
     // ROLE  LIST
     @Override
@@ -116,7 +124,7 @@ public class RoleServicesImpl implements IRoleRegisterService<RoleDto, RoleEntit
             return roleListFirstDto;
         } //end if
         return null; // roleListFirstEntity elaman sayısı yoksa ; null dönder.
-    }
+    } //end List
 
     // ROLE  FIND ID
     @Override
@@ -142,22 +150,44 @@ public class RoleServicesImpl implements IRoleRegisterService<RoleDto, RoleEntit
             throw new HamitMizrakException("Roles Dto null geldi ");
         }
         return null; // eğer veri yoksa null dönder
-    }
+    } //end Find
 
     // ROLE  UPDATE ID, OBJECT
     // @Transaction Create, Delete, Update
     @Transactional //org.springFramework.Transaction.Optional
     @Override
     public RoleDto roleServiceUpdate(Long id, RoleDto roleDto) {
-        return null;
-    }
+        // FIND
+        RoleDto roleUpdateFindDto=roleServiceFindById(id);
+        RoleEntity roleUpdateFindEntity=dtoToEntity(roleUpdateFindDto);
+        if(roleUpdateFindEntity!=null){
+            roleUpdateFindEntity.setRoleName(roleUpdateFindDto.getRoleName());
+            iRoleRepository.save(roleUpdateFindEntity);
+            // SET ID,  DATE
+            roleDto.setRoleId(roleUpdateFindEntity.getRoleId());
+            roleDto.setSystemCreatedDate(roleUpdateFindEntity.getSystemCreatedDate());
+            return roleDto;
+        }
+        return null; //eğer veri yoksa null dönder
+    } //end update
 
     // ROLE  DELETE ID
     // @Transaction Create, Delete, Update
     @Transactional //org.springFramework.Transaction.Optional
     @Override
     public RoleDto roleServiceDeleteById(Long id) {
-        return null;
+        // FIND
+        RoleDto roleDeleteFindDto=roleServiceFindById(id);
+        RoleEntity roleDeleteFindEntity=dtoToEntity(roleDeleteFindDto);
+        if(roleDeleteFindEntity!=null){
+            roleDeleteFindEntity.setRoleName(roleDeleteFindDto.getRoleName());
+            iRoleRepository.deleteById(id);
+            // SET ID,  DATE
+            roleDeleteFindDto.setRoleId(roleDeleteFindEntity.getRoleId());
+            roleDeleteFindDto.setSystemCreatedDate(roleDeleteFindEntity.getSystemCreatedDate());
+            return roleDeleteFindDto;
+        }
+        return null; //eğer veri yoksa null dönder
     }
 
     //////////////////////////////////////////////////////////
