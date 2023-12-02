@@ -173,26 +173,32 @@ public class RoleServicesImpl implements IRoleService<RoleDto , RoleEntity> {
         return null; //eğer veri yoksa null dönder
     } //end update
 
-    // ROLE  DELETE ID
-    // @Transaction Create, Delete, Update
-    @Transactional //org.springFramework.Transaction.Optional
-    @Override
-    public RoleDto roleServiceDeleteById(Long id) {
-        // Role diğer bağlantısı olan Entity varsa silemesin
-        // FIND
-        RoleDto roleDeleteFindDto=roleServiceFindById(id);
-        RoleEntity roleDeleteFindEntity=dtoToEntity(roleDeleteFindDto);
-        if(roleDeleteFindEntity!=null){
-            roleDeleteFindEntity.setRoleName(roleDeleteFindDto.getRoleName());
-            iRoleRepository.deleteById(id);
-            // SET ID,  DATE
-            roleDeleteFindDto.setRoleId(roleDeleteFindEntity.getRoleId());
-            roleDeleteFindDto.setSystemCreatedDate(roleDeleteFindEntity.getSystemCreatedDate());
-            return roleDeleteFindDto;
-        }
-        return null; //eğer veri yoksa null dönder
-    }
-
+    // Dikkat: RoleName silmek için Register veri olmaması gerekiyor.
     //////////////////////////////////////////////////////////
     // Email adresinden Kullanıcı Rolünü Bulmak
+    // FIND
+    @Override
+    public RoleDto roleServiceOnRegisterEmailAddress(String emailAddress) {
+        RoleEntity roleEntity=iRoleRepository.registerEmailFindRole(emailAddress);
+        System.out.println(roleEntity);
+        return modelMapperBeanClass.modelMapperMethod().map(roleEntity,RoleDto.class);
+    }
+
+    // @ManyToMany N - M Delete
+    // Eğer RegisterDto veri varsa o kullanıcının Rolünü silemezsin.
+    // DELETE
+    @Transactional //org.springFramework.Transaction.Optional
+    @Override
+    public RoleDto roleServiceRoleDeleteIsNotRegister(Long id){
+        // FIND
+        RoleDto roleDtoFind=roleServiceFindById(id);
+        // Dto ==> Entity
+        RoleEntity roleEntity=dtoToEntity(roleDtoFind);
+        if(roleEntity!=null){
+            iRoleRepository.deleteById(id);
+            return  roleDtoFind;
+        }
+        return null;
+    }
+
 } //end class

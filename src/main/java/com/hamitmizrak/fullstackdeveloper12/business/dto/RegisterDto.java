@@ -25,11 +25,11 @@ import java.util.Date;
 // REGISTER
 public class RegisterDto extends AuditingAwareBaseDto implements IUserDetailsData, Serializable {
 
-    // Serileştirme
-    public static final Long serialVersionUID=1L;
+    // SERİLEŞTİRME
+    public static final Long serialVersionUID = 1L;
 
     // ID
-    private  Long registerId;
+    private Long registerId;
 
     // DATE
     private Date systemCreatedDate;
@@ -56,19 +56,18 @@ public class RegisterDto extends AuditingAwareBaseDto implements IUserDetailsDat
 
     // PASSWORD
     @NotEmpty(message = "{register.password.validation.constraints.NotNull.message}")
-    @Size(min = 7,max = 15,message = "{register.password.validation.constraints.MinMax.NotNull.message}")
-    @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–[{}]:;',?/*~$^+=<>]).*$",message = "{register.password.pattern.validation.constraints.NotNull.message}")
+    @Size(min = 7, max = 15, message = "{register.password.validation.constraints.MinMax.NotNull.message}")
+    @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–[{}]:;',?/*~$^+=<>]).*$", message = "{register.password.pattern.validation.constraints.NotNull.message}")
     // @Positive
     private String regPassword;
 
     // ISACTIVE
-    private Boolean regIsActive=false;
+    private Boolean regIsActive = false;
 
     ///////////////////////////////////////////////
     // CONSTRUCTOR (Parametresiz)
     public RegisterDto() {
     }
-
 
     // CONSTRUCTOR (Parametreli)
     public RegisterDto(String regNickname, String regName, String regSurname,
@@ -95,7 +94,6 @@ public class RegisterDto extends AuditingAwareBaseDto implements IUserDetailsDat
     }
 
     // TOSTRING
-
     @Override
     public String toString() {
         return "RegisterDto{" +
@@ -118,18 +116,15 @@ public class RegisterDto extends AuditingAwareBaseDto implements IUserDetailsDat
                 '}';
     }
 
-
     ///////////////////////////////////////////////
-    // Kullanıcı register olduktan sonra Mail göndersin ve kullanıcı aktif etsin
     // USER DETAILS (INTERFACE)
-
+    // Kullanıcı register olduktan sonra Mail göndersin ve kullanıcı aktif etsin
     // Kullanıcı başlangıçta kilitli yani sisteme giremez sadece mail ile onaylanırsa aktif olur
     // @Builder.Default
     @Override
     public Boolean isAccountNonLocked() {
         return false;
     }
-
 
     // Eğer yaptığımız uygulamada kullanıcı 1 yıl kullanmazsa hesabı pasif olsun
     // Kullanıcı Hesap Süresi Doldu mu ?

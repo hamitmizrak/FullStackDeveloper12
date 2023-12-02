@@ -10,6 +10,8 @@ import lombok.extern.log4j.Log4j2;
 import org.hibernate.annotations.CreationTimestamp;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 // LOMBOK
 @Data
@@ -23,6 +25,7 @@ import java.util.Date;
 // ENTITY
 @Entity(name = "EntityNameRegisters") // Sql JOIN için yazdım
 @Table(name = "TableNameRegisters")
+// RegisterEntity(N) RoleEntity(M)
 public class RegisterEntity extends AuditingAwareBaseEntity implements Serializable {
 
     // SERILEŞTIRME
@@ -74,6 +77,29 @@ public class RegisterEntity extends AuditingAwareBaseEntity implements Serializa
 
     ///////////////////////////////////////////////
     // ROLES
-    // ROLE ENTITY
+    // ROLE ENTITY (RELATION)
+    // NOT: @ManyToMany'de RegisterEntity RolesEntity ve 1 tane ara tablo daha oluşur adı(registers_roles)
+
+    // 1.YOL
+    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @JoinTable(
+            name="registers_roles" ,
+            joinColumns = @JoinColumn(name="register_id"), // RegisterEntity ID'si
+            inverseJoinColumns = @JoinColumn(name="role_id") //RoleEntity ID'si
+    )
+    private Set<RoleEntity> roles=new HashSet<>();
+
+    // 2.YOL
+	/*
+	@ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+	@JoinTable(name = "user_role",
+	joinColumns = {
+	            @JoinColumn(name = "user_id",referencedColumnName = "user_id")},
+	            inverseJoinColumns = {
+	                            @JoinColumn(name = "roles_id",referencedColumnName = "roles_id")
+	                            }
+	             )
+	 private List<RoleEntity> roles;
+	   */
 
 } //end class entity

@@ -9,6 +9,7 @@ import java.lang.annotation.Target;
 
 @Target({ElementType.PARAMETER})
 @Retention(RetentionPolicy.RUNTIME)
+// NOT: @AuthenticationPrincipal  annotation yazmalısın
 @AuthenticationPrincipal // Sisteme giris yapmıs kullanciilar
 public @interface UserLoginSystem {
 

@@ -24,7 +24,7 @@ public class RolesCommandLineRunner1 {
     // Injection
     @Bean
     //public CommandLineRunner blogCommandLineRunnerMethod(IRegisterServices iRegisterServices) {
-    public CommandLineRunner rolesCommandLineRunner() {
+    public CommandLineRunner blogCommandLineRunnerMethod() {
         // Lambda Expression
         return args -> {
             System.out.println("CommandLineRunner Çalıştı");

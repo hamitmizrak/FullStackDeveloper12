@@ -1,5 +1,7 @@
 package com.hamitmizrak.fullstackdeveloper12.business.services;
 
+import com.hamitmizrak.fullstackdeveloper12.business.dto.RoleDto;
+
 import java.util.List;
 
 // D: Dto
@@ -31,10 +33,12 @@ public interface IRoleService<D,E> {
     // ROLE  UPDATE ID, OBJECT
     public D roleServiceUpdate(Long id, D d);
 
-    // ROLE  DELETE ID
-    public D roleServiceDeleteById(Long id);
-
     //////////////////////////////////////////////////////////
-    // Email adresinden Kullanıcı Rolünü Bulmak
+    // Register Email adresinden Kullanıcı Rolünü Bulmak
+    public D roleServiceOnRegisterEmailAddress(String emailAddress);
 
+    // ROLE  DELETE ID
+    // @ManyToMany N - M Delete
+    // Eğer RegisterDto veri varsa o kullanıcının Rolünü silemezsin.
+    RoleDto roleServiceRoleDeleteIsNotRegister(Long id);
 } //end class

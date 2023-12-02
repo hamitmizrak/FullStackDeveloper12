@@ -23,6 +23,7 @@ import java.util.Date;
 // ENTITY
 @Entity(name = "EntityNameRoles") // Sql JOIN için yazdım
 @Table(name = "TableNameRoles")
+// RegisterEntity(N) RoleEntity(M)
 public class RoleEntity extends AuditingAwareBaseEntity implements Serializable {
 
     // SERILEŞTIRME

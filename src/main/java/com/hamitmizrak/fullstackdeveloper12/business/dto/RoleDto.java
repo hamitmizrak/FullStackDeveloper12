@@ -16,7 +16,6 @@ import java.util.Date;
 @Data
 @Log4j2
 @AllArgsConstructor
-@NoArgsConstructor
 @Builder
 // @SneakyThrows
 public class RoleDto extends AuditingAwareBaseDto  implements Serializable {
@@ -37,6 +36,9 @@ public class RoleDto extends AuditingAwareBaseDto  implements Serializable {
     @Builder.Default
     @AnnotationUniqueRoleName // Database aynı rolde bir isim varsa database ekleme
     private String roleName= ERole.USER.toString(); //default olarak USER olsun.
+
+    // CONSTRUCTOR (Parametresiz)
+    public RoleDto() {}
 
     // CONSTRUCTOR (Parametreli)
     public RoleDto(String roleName) {

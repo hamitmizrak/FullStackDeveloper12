@@ -120,7 +120,7 @@ public class RoleApiImpl implements IRoleApi<RoleDto> {
     @PutMapping("/delete/{id}")
     @Override
     public ResponseEntity<?> roleApiDelete(@PathVariable(name = "id",required = false) Long id) {
-        RoleDto roleDeleteApi= (RoleDto) iRoleService.roleServiceDeleteById(id);
+        RoleDto roleDeleteApi= (RoleDto) iRoleService.roleServiceRoleDeleteIsNotRegister(id);
         if(roleDeleteApi==null){ // Eğer Kaydederken null gelirse
             ApiResult apiResultList=ApiResult.builder()
                     .status(404)
@@ -131,7 +131,7 @@ public class RoleApiImpl implements IRoleApi<RoleDto> {
                     .build();
             return ResponseEntity.ok(apiResultList);
         } //end if
-     return ResponseEntity.ok(iRoleService.roleServiceDeleteById(id));
+     return ResponseEntity.ok(iRoleService.roleServiceRoleDeleteIsNotRegister(id));
     }
 
 } //end class
