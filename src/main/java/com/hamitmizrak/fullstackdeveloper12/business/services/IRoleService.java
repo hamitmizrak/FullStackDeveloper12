@@ -33,12 +33,13 @@ public interface IRoleService<D,E> {
     // ROLE  UPDATE ID, OBJECT
     public D roleServiceUpdate(Long id, D d);
 
-    //////////////////////////////////////////////////////////
-    // Register Email adresinden Kullanıcı Rolünü Bulmak
-    public D roleServiceOnRegisterEmailAddress(String emailAddress);
-
     // ROLE  DELETE ID
     // @ManyToMany N - M Delete
     // Eğer RegisterDto veri varsa o kullanıcının Rolünü silemezsin.
     RoleDto roleServiceRoleDeleteIsNotRegister(Long id);
+
+    //////////////////////////////////////////////////////////
+    // Register Email adresinden Kullanıcı Rolünü Bulmak
+    public D roleServiceOnRegisterEmailAddress(String emailAddress);
+
 } //end class

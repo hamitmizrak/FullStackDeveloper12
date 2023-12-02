@@ -173,17 +173,6 @@ public class RoleServicesImpl implements IRoleService<RoleDto , RoleEntity> {
         return null; //eğer veri yoksa null dönder
     } //end update
 
-    // Dikkat: RoleName silmek için Register veri olmaması gerekiyor.
-    //////////////////////////////////////////////////////////
-    // Email adresinden Kullanıcı Rolünü Bulmak
-    // FIND
-    @Override
-    public RoleDto roleServiceOnRegisterEmailAddress(String emailAddress) {
-        RoleEntity roleEntity=iRoleRepository.registerEmailFindRole(emailAddress);
-        System.out.println(roleEntity);
-        return modelMapperBeanClass.modelMapperMethod().map(roleEntity,RoleDto.class);
-    }
-
     // @ManyToMany N - M Delete
     // Eğer RegisterDto veri varsa o kullanıcının Rolünü silemezsin.
     // DELETE
@@ -199,6 +188,17 @@ public class RoleServicesImpl implements IRoleService<RoleDto , RoleEntity> {
             return  roleDtoFind;
         }
         return null;
+    }
+
+    // Dikkat: RoleName silmek için Register veri olmaması gerekiyor.
+    //////////////////////////////////////////////////////////
+    // Email adresinden Kullanıcı Rolünü Bulmak
+    // FIND
+    @Override
+    public RoleDto roleServiceOnRegisterEmailAddress(String emailAddress) {
+        RoleEntity roleEntity=iRoleRepository.registerEmailFindRole(emailAddress);
+        System.out.println(roleEntity);
+        return modelMapperBeanClass.modelMapperMethod().map(roleEntity,RoleDto.class);
     }
 
 } //end class
