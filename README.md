@@ -16,7 +16,7 @@ Spring Boot And React JS
 - 🎁 BLOG
 --- 
 
-## TECHNOLOGY &&Features
+## TECHNOLOGY && Features
 - HTML5
 - CSS3
 - RESPONSIVE DESIGN
@@ -33,7 +33,7 @@ Spring Boot And React JS
 - SPRING BOOT
 ---
 
-## Libraries & Programming
+## Libraries && Programming
 - Thymeleaf
 - Lombok
 - Validation
