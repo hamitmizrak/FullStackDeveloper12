@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 // Authentication : Kullanıcı Login olmuş mu?
 // Authorization  : Yetkilendirme
-// 401: Yetkisiz Giris (Bad Request)
+// 401: Yetkisiz Giris (Register olmaya zorlar)
 @ResponseStatus(value = HttpStatus.BAD_REQUEST)
 public class Resource401UnAuthorizedException extends RuntimeException{
 

@@ -10,7 +10,11 @@ package com.hamitmizrak.fullstackdeveloper12.role;
 // 2-a_) Sadece Get metodunu eklemeye yarar
 // 3-a_) Bizi Constructur yazmamıza zorlar
 public enum ERole {
-    SUPER_ADMIN(1L,"super_admin") , ADMIN(2L,"admin") , ACCOUNTING(3L,"accounting") , WRITER(4L,"writer") , USER(5L,"user");
+    SUPER_ADMIN(1L,"super_admin") ,
+    ADMIN(2L,"admin") ,
+    ACCOUNTING(3L,"accounting") ,
+    WRITER(4L,"writer") ,
+    USER(5L,"user");
 
     // variable
     private final Long key;

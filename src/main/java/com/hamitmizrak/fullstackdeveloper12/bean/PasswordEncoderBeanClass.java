@@ -25,7 +25,6 @@ public class PasswordEncoderBeanClass {
         return new BCryptPasswordEncoder();
     }
 
-
     //LAST
     public void passwordEncoderAfterBeanMethod(){
         log.info("password Encoder After Bean bitti");

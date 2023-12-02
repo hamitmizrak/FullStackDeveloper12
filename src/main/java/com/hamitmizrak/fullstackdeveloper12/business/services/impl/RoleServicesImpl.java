@@ -1,6 +1,5 @@
 package com.hamitmizrak.fullstackdeveloper12.business.services.impl;
 
-
 import com.hamitmizrak.fullstackdeveloper12.bean.ModelMapperBeanClass;
 import com.hamitmizrak.fullstackdeveloper12.business.dto.RoleDto;
 import com.hamitmizrak.fullstackdeveloper12.business.services.IRoleService;
@@ -27,7 +26,7 @@ import java.util.UUID;
 // Asıl iş Yükünü yapan yer
 @Service
 @Component("roleServicesImpl") //Spring'in bir parçasıdır.
-public class RoleServicesImpl implements IRoleService<RoleDto, RoleEntity> {
+public class RoleServicesImpl implements IRoleService<RoleDto , RoleEntity> {
 
     // INJECTION
     // 1.YOL (Field Injection)
@@ -55,6 +54,7 @@ public class RoleServicesImpl implements IRoleService<RoleDto, RoleEntity> {
     private final ModelMapperBeanClass modelMapperBeanClass;
     private final IRoleRepository iRoleRepository;
 
+    //////////////////////////////////////////////////////////
     // MODEL MAPPER
     @Override
     public RoleDto entityToDto(RoleEntity roleEntity) {
@@ -178,6 +178,7 @@ public class RoleServicesImpl implements IRoleService<RoleDto, RoleEntity> {
     @Transactional //org.springFramework.Transaction.Optional
     @Override
     public RoleDto roleServiceDeleteById(Long id) {
+        // Role diğer bağlantısı olan Entity varsa silemesin
         // FIND
         RoleDto roleDeleteFindDto=roleServiceFindById(id);
         RoleEntity roleDeleteFindEntity=dtoToEntity(roleDeleteFindDto);

@@ -39,7 +39,16 @@ public class RoleApiImpl implements IRoleApi<RoleDto> {
                  .createdDate(new Date(System.currentTimeMillis()))
                  .build();
          return ResponseEntity.status(404).body(apiResultCreate);
-     } //end if
+     }else if(roleCreateApi.getRoleId()==0){ // Eğer Kaydederken null gelirse
+            ApiResult apiResultCreate=ApiResult.builder()
+                    .status(404)
+                    .error("Bad Request")
+                    .message("Kötü İstek ")
+                    .path("role/api/v1.0.0/create")
+                    .createdDate(new Date(System.currentTimeMillis()))
+                    .build();
+            return ResponseEntity.status(400).body(apiResultCreate);
+        } //end if
         return ResponseEntity.status(201).body(iRoleService.roleServiceCreate(roleDto));
     }
 

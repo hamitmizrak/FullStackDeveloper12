@@ -11,7 +11,7 @@ import org.springframework.data.domain.AuditorAware;
 // @Configuration: Classın Bean nesnesi olması için kullanıyoruz.
 @Configuration
 // Auditing Aktif etmek
-//@EnableJpaAuditing(auditorAwareRef = "auditorAwareBeanMethod")
+// @EnableJpaAuditing(auditorAwareRef = "auditorAwareBeanMethod")
 public class AuditorAwareBeanClass {
 
     //FIRST
@@ -21,6 +21,9 @@ public class AuditorAwareBeanClass {
     }
 
     // Auditor Aware Bean
+    // @SpringBootApplication Application aktif etmelisin.
+    // @SpringBootApplication => @EnableJpaAuditing(auditorAwareRef = "auditorAwareBeanMethod")
+    //
     @Bean
     public AuditorAware<String> auditorAwareBeanMethod(){
         return new AuditorAwareImpl();
