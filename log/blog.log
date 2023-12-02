@@ -1,84 +1,268 @@
-2023-11-25T12:18:54.052+03:00  INFO 15776 --- [restartedMain] c.h.f.FullStackDeveloper12Application    : Starting FullStackDeveloper12Application using Java 21 with PID 15776 (D:\spring\FullStackDeveloper12\target\classes started by 90553 in D:\spring\FullStackDeveloper12)
-2023-11-25T12:18:54.057+03:00  INFO 15776 --- [restartedMain] c.h.f.FullStackDeveloper12Application    : The following 1 profile is active: "frontend"
-2023-11-25T12:18:54.108+03:00  INFO 15776 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2023-11-25T12:18:54.108+03:00  INFO 15776 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2023-11-25T12:18:55.161+03:00  INFO 15776 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-11-25T12:18:55.187+03:00  INFO 15776 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 17 ms. Found 0 JPA repository interfaces.
-2023-11-25T12:18:55.752+03:00  INFO 15776 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 4444 (http)
-2023-11-25T12:18:55.758+03:00  INFO 15776 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-11-25T12:18:55.758+03:00  INFO 15776 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.15]
-2023-11-25T12:18:55.812+03:00  INFO 15776 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2023-11-25T12:18:55.812+03:00  INFO 15776 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1703 ms
-2023-11-25T12:18:55.902+03:00  INFO 15776 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2023-11-25T12:18:56.060+03:00  INFO 15776 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@68b98920
-2023-11-25T12:18:56.062+03:00  INFO 15776 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2023-11-25T12:18:56.070+03:00  INFO 15776 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/blog?createDatabaseIfNotExist=true&autoReconnect=true&allowPublicKeyRetrieval=true&useSSL=false'
-2023-11-25T12:18:56.127+03:00 DEBUG 15776 --- [restartedMain] o.s.w.f.ServerHttpObservationFilter      : Filter 'webMvcObservationFilter' configured for use
-2023-11-25T12:18:56.127+03:00 DEBUG 15776 --- [restartedMain] o.s.w.s.r.ResourceUrlEncodingFilter      : Filter 'resourceUrlEncodingFilter' configured for use
-2023-11-25T12:18:56.495+03:00  INFO 15776 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2023-11-25T12:18:57.375+03:00  INFO 15776 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-11-25T12:18:57.384+03:00  INFO 15776 --- [restartedMain] c.h.f.audit.AuditorAwareBeanClass        : auditor Aware bean Before başladı
-2023-11-25T12:18:57.385+03:00  INFO 15776 --- [restartedMain] c.h.f.bean.Locale18NBeanClass            : swagger Open Api Before Bean başladı
-2023-11-25T12:18:57.386+03:00  INFO 15776 --- [restartedMain] c.h.f.bean.ModelMapperBeanClass          : Model mapper bean Before başladı
-2023-11-25T12:18:57.386+03:00  INFO 15776 --- [restartedMain] c.h.f.bean.PasswordEncoderBeanClass      : password Encoder Before Bean başladı
-2023-11-25T12:18:57.387+03:00  INFO 15776 --- [restartedMain] c.h.f.bean.SwaggerOpenApiBeanClass       : swagger Open Api Before Bean başladı
-2023-11-25T12:18:57.392+03:00  INFO 15776 --- [restartedMain] c.h.f.runner.BlogCommandLineRunner1      : blog CommandLineRunner After Bean Method başladı
-2023-11-25T12:18:57.532+03:00  WARN 15776 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-11-25T12:18:57.683+03:00 DEBUG 15776 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
-2023-11-25T12:18:57.713+03:00  INFO 15776 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
-2023-11-25T12:18:57.766+03:00 DEBUG 15776 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 5 mappings in 'requestMappingHandlerMapping'
-2023-11-25T12:18:58.139+03:00 DEBUG 15776 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
-2023-11-25T12:18:58.150+03:00 DEBUG 15776 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
-2023-11-25T12:18:58.677+03:00  INFO 15776 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2023-11-25T12:18:58.688+03:00  INFO 15776 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 16 endpoint(s) beneath base path '/actuator'
-2023-11-25T12:18:58.778+03:00  INFO 15776 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 4444 (http) with context path ''
-2023-11-25T12:18:58.793+03:00  INFO 15776 --- [restartedMain] c.h.f.FullStackDeveloper12Application    : Started FullStackDeveloper12Application in 5.192 seconds (process running for 6.128)
-2023-11-25T12:18:58.799+03:00  INFO 15776 --- [restartedMain] c.h.f.runner.BlogCommandLineRunner2      : CommandLineRunner Çalıştı Sade
-2023-11-25T12:18:58.800+03:00  INFO 15776 --- [restartedMain] c.h.f.runner.BlogCommandLineRunner1      : CommandLineRunner Çalıştı
-2023-11-25T12:25:43.986+03:00  INFO 15776 --- [SpringApplicationShutdownHook] c.h.f.runner.BlogCommandLineRunner1      : blog CommandLineRunner Before Bean Method bitti
-2023-11-25T12:25:43.987+03:00  INFO 15776 --- [SpringApplicationShutdownHook] c.h.f.bean.SwaggerOpenApiBeanClass       : swagger Open Api After Bean bitti
-2023-11-25T12:25:43.987+03:00  INFO 15776 --- [SpringApplicationShutdownHook] c.h.f.bean.PasswordEncoderBeanClass      : password Encoder After Bean bitti
-2023-11-25T12:25:43.988+03:00  INFO 15776 --- [SpringApplicationShutdownHook] c.h.f.bean.ModelMapperBeanClass          : Model mapper After bean bitti
-2023-11-25T12:25:43.988+03:00  INFO 15776 --- [SpringApplicationShutdownHook] c.h.f.bean.Locale18NBeanClass            : locale 18N After Bean Method bitti
-2023-11-25T12:25:43.988+03:00  INFO 15776 --- [SpringApplicationShutdownHook] c.h.f.audit.AuditorAwareBeanClass        : auditor Aware After bean bitti
-2023-11-25T12:25:43.988+03:00  INFO 15776 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-11-25T12:25:44.001+03:00  INFO 15776 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2023-11-25T12:25:44.008+03:00  INFO 15776 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2023-11-25T12:25:49.220+03:00  INFO 1896 --- [restartedMain] c.h.f.FullStackDeveloper12Application    : Starting FullStackDeveloper12Application using Java 21 with PID 1896 (D:\spring\FullStackDeveloper12\target\classes started by 90553 in D:\spring\FullStackDeveloper12)
-2023-11-25T12:25:49.222+03:00  INFO 1896 --- [restartedMain] c.h.f.FullStackDeveloper12Application    : The following 1 profile is active: "frontend"
-2023-11-25T12:25:49.278+03:00  INFO 1896 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2023-11-25T12:25:49.279+03:00  INFO 1896 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2023-11-25T12:25:50.183+03:00  INFO 1896 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-11-25T12:25:50.206+03:00  INFO 1896 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 15 ms. Found 0 JPA repository interfaces.
-2023-11-25T12:25:50.739+03:00  INFO 1896 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 4444 (http)
-2023-11-25T12:25:50.747+03:00  INFO 1896 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-11-25T12:25:50.747+03:00  INFO 1896 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.15]
-2023-11-25T12:25:50.803+03:00  INFO 1896 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2023-11-25T12:25:50.803+03:00  INFO 1896 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1523 ms
-2023-11-25T12:25:50.897+03:00  INFO 1896 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2023-11-25T12:25:51.045+03:00  INFO 1896 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@44c4050e
-2023-11-25T12:25:51.047+03:00  INFO 1896 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2023-11-25T12:25:51.057+03:00  INFO 1896 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/blog?createDatabaseIfNotExist=true&autoReconnect=true&allowPublicKeyRetrieval=true&useSSL=false'
-2023-11-25T12:25:51.124+03:00 DEBUG 1896 --- [restartedMain] o.s.w.f.ServerHttpObservationFilter      : Filter 'webMvcObservationFilter' configured for use
-2023-11-25T12:25:51.125+03:00 DEBUG 1896 --- [restartedMain] o.s.w.s.r.ResourceUrlEncodingFilter      : Filter 'resourceUrlEncodingFilter' configured for use
-2023-11-25T12:25:51.524+03:00  INFO 1896 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2023-11-25T12:25:52.383+03:00  INFO 1896 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-11-25T12:25:52.391+03:00  INFO 1896 --- [restartedMain] c.h.f.audit.AuditorAwareBeanClass        : auditor Aware bean Before başladı
-2023-11-25T12:25:52.393+03:00  INFO 1896 --- [restartedMain] c.h.f.bean.Locale18NBeanClass            : swagger Open Api Before Bean başladı
-2023-11-25T12:25:52.394+03:00  INFO 1896 --- [restartedMain] c.h.f.bean.ModelMapperBeanClass          : Model mapper bean Before başladı
-2023-11-25T12:25:52.395+03:00  INFO 1896 --- [restartedMain] c.h.f.bean.PasswordEncoderBeanClass      : password Encoder Before Bean başladı
-2023-11-25T12:25:52.395+03:00  INFO 1896 --- [restartedMain] c.h.f.bean.SwaggerOpenApiBeanClass       : swagger Open Api Before Bean başladı
-2023-11-25T12:25:52.402+03:00  INFO 1896 --- [restartedMain] c.h.f.runner.BlogCommandLineRunner1      : blog CommandLineRunner After Bean Method başladı
-2023-11-25T12:25:52.532+03:00  WARN 1896 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-11-25T12:25:52.682+03:00 DEBUG 1896 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
-2023-11-25T12:25:52.709+03:00  INFO 1896 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
-2023-11-25T12:25:52.755+03:00 DEBUG 1896 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 5 mappings in 'requestMappingHandlerMapping'
-2023-11-25T12:25:53.115+03:00 DEBUG 1896 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
-2023-11-25T12:25:53.123+03:00 DEBUG 1896 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
-2023-11-25T12:25:53.534+03:00  INFO 1896 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2023-11-25T12:25:53.539+03:00  INFO 1896 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 16 endpoint(s) beneath base path '/actuator'
-2023-11-25T12:25:53.613+03:00  INFO 1896 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 4444 (http) with context path ''
-2023-11-25T12:25:53.625+03:00  INFO 1896 --- [restartedMain] c.h.f.FullStackDeveloper12Application    : Started FullStackDeveloper12Application in 4.799 seconds (process running for 5.476)
-2023-11-25T12:25:53.630+03:00  INFO 1896 --- [restartedMain] c.h.f.runner.BlogCommandLineRunner2      : CommandLineRunner Çalıştı Sade
-2023-11-25T12:25:53.631+03:00  INFO 1896 --- [restartedMain] c.h.f.runner.BlogCommandLineRunner1      : CommandLineRunner Çalıştı
-2023-11-25T20:56:19.873+03:00  WARN 1896 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=4h2m24s536ms387µs400ns).
+2023-12-02T12:33:58.971+03:00  INFO 17760 --- [restartedMain] c.h.f.FullStackDeveloper12Application    : Starting FullStackDeveloper12Application using Java 21 with PID 17760 (D:\spring\FullStackDeveloper12\target\classes started by 90553 in D:\spring\FullStackDeveloper12)
+2023-12-02T12:33:58.979+03:00  INFO 17760 --- [restartedMain] c.h.f.FullStackDeveloper12Application    : The following 1 profile is active: "frontend"
+2023-12-02T12:33:59.044+03:00  INFO 17760 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-12-02T12:33:59.044+03:00  INFO 17760 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-12-02T12:34:00.316+03:00  INFO 17760 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-12-02T12:34:00.387+03:00  INFO 17760 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 62 ms. Found 2 JPA repository interfaces.
+2023-12-02T12:34:01.096+03:00  INFO 17760 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 4444 (http)
+2023-12-02T12:34:01.106+03:00  INFO 17760 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-12-02T12:34:01.106+03:00  INFO 17760 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.15]
+2023-12-02T12:34:01.161+03:00  INFO 17760 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-12-02T12:34:01.161+03:00  INFO 17760 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2115 ms
+2023-12-02T12:34:01.278+03:00  INFO 17760 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-12-02T12:34:01.418+03:00  INFO 17760 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4d2b3fe6
+2023-12-02T12:34:01.420+03:00  INFO 17760 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-12-02T12:34:01.429+03:00  INFO 17760 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/blog?createDatabaseIfNotExist=true&autoReconnect=true&allowPublicKeyRetrieval=true&useSSL=false'
+2023-12-02T12:34:01.486+03:00 DEBUG 17760 --- [restartedMain] o.s.w.f.ServerHttpObservationFilter      : Filter 'webMvcObservationFilter' configured for use
+2023-12-02T12:34:01.486+03:00 DEBUG 17760 --- [restartedMain] o.s.w.s.r.ResourceUrlEncodingFilter      : Filter 'resourceUrlEncodingFilter' configured for use
+2023-12-02T12:34:01.878+03:00  INFO 17760 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-12-02T12:34:02.952+03:00  INFO 17760 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-12-02T12:34:02.959+03:00  INFO 17760 --- [restartedMain] c.h.f.audit.AuditorAwareBeanClass        : auditor Aware bean Before başladı
+2023-12-02T12:34:02.960+03:00  INFO 17760 --- [restartedMain] c.h.f.bean.Locale18NBeanClass            : swagger Open Api Before Bean başladı
+2023-12-02T12:34:02.960+03:00  INFO 17760 --- [restartedMain] c.h.f.bean.ModelMapperBeanClass          : Model mapper bean Before başladı
+2023-12-02T12:34:02.961+03:00  INFO 17760 --- [restartedMain] c.h.f.bean.PasswordEncoderBeanClass      : password Encoder Before Bean başladı
+2023-12-02T12:34:02.961+03:00  INFO 17760 --- [restartedMain] c.h.f.bean.SwaggerOpenApiBeanClass       : swagger Open Api Before Bean başladı
+2023-12-02T12:34:03.443+03:00  WARN 17760 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-12-02T12:34:03.548+03:00 DEBUG 17760 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2023-12-02T12:34:03.578+03:00  INFO 17760 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-12-02T12:34:03.636+03:00 DEBUG 17760 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 10 mappings in 'requestMappingHandlerMapping'
+2023-12-02T12:34:04.057+03:00 DEBUG 17760 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2023-12-02T12:34:04.081+03:00 DEBUG 17760 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2023-12-02T12:34:04.494+03:00  WARN 17760 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'IRegisterRepository' defined in com.hamitmizrak.fullstackdeveloper12.data.repository.IRegisterRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Could not create query for public abstract java.util.Optional com.hamitmizrak.fullstackdeveloper12.data.repository.IRegisterRepository.findByREmail(java.lang.String); Reason: Failed to create query for method public abstract java.util.Optional com.hamitmizrak.fullstackdeveloper12.data.repository.IRegisterRepository.findByREmail(java.lang.String); Unable to locate Attribute with the given name [REmail] on this ManagedType [com.hamitmizrak.fullstackdeveloper12.data.entity.RegisterEntity]
+2023-12-02T12:34:04.497+03:00  INFO 17760 --- [restartedMain] c.h.f.bean.SwaggerOpenApiBeanClass       : swagger Open Api After Bean bitti
+2023-12-02T12:34:04.498+03:00  INFO 17760 --- [restartedMain] c.h.f.bean.PasswordEncoderBeanClass      : password Encoder After Bean bitti
+2023-12-02T12:34:04.498+03:00  INFO 17760 --- [restartedMain] c.h.f.bean.ModelMapperBeanClass          : Model mapper After bean bitti
+2023-12-02T12:34:04.498+03:00  INFO 17760 --- [restartedMain] c.h.f.bean.Locale18NBeanClass            : locale 18N After Bean Method bitti
+2023-12-02T12:34:04.498+03:00  INFO 17760 --- [restartedMain] c.h.f.audit.AuditorAwareBeanClass        : auditor Aware After bean bitti
+2023-12-02T12:34:04.499+03:00  INFO 17760 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-12-02T12:34:04.515+03:00  INFO 17760 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-12-02T12:34:04.523+03:00  INFO 17760 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-12-02T12:34:04.526+03:00  INFO 17760 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-12-02T12:34:04.545+03:00  INFO 17760 --- [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2023-12-02T12:34:04.559+03:00 ERROR 17760 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'IRegisterRepository' defined in com.hamitmizrak.fullstackdeveloper12.data.repository.IRegisterRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Could not create query for public abstract java.util.Optional com.hamitmizrak.fullstackdeveloper12.data.repository.IRegisterRepository.findByREmail(java.lang.String); Reason: Failed to create query for method public abstract java.util.Optional com.hamitmizrak.fullstackdeveloper12.data.repository.IRegisterRepository.findByREmail(java.lang.String); Unable to locate Attribute with the given name [REmail] on this ManagedType [com.hamitmizrak.fullstackdeveloper12.data.entity.RegisterEntity]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1770) ~[spring-beans-6.0.13.jar:6.0.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:598) ~[spring-beans-6.0.13.jar:6.0.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:520) ~[spring-beans-6.0.13.jar:6.0.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325) ~[spring-beans-6.0.13.jar:6.0.13]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.0.13.jar:6.0.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323) ~[spring-beans-6.0.13.jar:6.0.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-6.0.13.jar:6.0.13]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:967) ~[spring-beans-6.0.13.jar:6.0.13]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:950) ~[spring-context-6.0.13.jar:6.0.13]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:616) ~[spring-context-6.0.13.jar:6.0.13]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.1.5.jar:3.1.5]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:738) ~[spring-boot-3.1.5.jar:3.1.5]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:440) ~[spring-boot-3.1.5.jar:3.1.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316) ~[spring-boot-3.1.5.jar:3.1.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306) ~[spring-boot-3.1.5.jar:3.1.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295) ~[spring-boot-3.1.5.jar:3.1.5]
+	at com.hamitmizrak.fullstackdeveloper12.FullStackDeveloper12Application.main(FullStackDeveloper12Application.java:61) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.1.5.jar:3.1.5]
+Caused by: org.springframework.data.repository.query.QueryCreationException: Could not create query for public abstract java.util.Optional com.hamitmizrak.fullstackdeveloper12.data.repository.IRegisterRepository.findByREmail(java.lang.String); Reason: Failed to create query for method public abstract java.util.Optional com.hamitmizrak.fullstackdeveloper12.data.repository.IRegisterRepository.findByREmail(java.lang.String); Unable to locate Attribute with the given name [REmail] on this ManagedType [com.hamitmizrak.fullstackdeveloper12.data.entity.RegisterEntity]
+	at org.springframework.data.repository.query.QueryCreationException.create(QueryCreationException.java:101) ~[spring-data-commons-3.1.5.jar:3.1.5]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lookupQuery(QueryExecutorMethodInterceptor.java:115) ~[spring-data-commons-3.1.5.jar:3.1.5]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.mapMethodsToQuery(QueryExecutorMethodInterceptor.java:99) ~[spring-data-commons-3.1.5.jar:3.1.5]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lambda$new$0(QueryExecutorMethodInterceptor.java:88) ~[spring-data-commons-3.1.5.jar:3.1.5]
+	at java.base/java.util.Optional.map(Optional.java:260) ~[na:na]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.<init>(QueryExecutorMethodInterceptor.java:88) ~[spring-data-commons-3.1.5.jar:3.1.5]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport.getRepository(RepositoryFactorySupport.java:357) ~[spring-data-commons-3.1.5.jar:3.1.5]
+	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.lambda$afterPropertiesSet$5(RepositoryFactoryBeanSupport.java:279) ~[spring-data-commons-3.1.5.jar:3.1.5]
+	at org.springframework.data.util.Lazy.getNullable(Lazy.java:245) ~[spring-data-commons-3.1.5.jar:3.1.5]
+	at org.springframework.data.util.Lazy.get(Lazy.java:114) ~[spring-data-commons-3.1.5.jar:3.1.5]
+	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.afterPropertiesSet(RepositoryFactoryBeanSupport.java:285) ~[spring-data-commons-3.1.5.jar:3.1.5]
+	at org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean.afterPropertiesSet(JpaRepositoryFactoryBean.java:132) ~[spring-data-jpa-3.1.5.jar:3.1.5]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1817) ~[spring-beans-6.0.13.jar:6.0.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1766) ~[spring-beans-6.0.13.jar:6.0.13]
+	... 19 common frames omitted
+Caused by: java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.Optional com.hamitmizrak.fullstackdeveloper12.data.repository.IRegisterRepository.findByREmail(java.lang.String); Unable to locate Attribute with the given name [REmail] on this ManagedType [com.hamitmizrak.fullstackdeveloper12.data.entity.RegisterEntity]
+	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery.<init>(PartTreeJpaQuery.java:107) ~[spring-data-jpa-3.1.5.jar:3.1.5]
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$CreateQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:124) ~[spring-data-jpa-3.1.5.jar:3.1.5]
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$CreateIfNotFoundQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:258) ~[spring-data-jpa-3.1.5.jar:3.1.5]
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$AbstractQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:95) ~[spring-data-jpa-3.1.5.jar:3.1.5]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lookupQuery(QueryExecutorMethodInterceptor.java:111) ~[spring-data-commons-3.1.5.jar:3.1.5]
+	... 31 common frames omitted
+Caused by: java.lang.IllegalArgumentException: Unable to locate Attribute with the given name [REmail] on this ManagedType [com.hamitmizrak.fullstackdeveloper12.data.entity.RegisterEntity]
+	at org.hibernate.metamodel.model.domain.AbstractManagedType.checkNotNull(AbstractManagedType.java:287) ~[hibernate-core-6.2.13.Final.jar:6.2.13.Final]
+	at org.hibernate.metamodel.model.domain.AbstractManagedType.getAttribute(AbstractManagedType.java:160) ~[hibernate-core-6.2.13.Final.jar:6.2.13.Final]
+	at org.hibernate.metamodel.model.domain.AbstractManagedType.getAttribute(AbstractManagedType.java:51) ~[hibernate-core-6.2.13.Final.jar:6.2.13.Final]
+	at org.springframework.data.jpa.repository.query.QueryUtils.requiresOuterJoin(QueryUtils.java:836) ~[spring-data-jpa-3.1.5.jar:3.1.5]
+	at org.springframework.data.jpa.repository.query.QueryUtils.toExpressionRecursively(QueryUtils.java:777) ~[spring-data-jpa-3.1.5.jar:3.1.5]
+	at org.springframework.data.jpa.repository.query.QueryUtils.toExpressionRecursively(QueryUtils.java:756) ~[spring-data-jpa-3.1.5.jar:3.1.5]
+	at org.springframework.data.jpa.repository.query.QueryUtils.toExpressionRecursively(QueryUtils.java:752) ~[spring-data-jpa-3.1.5.jar:3.1.5]
+	at org.springframework.data.jpa.repository.query.JpaQueryCreator$PredicateBuilder.getTypedPath(JpaQueryCreator.java:387) ~[spring-data-jpa-3.1.5.jar:3.1.5]
+	at org.springframework.data.jpa.repository.query.JpaQueryCreator$PredicateBuilder.build(JpaQueryCreator.java:310) ~[spring-data-jpa-3.1.5.jar:3.1.5]
+	at org.springframework.data.jpa.repository.query.JpaQueryCreator.toPredicate(JpaQueryCreator.java:210) ~[spring-data-jpa-3.1.5.jar:3.1.5]
+	at org.springframework.data.jpa.repository.query.JpaQueryCreator.create(JpaQueryCreator.java:121) ~[spring-data-jpa-3.1.5.jar:3.1.5]
+	at org.springframework.data.jpa.repository.query.JpaQueryCreator.create(JpaQueryCreator.java:60) ~[spring-data-jpa-3.1.5.jar:3.1.5]
+	at org.springframework.data.repository.query.parser.AbstractQueryCreator.createCriteria(AbstractQueryCreator.java:119) ~[spring-data-commons-3.1.5.jar:3.1.5]
+	at org.springframework.data.repository.query.parser.AbstractQueryCreator.createQuery(AbstractQueryCreator.java:95) ~[spring-data-commons-3.1.5.jar:3.1.5]
+	at org.springframework.data.repository.query.parser.AbstractQueryCreator.createQuery(AbstractQueryCreator.java:81) ~[spring-data-commons-3.1.5.jar:3.1.5]
+	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery$QueryPreparer.<init>(PartTreeJpaQuery.java:218) ~[spring-data-jpa-3.1.5.jar:3.1.5]
+	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery$CountQueryPreparer.<init>(PartTreeJpaQuery.java:361) ~[spring-data-jpa-3.1.5.jar:3.1.5]
+	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery.<init>(PartTreeJpaQuery.java:102) ~[spring-data-jpa-3.1.5.jar:3.1.5]
+	... 35 common frames omitted
+
+2023-12-02T12:35:02.855+03:00  INFO 12408 --- [restartedMain] c.h.f.FullStackDeveloper12Application    : Starting FullStackDeveloper12Application using Java 21 with PID 12408 (D:\spring\FullStackDeveloper12\target\classes started by 90553 in D:\spring\FullStackDeveloper12)
+2023-12-02T12:35:02.856+03:00  INFO 12408 --- [restartedMain] c.h.f.FullStackDeveloper12Application    : The following 1 profile is active: "frontend"
+2023-12-02T12:35:02.911+03:00  INFO 12408 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-12-02T12:35:02.912+03:00  INFO 12408 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-12-02T12:35:04.002+03:00  INFO 12408 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-12-02T12:35:04.059+03:00  INFO 12408 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 51 ms. Found 2 JPA repository interfaces.
+2023-12-02T12:35:04.634+03:00  INFO 12408 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 4444 (http)
+2023-12-02T12:35:04.641+03:00  INFO 12408 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-12-02T12:35:04.641+03:00  INFO 12408 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.15]
+2023-12-02T12:35:04.709+03:00  INFO 12408 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-12-02T12:35:04.709+03:00  INFO 12408 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1797 ms
+2023-12-02T12:35:04.819+03:00  INFO 12408 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-12-02T12:35:04.962+03:00  INFO 12408 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@439a6e74
+2023-12-02T12:35:04.964+03:00  INFO 12408 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-12-02T12:35:04.973+03:00  INFO 12408 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/blog?createDatabaseIfNotExist=true&autoReconnect=true&allowPublicKeyRetrieval=true&useSSL=false'
+2023-12-02T12:35:05.034+03:00 DEBUG 12408 --- [restartedMain] o.s.w.f.ServerHttpObservationFilter      : Filter 'webMvcObservationFilter' configured for use
+2023-12-02T12:35:05.035+03:00 DEBUG 12408 --- [restartedMain] o.s.w.s.r.ResourceUrlEncodingFilter      : Filter 'resourceUrlEncodingFilter' configured for use
+2023-12-02T12:35:05.421+03:00  INFO 12408 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-12-02T12:35:06.343+03:00  INFO 12408 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-12-02T12:35:06.352+03:00  INFO 12408 --- [restartedMain] c.h.f.audit.AuditorAwareBeanClass        : auditor Aware bean Before başladı
+2023-12-02T12:35:06.353+03:00  INFO 12408 --- [restartedMain] c.h.f.bean.Locale18NBeanClass            : swagger Open Api Before Bean başladı
+2023-12-02T12:35:06.354+03:00  INFO 12408 --- [restartedMain] c.h.f.bean.ModelMapperBeanClass          : Model mapper bean Before başladı
+2023-12-02T12:35:06.354+03:00  INFO 12408 --- [restartedMain] c.h.f.bean.PasswordEncoderBeanClass      : password Encoder Before Bean başladı
+2023-12-02T12:35:06.359+03:00  INFO 12408 --- [restartedMain] c.h.f.bean.SwaggerOpenApiBeanClass       : swagger Open Api Before Bean başladı
+2023-12-02T12:35:06.830+03:00  WARN 12408 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-12-02T12:35:06.928+03:00 DEBUG 12408 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2023-12-02T12:35:06.960+03:00  INFO 12408 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-12-02T12:35:07.015+03:00 DEBUG 12408 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 10 mappings in 'requestMappingHandlerMapping'
+2023-12-02T12:35:07.421+03:00 DEBUG 12408 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2023-12-02T12:35:07.430+03:00 DEBUG 12408 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2023-12-02T12:35:07.913+03:00  INFO 12408 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-12-02T12:35:07.921+03:00  INFO 12408 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 16 endpoint(s) beneath base path '/actuator'
+2023-12-02T12:35:08.013+03:00  INFO 12408 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 4444 (http) with context path ''
+2023-12-02T12:35:08.028+03:00  INFO 12408 --- [restartedMain] c.h.f.FullStackDeveloper12Application    : Started FullStackDeveloper12Application in 5.581 seconds (process running for 6.36)
+2023-12-02T12:35:08.034+03:00  INFO 12408 --- [restartedMain] c.h.f.runner.BlogCommandLineRunner2      : CommandLineRunner Çalıştı Sade
+2023-12-02T12:35:08.034+03:00  INFO 12408 --- [restartedMain] c.h.f.runner.RolesCommandLineRunner1     : CommandLineRunner Çalıştı
+2023-12-02T12:35:08.038+03:00  INFO 12408 --- [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2023-12-02T12:35:08.053+03:00 ERROR 12408 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+java.lang.IllegalStateException: Failed to execute CommandLineRunner
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:774) ~[spring-boot-3.1.5.jar:3.1.5]
+	at org.springframework.boot.SpringApplication.lambda$callRunners$3(SpringApplication.java:755) ~[spring-boot-3.1.5.jar:3.1.5]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184) ~[na:na]
+	at java.base/java.util.stream.SortedOps$SizedRefSortingSink.end(SortedOps.java:357) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:510) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499) ~[na:na]
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151) ~[na:na]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596) ~[na:na]
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:750) ~[spring-boot-3.1.5.jar:3.1.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:323) ~[spring-boot-3.1.5.jar:3.1.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306) ~[spring-boot-3.1.5.jar:3.1.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295) ~[spring-boot-3.1.5.jar:3.1.5]
+	at com.hamitmizrak.fullstackdeveloper12.FullStackDeveloper12Application.main(FullStackDeveloper12Application.java:61) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.1.5.jar:3.1.5]
+Caused by: java.lang.NullPointerException: Cannot invoke "com.hamitmizrak.fullstackdeveloper12.data.entity.RoleEntity.setRoleName(String)" because "roleSpeedDataEntity" is null
+	at com.hamitmizrak.fullstackdeveloper12.business.services.impl.RoleServicesImpl.roleSpeedData(RoleServicesImpl.java:78) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:343) ~[spring-aop-6.0.13.jar:6.0.13]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:699) ~[spring-aop-6.0.13.jar:6.0.13]
+	at com.hamitmizrak.fullstackdeveloper12.business.services.impl.RoleServicesImpl$$SpringCGLIB$$0.roleSpeedData(<generated>) ~[classes/:na]
+	at com.hamitmizrak.fullstackdeveloper12.runner.RolesCommandLineRunner1.lambda$blogCommandLineRunnerMethod$0(RolesCommandLineRunner1.java:40) ~[classes/:na]
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:771) ~[spring-boot-3.1.5.jar:3.1.5]
+	... 17 common frames omitted
+
+2023-12-02T12:35:08.073+03:00  INFO 12408 --- [restartedMain] c.h.f.bean.SwaggerOpenApiBeanClass       : swagger Open Api After Bean bitti
+2023-12-02T12:35:08.073+03:00  INFO 12408 --- [restartedMain] c.h.f.bean.PasswordEncoderBeanClass      : password Encoder After Bean bitti
+2023-12-02T12:35:08.073+03:00  INFO 12408 --- [restartedMain] c.h.f.bean.ModelMapperBeanClass          : Model mapper After bean bitti
+2023-12-02T12:35:08.073+03:00  INFO 12408 --- [restartedMain] c.h.f.bean.Locale18NBeanClass            : locale 18N After Bean Method bitti
+2023-12-02T12:35:08.074+03:00  INFO 12408 --- [restartedMain] c.h.f.audit.AuditorAwareBeanClass        : auditor Aware After bean bitti
+2023-12-02T12:35:08.074+03:00  INFO 12408 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-12-02T12:35:08.089+03:00  INFO 12408 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-12-02T12:35:08.098+03:00  INFO 12408 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-12-02T12:37:39.084+03:00  INFO 12692 --- [restartedMain] c.h.f.FullStackDeveloper12Application    : Starting FullStackDeveloper12Application using Java 21 with PID 12692 (D:\spring\FullStackDeveloper12\target\classes started by 90553 in D:\spring\FullStackDeveloper12)
+2023-12-02T12:37:39.086+03:00  INFO 12692 --- [restartedMain] c.h.f.FullStackDeveloper12Application    : The following 1 profile is active: "frontend"
+2023-12-02T12:37:39.146+03:00  INFO 12692 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-12-02T12:37:39.147+03:00  INFO 12692 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-12-02T12:37:40.070+03:00  INFO 12692 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-12-02T12:37:40.120+03:00  INFO 12692 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 45 ms. Found 2 JPA repository interfaces.
+2023-12-02T12:37:40.662+03:00  INFO 12692 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 4444 (http)
+2023-12-02T12:37:40.669+03:00  INFO 12692 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-12-02T12:37:40.670+03:00  INFO 12692 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.15]
+2023-12-02T12:37:40.721+03:00  INFO 12692 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-12-02T12:37:40.721+03:00  INFO 12692 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1574 ms
+2023-12-02T12:37:40.812+03:00  INFO 12692 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-12-02T12:37:40.942+03:00  INFO 12692 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@64da320f
+2023-12-02T12:37:40.944+03:00  INFO 12692 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-12-02T12:37:40.952+03:00  INFO 12692 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/blog?createDatabaseIfNotExist=true&autoReconnect=true&allowPublicKeyRetrieval=true&useSSL=false'
+2023-12-02T12:37:41.007+03:00 DEBUG 12692 --- [restartedMain] o.s.w.f.ServerHttpObservationFilter      : Filter 'webMvcObservationFilter' configured for use
+2023-12-02T12:37:41.007+03:00 DEBUG 12692 --- [restartedMain] o.s.w.s.r.ResourceUrlEncodingFilter      : Filter 'resourceUrlEncodingFilter' configured for use
+2023-12-02T12:37:41.369+03:00  INFO 12692 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-12-02T12:37:42.348+03:00  INFO 12692 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-12-02T12:37:42.361+03:00  INFO 12692 --- [restartedMain] c.h.f.audit.AuditorAwareBeanClass        : auditor Aware bean Before başladı
+2023-12-02T12:37:42.363+03:00  INFO 12692 --- [restartedMain] c.h.f.bean.Locale18NBeanClass            : swagger Open Api Before Bean başladı
+2023-12-02T12:37:42.364+03:00  INFO 12692 --- [restartedMain] c.h.f.bean.ModelMapperBeanClass          : Model mapper bean Before başladı
+2023-12-02T12:37:42.365+03:00  INFO 12692 --- [restartedMain] c.h.f.bean.PasswordEncoderBeanClass      : password Encoder Before Bean başladı
+2023-12-02T12:37:42.366+03:00  INFO 12692 --- [restartedMain] c.h.f.bean.SwaggerOpenApiBeanClass       : swagger Open Api Before Bean başladı
+2023-12-02T12:37:42.890+03:00  WARN 12692 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-12-02T12:37:42.997+03:00 DEBUG 12692 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2023-12-02T12:37:43.036+03:00  INFO 12692 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-12-02T12:37:43.094+03:00 DEBUG 12692 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 10 mappings in 'requestMappingHandlerMapping'
+2023-12-02T12:37:43.521+03:00 DEBUG 12692 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2023-12-02T12:37:43.531+03:00 DEBUG 12692 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2023-12-02T12:37:43.984+03:00  INFO 12692 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-12-02T12:37:43.990+03:00  INFO 12692 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 16 endpoint(s) beneath base path '/actuator'
+2023-12-02T12:37:44.070+03:00  INFO 12692 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 4444 (http) with context path ''
+2023-12-02T12:37:44.082+03:00  INFO 12692 --- [restartedMain] c.h.f.FullStackDeveloper12Application    : Started FullStackDeveloper12Application in 5.395 seconds (process running for 6.069)
+2023-12-02T12:37:44.088+03:00  INFO 12692 --- [restartedMain] c.h.f.runner.BlogCommandLineRunner2      : CommandLineRunner Çalıştı Sade
+2023-12-02T12:37:44.088+03:00  INFO 12692 --- [restartedMain] c.h.f.runner.RolesCommandLineRunner1     : CommandLineRunner Çalıştı
+2023-12-02T12:37:44.090+03:00  INFO 12692 --- [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2023-12-02T12:37:44.107+03:00 ERROR 12692 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+java.lang.IllegalStateException: Failed to execute CommandLineRunner
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:774) ~[spring-boot-3.1.5.jar:3.1.5]
+	at org.springframework.boot.SpringApplication.lambda$callRunners$3(SpringApplication.java:755) ~[spring-boot-3.1.5.jar:3.1.5]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184) ~[na:na]
+	at java.base/java.util.stream.SortedOps$SizedRefSortingSink.end(SortedOps.java:357) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:510) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499) ~[na:na]
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151) ~[na:na]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596) ~[na:na]
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:750) ~[spring-boot-3.1.5.jar:3.1.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:323) ~[spring-boot-3.1.5.jar:3.1.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306) ~[spring-boot-3.1.5.jar:3.1.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295) ~[spring-boot-3.1.5.jar:3.1.5]
+	at com.hamitmizrak.fullstackdeveloper12.FullStackDeveloper12Application.main(FullStackDeveloper12Application.java:61) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.1.5.jar:3.1.5]
+Caused by: java.lang.NullPointerException: Cannot invoke "com.hamitmizrak.fullstackdeveloper12.data.entity.RoleEntity.setRoleName(String)" because "roleSpeedDataEntity" is null
+	at com.hamitmizrak.fullstackdeveloper12.business.services.impl.RoleServicesImpl.roleSpeedData(RoleServicesImpl.java:78) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:343) ~[spring-aop-6.0.13.jar:6.0.13]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:699) ~[spring-aop-6.0.13.jar:6.0.13]
+	at com.hamitmizrak.fullstackdeveloper12.business.services.impl.RoleServicesImpl$$SpringCGLIB$$0.roleSpeedData(<generated>) ~[classes/:na]
+	at com.hamitmizrak.fullstackdeveloper12.runner.RolesCommandLineRunner1.lambda$rolesCommandLineRunner$0(RolesCommandLineRunner1.java:33) ~[classes/:na]
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:771) ~[spring-boot-3.1.5.jar:3.1.5]
+	... 17 common frames omitted
+
+2023-12-02T12:37:44.124+03:00  INFO 12692 --- [restartedMain] c.h.f.bean.SwaggerOpenApiBeanClass       : swagger Open Api After Bean bitti
+2023-12-02T12:37:44.125+03:00  INFO 12692 --- [restartedMain] c.h.f.bean.PasswordEncoderBeanClass      : password Encoder After Bean bitti
+2023-12-02T12:37:44.125+03:00  INFO 12692 --- [restartedMain] c.h.f.bean.ModelMapperBeanClass          : Model mapper After bean bitti
+2023-12-02T12:37:44.125+03:00  INFO 12692 --- [restartedMain] c.h.f.bean.Locale18NBeanClass            : locale 18N After Bean Method bitti
+2023-12-02T12:37:44.125+03:00  INFO 12692 --- [restartedMain] c.h.f.audit.AuditorAwareBeanClass        : auditor Aware After bean bitti
+2023-12-02T12:37:44.125+03:00  INFO 12692 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-12-02T12:37:44.143+03:00  INFO 12692 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-12-02T12:37:44.149+03:00  INFO 12692 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
