@@ -1,5 +1,11 @@
 package com.hamitmizrak.fullstackdeveloper12.runner;
 
+import com.hamitmizrak.fullstackdeveloper12.business.dto.RegisterDto;
+import com.hamitmizrak.fullstackdeveloper12.business.services.IRegisterService;
+import com.hamitmizrak.fullstackdeveloper12.data.entity.RoleEntity;
+import com.hamitmizrak.fullstackdeveloper12.data.repository.IRegisterRepository;
+import com.hamitmizrak.fullstackdeveloper12.data.repository.IRoleRepository;
+import com.hamitmizrak.fullstackdeveloper12.role.ERole;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.boot.CommandLineRunner;
@@ -12,13 +18,48 @@ import org.springframework.stereotype.Component;
 @Component
 public class BlogCommandLineRunner2 implements CommandLineRunner {
 
-    // Senkron(Aynı anda sadece 1 iş yapan processtir)
+    private final IRoleRepository iRoleRepository;
+    private final IRegisterRepository iRegisterRepository;
+    private final IRegisterService iRegisterServices;
+
     private void justOneMailSend() {
+        synchronized (this) {
+            //ROLES SUPER_ADMIN
+            // Dikkat: ROLE_  eklemelisiiiin.
+            Long superRoleId = iRoleRepository.save(RoleEntity.builder().roleId(0L).roleName(ERole.SUPER_ADMIN.toString()).build()).getRoleId();
+            Long adminRoleId = iRoleRepository.save(RoleEntity.builder().roleId(0L).roleName(ERole.ADMIN.toString()).build()).getRoleId();
+            Long writerRoleId = iRoleRepository.save(RoleEntity.builder().roleId(0L).roleName(ERole.WRITER.toString()).build()).getRoleId();
+            Long userRoleId = iRoleRepository.save(RoleEntity.builder().roleId(0L).roleName(ERole.USER.toString()).build()).getRoleId();
+            // Multithreading Senkron
+       /* Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
 
-    } //end justOneMailSend
+            }
+        });*/
+            for (long i = 1; i <= 4; i++) {
+                //USER
+                RegisterDto registerDto = new RegisterDto();
+                registerDto.setRegNickname("computer" + i);
+                registerDto.setRegName("Hamit" + i);
+                registerDto.setRegSurname("Mızrak" + i);
+                registerDto.setRegEmail("hamitmizrak" + i + "@gmail.com");
+                registerDto.setRegPassword("Hm4444@.");
 
-    // ...= Rest parameter
-    // String... = String dizisidir.
+                // USERDETAILS
+                registerDto.isCredentialsNonExpired();
+                registerDto.isCredentialsNonExpired();
+                registerDto.isAccountNonLocked();
+                registerDto.isEnabled();
+
+                //KAYDET
+                iRegisterServices.registerServiceCreate(i, registerDto);
+                System.out.println(registerDto);
+                System.out.println("User Eklendi");
+            } //end for
+        }
+    }
+
     @Override
     public void run(String... args) throws Exception {
         // Uygulama başladığında çalışmasını istediğimiz komutlar

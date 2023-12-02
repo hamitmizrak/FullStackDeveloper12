@@ -6,7 +6,7 @@ import com.hamitmizrak.fullstackdeveloper12.data.entity.RegisterEntity;
 
 import java.util.List;
 
-// 3 4 2 2
+// 3 4 0 8
 public class RegisterServicesImpl implements IRegisterService<RegisterDto, RegisterEntity> {
     @Override
     public RegisterDto entityToDto(RegisterEntity registerEntity) {
