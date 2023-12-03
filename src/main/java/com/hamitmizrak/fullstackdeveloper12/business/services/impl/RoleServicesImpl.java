@@ -23,6 +23,7 @@ import java.util.UUID;
 @RequiredArgsConstructor
 @Log4j2
 
+// SERVICE
 // Asıl iş Yükünü yapan yer
 @Service
 @Component("roleServicesImpl") //Spring'in bir parçasıdır.
