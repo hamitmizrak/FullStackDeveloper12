@@ -99,7 +99,6 @@ public class RegisterDto extends AuditingAwareBaseDto implements  Serializable {
                 '}';
     }
 
-
     ///////////////////////////////////////////////
     // USER DETAILS (INTERFACE)
     // Kullanıcı register olduktan sonra Mail göndersin ve kullanıcı aktif etsin

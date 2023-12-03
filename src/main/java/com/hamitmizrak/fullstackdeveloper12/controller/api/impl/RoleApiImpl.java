@@ -3,6 +3,8 @@ package com.hamitmizrak.fullstackdeveloper12.controller.api.impl;
 import com.hamitmizrak.fullstackdeveloper12.business.dto.RoleDto;
 import com.hamitmizrak.fullstackdeveloper12.business.services.IRoleService;
 import com.hamitmizrak.fullstackdeveloper12.controller.api.IRoleApi;
+import com.hamitmizrak.fullstackdeveloper12.data.entity.RegisterEntity;
+import com.hamitmizrak.fullstackdeveloper12.data.repository.IRegisterRepository;
 import com.hamitmizrak.fullstackdeveloper12.error.ApiResult;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -10,11 +12,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.Date;
+import java.util.List;
 
 // LOMBOK
 @RequiredArgsConstructor
 
-// API
+// API (REST)
 @RestController
 @RequestMapping("/role/api/v1.0.0")
 @CrossOrigin
@@ -23,6 +26,9 @@ public class RoleApiImpl implements IRoleApi<RoleDto> {
 
     // INJECTION
     private final IRoleService iRoleService;
+    private final IRegisterRepository iRegisterRepository;
+    // ERROR
+    private ApiResult apiResult;
 
     // ROLE API CREATE
     // http://localhost:4444/role/api/v1.0.0/create
@@ -56,18 +62,7 @@ public class RoleApiImpl implements IRoleApi<RoleDto> {
     // http://localhost:4444/role/api/v1.0.0/list
     @GetMapping("/list")
     @Override
-    public ResponseEntity<?> roleApiList() {
-        RoleDto roleListApi= (RoleDto) iRoleService.roleServiceList();
-        if(roleListApi==null){ // Eğer Kaydederken null gelirse
-            ApiResult apiResultList=ApiResult.builder()
-                    .status(404)
-                    .error("list eleman yoktur")
-                    .message("RoleDto Bulunamadı")
-                    .path("role/api/v1.0.0/create")
-                    .createdDate(new Date(System.currentTimeMillis()))
-                    .build();
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(apiResultList);
-        } //end if
+    public ResponseEntity<List<RoleDto>> roleApiList() {
         return ResponseEntity.status(201).body(iRoleService.roleServiceList());
     }
 
@@ -75,7 +70,7 @@ public class RoleApiImpl implements IRoleApi<RoleDto> {
     // http://localhost:4444/role/api/v1.0.0/find
     // http://localhost:4444/role/api/v1.0.0/find/0
     // http://localhost:4444/role/api/v1.0.0/find/1
-    @GetMapping("/find/{id}")
+    @GetMapping({"/find","/find/{id}"})
     @Override
     public ResponseEntity<?> roleApiFindById(@PathVariable(name = "id",required = false) Long id) {
         RoleDto roleFindApi= (RoleDto) iRoleService.roleServiceFindById(id);
@@ -89,14 +84,14 @@ public class RoleApiImpl implements IRoleApi<RoleDto> {
                     .build();
             return ResponseEntity.ok(apiResultList);
         } //end if
-        return ResponseEntity.ok(iRoleService.roleServiceList());
+        return ResponseEntity.ok(iRoleService.roleServiceFindById(id));
     }
 
     // ROLE API UPDATE
     // http://localhost:4444/role/api/v1.0.0/update
     // http://localhost:4444/role/api/v1.0.0/update/0
     // http://localhost:4444/role/api/v1.0.0/update/1
-    @PutMapping("/update/{id}")
+    @PutMapping({"/update","/update/{id}"})
     @Override
     public ResponseEntity<?> roleApiUpdate(@PathVariable(name = "id",required = false) Long id, @Valid @RequestBody RoleDto roleDto) {
         RoleDto roleUpdateApi= (RoleDto) iRoleService.roleServiceUpdate(id,roleDto);
@@ -117,21 +112,34 @@ public class RoleApiImpl implements IRoleApi<RoleDto> {
     // http://localhost:4444/role/api/v1.0.0/delete
     // http://localhost:4444/role/api/v1.0.0/delete/0
     // http://localhost:4444/role/api/v1.0.0/delete/1
-    @PutMapping("/delete/{id}")
     @Override
+    @DeleteMapping({"/delete", "/delete/{id}"})
     public ResponseEntity<?> roleApiDelete(@PathVariable(name = "id",required = false) Long id) {
-        RoleDto roleDeleteApi= (RoleDto) iRoleService.roleServiceRoleDeleteIsNotRegister(id);
-        if(roleDeleteApi==null){ // Eğer Kaydederken null gelirse
-            ApiResult apiResultList=ApiResult.builder()
-                    .status(404)
-                    .error("Silinmedi")
-                    .message("RoleDto Bulunamadı")
-                    .path("role/api/v1.0.0/create")
-                    .createdDate(new Date(System.currentTimeMillis()))
-                    .build();
-            return ResponseEntity.ok(apiResultList);
-        } //end if
-     return ResponseEntity.ok(iRoleService.roleServiceRoleDeleteIsNotRegister(id));
+        // System.out.println(iBlogRepository.mySpecialBlogList());
+
+        RoleDto roleName= (RoleDto) iRoleService.roleServiceFindById(id);
+
+        StringBuilder stringBuilder=new StringBuilder();
+        List<RegisterEntity> list=  iRegisterRepository.findAllByRegisterInJoinRolesRoleName(roleName.getRoleName()); // "USER" ERole.USER.toString()
+        list.forEach((temp)->{
+            System.out.println(temp);
+            stringBuilder.append(temp.getRegisterEmail()+" ");
+        });
+        if(list.size()!=0){
+            apiResult = new ApiResult("localhost:4444/roles/api/v1.0.0/delete" , "Bu Rolü silemezsiniz." +"Öncelikle Kullanıcılardan, "+stringBuilder+ "Silmelisin", "Bad Request",400);
+            //return ResponseEntity.badRequest().build();
+            return  ResponseEntity.status(400).body(apiResult);
+        }
+
+        return  ResponseEntity.ok(iRoleService.roleServiceRoleDeleteIsNotRegister(id));
+    }
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Email Adresinden Kulalnıcı rolünü bulsun
+    @GetMapping("/rol/{email}")
+    @Override
+    public ResponseEntity<?> registerEmailFidndRole(@PathVariable(name = "email")String emailAddress) {
+        return ResponseEntity.ok(iRoleService.roleServiceOnRegisterEmailAddress(emailAddress));
     }
 
 } //end class

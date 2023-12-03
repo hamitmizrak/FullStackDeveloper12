@@ -14,8 +14,9 @@ import java.util.Date;
 
 // LOMBOK
 @Data
-@Log4j2
 @AllArgsConstructor
+@NoArgsConstructor
+@Log4j2
 @Builder
 // @SneakyThrows
 public class RoleDto extends AuditingAwareBaseDto  implements Serializable {
@@ -37,11 +38,4 @@ public class RoleDto extends AuditingAwareBaseDto  implements Serializable {
     @AnnotationUniqueRoleName // Database aynı rolde bir isim varsa database ekleme
     private String roleName= ERole.USER.toString(); //default olarak USER olsun.
 
-    // CONSTRUCTOR (Parametresiz)
-    public RoleDto() {}
-
-    // CONSTRUCTOR (Parametreli)
-    public RoleDto(String roleName) {
-        this.roleName = roleName;
-    }
 } //end class

@@ -48,9 +48,9 @@ public class BlogCommandLineRunner2 implements CommandLineRunner {
                 registerDto.setRegisterPassword("Hm4444@.");
 
                 // USERDETAILS
-                registerDto.setIsCredentialsNonExpired(false);
-                registerDto.setIsCredentialsNonExpired(true);
                 registerDto.setIsAccountNonLocked(true);
+                registerDto.setIsCredentialsNonExpired(false);
+                registerDto.setIsAccountNonExpired(true);
                 registerDto.setIsEnabled(true);
 
                 //KAYDET

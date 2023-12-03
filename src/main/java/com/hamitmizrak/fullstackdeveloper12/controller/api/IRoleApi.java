@@ -1,6 +1,9 @@
 package com.hamitmizrak.fullstackdeveloper12.controller.api;
 
+import com.hamitmizrak.fullstackdeveloper12.business.dto.RoleDto;
 import org.springframework.http.ResponseEntity;
+
+import java.util.List;
 
 // D: Dto
 public interface IRoleApi<D> {
@@ -9,18 +12,19 @@ public interface IRoleApi<D> {
     public ResponseEntity<?> roleApiCreate(D d);
 
     // ROLES LIST
-    public ResponseEntity<?> roleApiList();
+    public ResponseEntity<List<D>> roleApiList();
 
-    // FIND
+    // ROLES FIND
     ResponseEntity<?> roleApiFindById(Long id);
 
-    // UPDATE
+    // ROLES UPDATE
     ResponseEntity<?> roleApiUpdate(Long id, D d);
 
     // ROLE DELETE
     ResponseEntity<?> roleApiDelete(Long id);
 
     ////////////////////////////////////////////////////////////////////////
-    //Email adresinde kullanı rolünü bulmak
+    //Email adresinden kullanı rolünü bulmak
+    ResponseEntity<?>  registerEmailFidndRole(String emailAddress);
 
 } //end interface

@@ -23,8 +23,8 @@ import java.util.Set;
 // NOT: Eğer Entity'i camelCase yazarsanız RDBMS'de underscore yazarak gösterir.
 
 // ENTITY
-@Entity(name = "EntityNameRegisters") // Sql JOIN için yazdım
-@Table(name = "TableNameRegisters")
+@Entity(name = "Registers") // Sql JOIN için yazdım
+@Table(name = "registers")
 // RegisterEntity(N) RoleEntity(M)
 public class RegisterEntity extends AuditingAwareBaseEntity implements Serializable {
 

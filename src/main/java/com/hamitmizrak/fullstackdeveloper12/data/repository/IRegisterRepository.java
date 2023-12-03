@@ -26,7 +26,7 @@ public interface IRegisterRepository extends CrudRepository<RegisterEntity, Long
     // NOT: Query: Karmaşık sorgular için kullanıyoruz.
     // NOT: findAllByRegisterInJoinRolesRoleName => RegisterEntity üzerinden RolesName Bulmak içindir.
     // NOT: EntityNameRegisters bu isim RegisterEntity Name kullandığım parametredir.
-    @Query("select reg from EntityNameRegisters reg join reg.roles rol where rol.roleName= :roleNameParam")
+    @Query("select reg from Registers reg join reg.roles rol where rol.roleName= :roleNameParam")
     List<RegisterEntity> findAllByRegisterInJoinRolesRoleName(@Param("roleNameParam") String roleName);
 
 } //end interface

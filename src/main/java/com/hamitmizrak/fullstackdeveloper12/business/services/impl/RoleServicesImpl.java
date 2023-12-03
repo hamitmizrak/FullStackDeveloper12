@@ -13,6 +13,7 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -27,7 +28,7 @@ import java.util.UUID;
 // Asıl iş Yükünü yapan yer
 @Service
 @Component("roleServicesImpl") //Spring'in bir parçasıdır.
-public class RoleServicesImpl implements IRoleService<RoleDto , RoleEntity> {
+public class RoleServicesImpl implements IRoleService<RoleDto, RoleEntity> {
 
     // INJECTION
     // 1.YOL (Field Injection)
@@ -71,12 +72,12 @@ public class RoleServicesImpl implements IRoleService<RoleDto , RoleEntity> {
     // SPEED DATA
     @Override
     public String roleSpeedData(Long data) {
-        RoleEntity roleSpeedDataEntity=null; //initialize
+        RoleEntity roleSpeedDataEntity = null; //initialize
         // RoleDto daha öncede database varsa eklemesin. NOTTTTTTTTTTTTTTTTT
         // Eğer RoleDto null değilse
         if (data != null) {
-            for (int i = 1; i <=data ; i++) {
-                roleSpeedDataEntity.setRoleName("role_name"+UUID.randomUUID().toString()); // Büyük karakter olarak database kaydet
+            for (int i = 1; i <= data; i++) {
+                roleSpeedDataEntity.setRoleName("role_name" + UUID.randomUUID().toString()); // Büyük karakter olarak database kaydet
                 RoleEntity roleSaveSecondEntity = iRoleRepository.save(roleSpeedDataEntity);
             }
         }
@@ -99,34 +100,27 @@ public class RoleServicesImpl implements IRoleService<RoleDto , RoleEntity> {
     public RoleDto roleServiceCreate(RoleDto roleDto) {
         RoleEntity roleSaveFirstEntity;
         // RoleDto daha öncede database varsa eklemesin. NOTTTTTTTTTTTTTTTTT
-        // Eğer RoleDto null değilse
-        if (roleDto != null) {
-            roleSaveFirstEntity = dtoToEntity(roleDto);
-            roleSaveFirstEntity.setRoleName(roleSaveFirstEntity.getRoleName().toUpperCase()); // Büyük karakter olarak database kaydet
-            RoleEntity roleSaveSecondEntity = iRoleRepository.save(roleSaveFirstEntity);
-            // SET ID,  DATE
-            roleDto.setRoleId(roleSaveSecondEntity.getRoleId());
-            roleDto.setSystemCreatedDate(roleSaveSecondEntity.getSystemCreatedDate());
-            return roleDto;
-        }
-        return null; // RoleDto Null ise ; null dönder.
+        roleSaveFirstEntity = dtoToEntity(roleDto);
+        roleSaveFirstEntity.setRoleName(roleSaveFirstEntity.getRoleName().toUpperCase()); // Büyük karakter olarak database kaydet
+        RoleEntity roleSaveSecondEntity = iRoleRepository.save(roleSaveFirstEntity);
+        // SET ID,  DATE
+        roleDto.setRoleId(roleSaveSecondEntity.getRoleId());
+        roleDto.setSystemCreatedDate(roleSaveSecondEntity.getSystemCreatedDate());
+        return roleDto;
     } //end Create
 
     // ROLE  LIST
     @Override
     public List<RoleDto> roleServiceList() {
         // Entity List
-        List<RoleEntity> roleListFirstEntity=iRoleRepository.findAll();
+        List<RoleEntity> roleListFirstEntity = iRoleRepository.findAll();
         // Dto List
-        List<RoleDto> roleListFirstDto= new ArrayList<>();
-        if(roleListFirstEntity.size()!=0){ // Listede Eleman varsa
-            for (RoleEntity tempEntity :roleListFirstEntity) {
-                RoleDto roleDtoFirst=entityToDto(tempEntity);
-                roleListFirstDto.add(roleDtoFirst);
-            } //end for
-            return roleListFirstDto;
-        } //end if
-        return null; // roleListFirstEntity elaman sayısı yoksa ; null dönder.
+        List<RoleDto> roleListFirstDto = new ArrayList<>();
+        for (RoleEntity tempEntity : roleListFirstEntity) {
+            RoleDto roleDtoFirst = entityToDto(tempEntity);
+            roleListFirstDto.add(roleDtoFirst);
+        } //end for
+        return roleListFirstDto;
     } //end List
 
     // ROLE  FIND ID
@@ -141,18 +135,18 @@ public class RoleServicesImpl implements IRoleService<RoleDto , RoleEntity> {
          */
 
         // 2.YOL
-        boolean resultFindData=iRoleRepository.findById(id).isPresent();
-        RoleEntity roleFindByIdThirdEntity=null; // initialize:
-        if(id!=null){ //eğer veri varsa
-            roleFindByIdThirdEntity=iRoleRepository.findById(id)
+        boolean resultFindData = iRoleRepository.findById(id).isPresent();
+
+        RoleEntity roleFindByIdThirdEntity = null; // initialize:
+        if (id != null) { //eğer veri varsa
+            roleFindByIdThirdEntity = iRoleRepository.findById(id)
                     .orElseThrow(
-                            ()->new Resource404NotFoundException(id+" nolu ID Yoktur")
+                            () -> new Resource404NotFoundException(id + " nolu ID Yoktur")
                     );
-            return entityToDto(roleFindByIdThirdEntity);
-        }else if(id==null){
+        } else if (id == null) {
             throw new HamitMizrakException("Roles Dto null geldi ");
         }
-        return null; // eğer veri yoksa null dönder
+        return entityToDto(roleFindByIdThirdEntity);
     } //end Find
 
     // ROLE  UPDATE ID, OBJECT
@@ -161,17 +155,15 @@ public class RoleServicesImpl implements IRoleService<RoleDto , RoleEntity> {
     @Override
     public RoleDto roleServiceUpdate(Long id, RoleDto roleDto) {
         // FIND
-        RoleDto roleUpdateFindDto=roleServiceFindById(id);
-        RoleEntity roleUpdateFindEntity=dtoToEntity(roleUpdateFindDto);
-        if(roleUpdateFindEntity!=null){
-            roleUpdateFindEntity.setRoleName(roleUpdateFindDto.getRoleName());
-            iRoleRepository.save(roleUpdateFindEntity);
-            // SET ID,  DATE
-            roleDto.setRoleId(roleUpdateFindEntity.getRoleId());
-            roleDto.setSystemCreatedDate(roleUpdateFindEntity.getSystemCreatedDate());
-            return roleDto;
-        }
-        return null; //eğer veri yoksa null dönder
+        RoleDto roleUpdateFindDto = roleServiceFindById(id);
+        // Model Mapper
+        RoleEntity roleUpdateFindEntity = dtoToEntity(roleUpdateFindDto);
+        roleUpdateFindEntity.setRoleName(roleDto.getRoleName());
+        iRoleRepository.save(roleUpdateFindEntity);
+        // SET ID,  DATE
+        roleDto.setRoleId(roleUpdateFindEntity.getRoleId());
+        roleDto.setSystemCreatedDate(roleUpdateFindEntity.getSystemCreatedDate());
+        return entityToDto(roleUpdateFindEntity);
     } //end update
 
     // @ManyToMany N - M Delete
@@ -179,14 +171,14 @@ public class RoleServicesImpl implements IRoleService<RoleDto , RoleEntity> {
     // DELETE
     @Transactional //org.springFramework.Transaction.Optional
     @Override
-    public RoleDto roleServiceRoleDeleteIsNotRegister(Long id){
+    public RoleDto roleServiceRoleDeleteIsNotRegister(Long id) {
         // FIND
-        RoleDto roleDtoFind=roleServiceFindById(id);
+        RoleDto roleDtoFind = roleServiceFindById(id);
         // Dto ==> Entity
-        RoleEntity roleEntity=dtoToEntity(roleDtoFind);
-        if(roleEntity!=null){
+        RoleEntity roleEntity = dtoToEntity(roleDtoFind);
+        if (roleEntity != null) {
             iRoleRepository.deleteById(id);
-            return  roleDtoFind;
+            return roleDtoFind;
         }
         return null;
     }
@@ -197,9 +189,9 @@ public class RoleServicesImpl implements IRoleService<RoleDto , RoleEntity> {
     // FIND
     @Override
     public RoleDto roleServiceOnRegisterEmailAddress(String emailAddress) {
-        RoleEntity roleEntity=iRoleRepository.registerEmailFindRole(emailAddress);
+        RoleEntity roleEntity = iRoleRepository.registerEmailFindRole(emailAddress);
         System.out.println(roleEntity);
-        return modelMapperBeanClass.modelMapperMethod().map(roleEntity,RoleDto.class);
+        return modelMapperBeanClass.modelMapperMethod().map(roleEntity, RoleDto.class);
     }
 
 } //end class
