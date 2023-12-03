@@ -26,7 +26,7 @@ public interface IRoleRepository extends JpaRepository<RoleEntity,Long> {
     // NOT: Query: Karmaşık sorgular için kullanıyoruz.
     // NOT: registerEmailFindRole => RoleEntity üzerinden EmailAddresi Bulmak içindir.
     // NOT: EntityNameRegisters bu isim RegisterEntity Name kullandığım parametredir.
-    @Query("select r from EntityNameRegisters regEntity join regEntity.roles r where regEntity.rEmail = :emailParam")
+    @Query("select r from EntityNameRegisters regEntity join regEntity.roles r where regEntity.registerEmail = :emailParam")
     RoleEntity registerEmailFindRole(@Param("emailParam") String email);
 
 } //end interface

@@ -9,15 +9,14 @@ import com.hamitmizrak.fullstackdeveloper12.data.entity.RegisterEntity;
 import com.hamitmizrak.fullstackdeveloper12.data.entity.RoleEntity;
 import com.hamitmizrak.fullstackdeveloper12.data.repository.IRegisterRepository;
 import com.hamitmizrak.fullstackdeveloper12.data.repository.IRoleRepository;
+import com.hamitmizrak.fullstackdeveloper12.exception.HamitMizrakException;
+import com.hamitmizrak.fullstackdeveloper12.exception.Resource404NotFoundException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-import java.util.UUID;
+import java.util.*;
 
 // NOT: @Transaction Create, Delete, Update
 
@@ -50,23 +49,34 @@ public class RegisterServicesImpl implements IRegisterService<RegisterDto, Regis
         return modelMapperBeanClass.modelMapperMethod().map(registerDto, RegisterEntity.class);
     }
 
-
     //////////////////////////////////////////////////////////
     // SPEED DATA
     @Override
     public String registerSpeedData(Long data) {
         RegisterEntity roleSpeedDataEntity=null; //initialize
-        // RoleDto daha öncede database varsa eklemesin. NOTTTTTTTTTTTTTTTTT
-        // Eğer RoleDto null değilse
+        RegisterDto registerDto= new RegisterDto();
+        // Eğer RegisterDto null değilse
         if (data != null) {
             for (int i = 1; i <=data ; i++) {
-                roleSpeedDataEntity.setRegNickname("nickname"+i);
-                roleSpeedDataEntity.setRegName("name"+i);
-                roleSpeedDataEntity.setRegSurname("surname"+i);
-                roleSpeedDataEntity.setRegPassword("root");
-                roleSpeedDataEntity.setREmail("email"+UUID.randomUUID().toString()+"@gmail.com");
-                RegisterEntity roleSaveSecondEntity = iRegisterRepository.save(roleSpeedDataEntity);
+                registerDto.setRegisterNickname("nick name "+i);
+                registerDto.setRegisterName ("name "+i);
+                registerDto.setRegisterSurname("surname "+i);
+                registerDto.setRegisterPassword(passwordEncoderBeanClass.passwordEncoderMethod().encode("root"));
+                registerDto.setRegisterEmail("hamitmizrak"+UUID.randomUUID().toString()+"@gmail.com");
+                registerDto.setRegisterIsActive(false); //mail ile aktifleştirelim
+                registerDto.setIsEnabled(true);
+                registerDto.setIsAccountNonExpired(true);
+                registerDto.setIsCredentialsNonExpired(true);
+
+                // Model Mapper
+                RegisterEntity registerEntity = dtoToEntity(registerDto);
+                // Save
+                iRegisterRepository.save(registerEntity);
+                // Set - Get
+                registerDto.setRegisterId(registerEntity.getRegisterId());
+                registerDto.setSystemCreatedDate(registerEntity.getSystemCreatedDate());
             }
+            return data+" tane veri eklendi";
         }
         return null; // Random Null ise ; null dönder.
     }
@@ -90,7 +100,7 @@ public class RegisterServicesImpl implements IRegisterService<RegisterDto, Regis
             RegisterEntity registerEntity=dtoToEntity(registerDto);
 
             // Masking ( Password ) =>  Password Encoder Bean
-            registerEntity.setRegPassword(passwordEncoderBeanClass.passwordEncoderMethod().encode(registerDto.getRegPassword()));
+            registerEntity.setRegisterPassword(passwordEncoderBeanClass.passwordEncoderMethod().encode(registerDto.getRegisterPassword()));
 
             // Öncelikle Rolü eklemelisiniz.
             int roleIdMatch=Integer.valueOf(Math.toIntExact(rolesId));
@@ -112,28 +122,78 @@ public class RegisterServicesImpl implements IRegisterService<RegisterDto, Regis
         return null;
     }
 
-    // ROLE  LIST
+    // REGISTER  LIST
     @Override
     public List<RegisterDto> registerServiceList() {
-        return null;
+        // ENTITIY LIST
+        Iterable<RegisterEntity> registerEntityIterable = iRegisterRepository.findAll();
+
+        // DTO LIST
+        List<RegisterDto> registerDtoList=new ArrayList<>();
+
+        //forEach Loop
+        for(RegisterEntity entity: registerEntityIterable ){
+            // Entity Listesini ==> Dto Listesine çeviriyor
+            registerDtoList.add(entityToDto(entity));
+        }
+        log.info("Register Liste Sayısı:"+registerDtoList.size());
+        return registerDtoList;
     }
 
-    // ROLE  FIND ID
+    // REGISTER  FIND ID
     @Override
     public RegisterDto registerServiceFindById(Long id) {
-        return null;
+        // 1.YOL
+        /*
+        Optional<RegisterEntity> findRegisterEntityWay1=iRegisterRepository.findById(id);
+        RegisterDto registerDtoWay1=entityToDto(findRegisterEntityWay1.get());
+        if(findRegisterEntityWay1.isPresent()){
+            return registerDtoWay1;
+        }
+        */
+
+        // 2.YOL
+        RegisterEntity findRegisterEntityWay2=null;
+        if(id!=null){
+            findRegisterEntityWay2=iRegisterRepository.findById(id).orElseThrow(
+                    ()->new Resource404NotFoundException(id+ " nolu id yoktur")
+            );
+        }else if(id==null){
+            throw new HamitMizrakException("id null olarak geldi");
+        }
+        return entityToDto(findRegisterEntityWay2);
     }
 
     // ROLE  UPDATE ID, OBJECT
     // @Transaction Create, Delete, Update
     @Override
     public RegisterDto registerServiceUpdate(Long id, RegisterDto registerDto) {
-        return null;
+        // Öncelikle ilgili Register kaydını bulmalısın.
+        RegisterDto registerFindDto= registerServiceFindById(id);
+
+        //Entity Instance
+        RegisterEntity registerEntity = null;
+        if(registerFindDto!=null){
+            registerEntity=dtoToEntity(registerDto);
+            registerEntity.setRegisterId(registerDto.getRegisterId());
+            registerEntity.setRegisterNickname(registerDto.getRegisterNickname());
+            registerEntity.setRegisterName(registerDto.getRegisterName());
+            registerEntity.setRegisterSurname(registerDto.getRegisterSurname());
+            registerEntity.setRegisterEmail(registerDto.getRegisterEmail());
+            registerEntity.setRegisterPassword(registerDto.getRegisterPassword());
+            iRegisterRepository.save(registerEntity);
+        }
+        return entityToDto(registerEntity);
     }
 
     // DELETE
     @Override
     public RegisterDto registerServiceDeleteById(Long id) {
-        return null;
+        // Öncelikle ilgili Register kaydını bulmalısın.
+        RegisterDto registerFindDto= registerServiceFindById(id);
+        if(registerFindDto!=null){
+            iRegisterRepository.deleteById(id);
+        }
+        return registerFindDto;
     }
 }

@@ -22,7 +22,7 @@ public class UniqueEmailAddressValidation implements ConstraintValidator<Annotat
     // DATABASE SORGUSU
     @Override
     public boolean isValid(String emailAddress, ConstraintValidatorContext constraintValidatorContext) {
-        Boolean isEmailAddress=iRegisterRepository.findByREmail(emailAddress).isPresent();
+        Boolean isEmailAddress=iRegisterRepository.findByRegisterEmail(emailAddress).isPresent();
         //Eğer email address sistemde varsa
         if(isEmailAddress){
             return false;

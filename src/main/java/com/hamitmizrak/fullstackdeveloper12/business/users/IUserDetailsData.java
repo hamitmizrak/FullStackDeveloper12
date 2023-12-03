@@ -2,8 +2,12 @@ package com.hamitmizrak.fullstackdeveloper12.business.users;
 
 public interface IUserDetailsData {
 
+    // Kullanıcı register olduktan sonra Mail göndersin ve kullanıcı aktif etsin
+    // USER DETAILS
+
     // Kullanıcı başlangıçta kilitli yani sisteme giremez sadece mail ile onaylanırsa aktif olur
     // @Builder.Default
+
     public Boolean isAccountNonLocked();
 
     // Eğer yaptığımız uygulamada kullanıcı 1 yıl kullanmazsa hesabı pasif olsun

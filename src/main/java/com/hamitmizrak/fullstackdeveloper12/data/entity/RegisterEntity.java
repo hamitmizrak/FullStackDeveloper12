@@ -44,29 +44,29 @@ public class RegisterEntity extends AuditingAwareBaseEntity implements Serializa
 
     // Global Variable
     // NICKNAME
-    private String regNickname;
+    private String registerNickname;
 
     // NAME
-    private String regName;
+    private String registerName;
 
     // SURNAME
-    private String regSurname;
+    private String registerSurname;
 
     // EMAIL
     @Column(
-            name = "reg_email",
+            name = "register_email",
             nullable = false,
             updatable = false,
             insertable = true,
             length = 50,
             columnDefinition = "varchar(255) default 'my_hamitmizrak@gmail.com'")
-    private String rEmail;
+    private String registerEmail;
 
     // PASSWORD
-    private String regPassword;
+    private String registerPassword;
 
     // ISACTIVE
-    private Boolean regIsActive = false;
+    private Boolean registerIsActive = false;
 
     ///////////////////////////////////////////////
 

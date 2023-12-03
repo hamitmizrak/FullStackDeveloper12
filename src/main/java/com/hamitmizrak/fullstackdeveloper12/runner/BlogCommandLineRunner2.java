@@ -22,7 +22,7 @@ public class BlogCommandLineRunner2 implements CommandLineRunner {
     private final IRegisterRepository iRegisterRepository;
     private final IRegisterService iRegisterServices;
 
-    private void justOneMailSend() {
+    private void rolesAndRegisterCreate() {
         synchronized (this) {
             //ROLES SUPER_ADMIN
             // Dikkat: ROLE_  eklemelisiiiin.
@@ -37,26 +37,29 @@ public class BlogCommandLineRunner2 implements CommandLineRunner {
 
             }
         });*/
-            for (long i = 1; i <= 4; i++) {
+
+          for (long i = 1; i <= 4; i++) {
                 //USER
                 RegisterDto registerDto = new RegisterDto();
-                registerDto.setRegNickname("computer" + i);
-                registerDto.setRegName("Hamit" + i);
-                registerDto.setRegSurname("Mızrak" + i);
-                registerDto.setRegEmail("hamitmizrak" + i + "@gmail.com");
-                registerDto.setRegPassword("Hm4444@.");
+                registerDto.setRegisterNickname("computer" + i);
+                registerDto.setRegisterName("Hamit" + i);
+                registerDto.setRegisterSurname("Mızrak" + i);
+                registerDto.setRegisterEmail("hamitmizrak" + i + "@gmail.com");
+                registerDto.setRegisterPassword("Hm4444@.");
 
                 // USERDETAILS
-                registerDto.isCredentialsNonExpired();
-                registerDto.isCredentialsNonExpired();
-                registerDto.isAccountNonLocked();
-                registerDto.isEnabled();
+                registerDto.setIsCredentialsNonExpired(false);
+                registerDto.setIsCredentialsNonExpired(true);
+                registerDto.setIsAccountNonLocked(true);
+                registerDto.setIsEnabled(true);
 
                 //KAYDET
                 iRegisterServices.registerServiceCreate(i, registerDto);
                 System.out.println(registerDto);
                 System.out.println("User Eklendi");
             } //end for
+
+
         }
     }
 
@@ -65,7 +68,7 @@ public class BlogCommandLineRunner2 implements CommandLineRunner {
         // Uygulama başladığında çalışmasını istediğimiz komutlar
         System.out.println("CommandLineRunner Çalıştı Sade");
         log.info("CommandLineRunner Çalıştı Sade");
-        justOneMailSend();
+        rolesAndRegisterCreate();
     }
 
 } //end class

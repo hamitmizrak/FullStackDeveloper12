@@ -18,8 +18,8 @@ public interface IRegisterRepository extends CrudRepository<RegisterEntity, Long
 
     // Delivered Query
     // Emailden kullanıcı objesini bulmak
-    // REmail: buradaki R register'ının kısaltması için kullandım.
-    Optional<RegisterEntity> findByREmail(String email);
+    // findByRegisterEmail: buradaki R register'ının kısaltması için kullandım.
+    Optional<RegisterEntity> findByRegisterEmail(String email);
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////
     // RegisterEntity üzerinden RolesEntity çağırma
