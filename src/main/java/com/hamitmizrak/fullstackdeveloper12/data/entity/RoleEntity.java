@@ -35,8 +35,7 @@ public class RoleEntity extends AuditingAwareBaseEntity implements Serializable 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "role_id")
     private Long roleId;
-
-
+    
     // Global Variable
     // ROLE NAME
     @Column(name="role_name",columnDefinition = "varchar(255) default 'USER'") //Default: USER olsun

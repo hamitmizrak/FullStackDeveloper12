@@ -7,7 +7,6 @@
 # docker-compose restart
 # docker-compose ps
 
-
 # restart: parametresi farklı restart işlemlerinde kullanılır. Bu parametre sayesinde
 # servisler veya konteynarlar durduğunda ,sistem çöktüğünde serverin nasıl davrancağını belirtir.
 # restart: no (default) ( yani docker compose otomatik olarak restart uygulasın

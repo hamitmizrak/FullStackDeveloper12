@@ -1,4 +1,4 @@
-package com.hamitmizrak.fullstackdeveloper12.data.entity;
+package com.hamitmizrak.fullstackdeveloper12.data.embedded;
 
 import com.hamitmizrak.fullstackdeveloper12.business.users.IUserDetailsData;
 import jakarta.persistence.Embeddable;
@@ -12,9 +12,6 @@ import lombok.Setter;
 // Embeddable
 @Embeddable
 public class EmbeddableUserDetails implements IUserDetailsData {
-
-    // Kullanıcı register olduktan sonra Mail göndersin ve kullanıcı aktif etsin
-    // USER DETAILS
 
     // Kullanıcı başlangıçta kilitli yani sisteme giremez sadece mail ile onaylanırsa aktif olur
     // @Builder.Default

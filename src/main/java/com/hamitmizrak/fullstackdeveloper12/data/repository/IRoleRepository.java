@@ -4,7 +4,6 @@ package com.hamitmizrak.fullstackdeveloper12.data.repository;
 // JpaRepository<RegisterEntity,Long>
 // PagingAndSortingRepository<RegisterEntity,Long>
 
-import com.hamitmizrak.fullstackdeveloper12.data.entity.RegisterEntity;
 import com.hamitmizrak.fullstackdeveloper12.data.entity.RoleEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

@@ -38,13 +38,17 @@ public class RegisterApiImpl implements IRegisterApi<RegisterDto> {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // SPEED DATA
+    // http://localhost:4444/register/api/v1.0.0/speed/data
     @Override
+    @GetMapping("/speed/data")
     public ResponseEntity<?> registerApiSpeedData(Long key) {
         return ResponseEntity.ok(iRegisterService.registerSpeedData(key));
     }
 
     // ALL DELETE
+    // http://localhost:4444/register/api/v1.0.0/speed/data
     @Override
+    @GetMapping("/all/delete")
     public ResponseEntity<?> registerApiAllDelete() {
         return ResponseEntity.ok(iRegisterService.registerAllDelete());
     }

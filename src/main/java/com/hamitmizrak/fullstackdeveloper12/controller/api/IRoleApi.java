@@ -1,8 +1,6 @@
 package com.hamitmizrak.fullstackdeveloper12.controller.api;
 
-import com.hamitmizrak.fullstackdeveloper12.business.dto.RoleDto;
 import org.springframework.http.ResponseEntity;
-
 import java.util.List;
 
 // D: Dto
@@ -11,7 +9,7 @@ public interface IRoleApi<D> {
     // ROLES CREATE
     public ResponseEntity<?> roleApiCreate(D d);
 
-    // ROLES LIST
+    // ROLES LIST: List List<D> yazdım
     public ResponseEntity<List<D>> roleApiList();
 
     // ROLES FIND

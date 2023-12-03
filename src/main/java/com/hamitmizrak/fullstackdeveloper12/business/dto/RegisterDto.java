@@ -100,7 +100,7 @@ public class RegisterDto extends AuditingAwareBaseDto implements  Serializable {
     }
 
     ///////////////////////////////////////////////
-    // USER DETAILS (INTERFACE)
+    // USER DETAILS
     // Kullanıcı register olduktan sonra Mail göndersin ve kullanıcı aktif etsin
     // Kullanıcı başlangıçta kilitli yani sisteme giremez sadece mail ile onaylanırsa aktif olur
     // @Builder.Default

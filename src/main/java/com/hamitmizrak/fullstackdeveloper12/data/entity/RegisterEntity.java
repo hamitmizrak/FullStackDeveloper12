@@ -1,6 +1,7 @@
 package com.hamitmizrak.fullstackdeveloper12.data.entity;
 
 import com.hamitmizrak.fullstackdeveloper12.audit.AuditingAwareBaseEntity;
+import com.hamitmizrak.fullstackdeveloper12.data.embedded.EmbeddableUserDetails;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -70,8 +71,8 @@ public class RegisterEntity extends AuditingAwareBaseEntity implements Serializa
 
     ///////////////////////////////////////////////
 
-    // USER DETAILS (Mail Confirmation)
     // @Embeddable
+    // USER DETAILS (Mail Confirmation)
     @Embedded
     private EmbeddableUserDetails embeddableUserDetails=new EmbeddableUserDetails();
 

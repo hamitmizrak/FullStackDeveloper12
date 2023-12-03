@@ -16,12 +16,14 @@ import org.springframework.stereotype.Component;
 
 @Log4j2
 @Component
+// NOT: implement CommandLineRunner
 public class BlogCommandLineRunner2 implements CommandLineRunner {
 
     private final IRoleRepository iRoleRepository;
     private final IRegisterRepository iRegisterRepository;
     private final IRegisterService iRegisterServices;
 
+    // Role ve Register Eklemek
     private void rolesAndRegisterCreate() {
         synchronized (this) {
             //ROLES SUPER_ADMIN
@@ -58,8 +60,6 @@ public class BlogCommandLineRunner2 implements CommandLineRunner {
                 System.out.println(registerDto);
                 System.out.println("User Eklendi");
             } //end for
-
-
         }
     }
 

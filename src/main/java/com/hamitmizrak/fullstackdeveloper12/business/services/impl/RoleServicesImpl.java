@@ -166,6 +166,8 @@ public class RoleServicesImpl implements IRoleService<RoleDto, RoleEntity> {
         return entityToDto(roleUpdateFindEntity);
     } //end update
 
+
+    // Dikkat: RoleName silmek için Register veri olmaması gerekiyor.
     // @ManyToMany N - M Delete
     // Eğer RegisterDto veri varsa o kullanıcının Rolünü silemezsin.
     // DELETE
@@ -183,7 +185,6 @@ public class RoleServicesImpl implements IRoleService<RoleDto, RoleEntity> {
         return null;
     }
 
-    // Dikkat: RoleName silmek için Register veri olmaması gerekiyor.
     //////////////////////////////////////////////////////////
     // Email adresinden Kullanıcı Rolünü Bulmak
     // FIND

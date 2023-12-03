@@ -8,7 +8,6 @@ import com.hamitmizrak.fullstackdeveloper12.data.repository.IRegisterRepository;
 import com.hamitmizrak.fullstackdeveloper12.error.ApiResult;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.Date;
@@ -117,8 +116,8 @@ public class RoleApiImpl implements IRoleApi<RoleDto> {
     public ResponseEntity<?> roleApiDelete(@PathVariable(name = "id",required = false) Long id) {
         // System.out.println(iBlogRepository.mySpecialBlogList());
 
+        // Role Silerken RegisterEntity veri olmaması gerekiyor
         RoleDto roleName= (RoleDto) iRoleService.roleServiceFindById(id);
-
         StringBuilder stringBuilder=new StringBuilder();
         List<RegisterEntity> list=  iRegisterRepository.findAllByRegisterInJoinRolesRoleName(roleName.getRoleName()); // "USER" ERole.USER.toString()
         list.forEach((temp)->{

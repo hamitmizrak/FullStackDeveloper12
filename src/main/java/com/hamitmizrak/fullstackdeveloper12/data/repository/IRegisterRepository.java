@@ -22,6 +22,7 @@ public interface IRegisterRepository extends CrudRepository<RegisterEntity, Long
     Optional<RegisterEntity> findByRegisterEmail(String email);
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////
+    // RegisterEntity üzerinde RoleEntity'e bağlama (Join)
     // RegisterEntity üzerinden RolesEntity çağırma
     // NOT: Query: Karmaşık sorgular için kullanıyoruz.
     // NOT: findAllByRegisterInJoinRolesRoleName => RegisterEntity üzerinden RolesName Bulmak içindir.

@@ -25,6 +25,7 @@ public class BlogCommandLineRunner {
     }
 
     // Injection
+    // CommandLineRunner Metodunu çağırdım
     @Bean
     public CommandLineRunner blogCommandLineRunnerMethod(IRegisterService iRegisterServices) {
         // Lambda Expression

@@ -37,7 +37,6 @@ public class RegisterServicesImpl implements IRegisterService<RegisterDto, Regis
     private final IRegisterRepository iRegisterRepository;
     private final IRoleRepository iRoleRepository;
 
-
     //////////////////////////////////////////////////////////
     // MODEL MAPPER
     @Override
