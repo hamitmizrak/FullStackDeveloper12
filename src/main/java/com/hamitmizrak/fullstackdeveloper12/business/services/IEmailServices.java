@@ -27,4 +27,4 @@ public interface IEmailServices<D,E>{
 
     // EMAİL ATTACHMENT SEND (image,word,text v.s)
     public D blogSendAttachmentMail(D d);
-}
+} //end interface
