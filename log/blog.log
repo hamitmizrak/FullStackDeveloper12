@@ -3450,3 +3450,12 @@ Caused by: java.lang.IndexOutOfBoundsException: Index 4 out of bounds for length
 2023-12-03T13:13:11.331+03:00  INFO 11764 --- [restartedMain] c.h.f.FullStackDeveloper12Application    : Started FullStackDeveloper12Application in 5.297 seconds (process running for 5.946)
 2023-12-03T13:13:11.336+03:00  INFO 11764 --- [restartedMain] c.h.f.runner.BlogCommandLineRunner2      : CommandLineRunner Çalıştı Sade
 2023-12-03T13:13:11.877+03:00  INFO 11764 --- [restartedMain] c.h.f.runner.BlogCommandLineRunner       : CommandLineRunner Çalıştı
+2023-12-03T14:59:17.089+03:00  INFO 11764 --- [SpringApplicationShutdownHook] c.h.f.runner.BlogCommandLineRunner       : blog CommandLineRunner Before Bean Method bitti
+2023-12-03T14:59:17.090+03:00  INFO 11764 --- [SpringApplicationShutdownHook] c.h.f.bean.SwaggerOpenApiBeanClass       : swagger Open Api After Bean bitti
+2023-12-03T14:59:17.090+03:00  INFO 11764 --- [SpringApplicationShutdownHook] c.h.f.bean.PasswordEncoderBeanClass      : password Encoder After Bean bitti
+2023-12-03T14:59:17.090+03:00  INFO 11764 --- [SpringApplicationShutdownHook] c.h.f.bean.ModelMapperBeanClass          : Model mapper After bean bitti
+2023-12-03T14:59:17.090+03:00  INFO 11764 --- [SpringApplicationShutdownHook] c.h.f.bean.Locale18NBeanClass            : locale 18N After Bean Method bitti
+2023-12-03T14:59:17.091+03:00  INFO 11764 --- [SpringApplicationShutdownHook] c.h.f.audit.AuditorAwareBeanClass        : auditor Aware After bean bitti
+2023-12-03T14:59:17.091+03:00  INFO 11764 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-12-03T14:59:17.131+03:00  INFO 11764 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-12-03T14:59:17.134+03:00  INFO 11764 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
