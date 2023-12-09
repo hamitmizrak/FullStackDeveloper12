@@ -3,10 +3,12 @@ package com.hamitmizrak.fullstackdeveloper12.business.services.impl;
 import com.hamitmizrak.fullstackdeveloper12.bean.ModelMapperBeanClass;
 import com.hamitmizrak.fullstackdeveloper12.bean.PasswordEncoderBeanClass;
 import com.hamitmizrak.fullstackdeveloper12.business.dto.RegisterDto;
-import com.hamitmizrak.fullstackdeveloper12.business.dto.RoleDto;
+import com.hamitmizrak.fullstackdeveloper12.business.services.IForRegisterTokenEmailConfirmationServices;
 import com.hamitmizrak.fullstackdeveloper12.business.services.IRegisterService;
+import com.hamitmizrak.fullstackdeveloper12.data.entity.ForRegisterTokenEmailConfirmationEntity;
 import com.hamitmizrak.fullstackdeveloper12.data.entity.RegisterEntity;
 import com.hamitmizrak.fullstackdeveloper12.data.entity.RoleEntity;
+import com.hamitmizrak.fullstackdeveloper12.data.repository.IForRegisterTokenEmailConfirmationEntity;
 import com.hamitmizrak.fullstackdeveloper12.data.repository.IRegisterRepository;
 import com.hamitmizrak.fullstackdeveloper12.data.repository.IRoleRepository;
 import com.hamitmizrak.fullstackdeveloper12.exception.HamitMizrakException;
@@ -36,6 +38,10 @@ public class RegisterServicesImpl implements IRegisterService<RegisterDto, Regis
     private final PasswordEncoderBeanClass passwordEncoderBeanClass;
     private final IRegisterRepository iRegisterRepository;
     private final IRoleRepository iRoleRepository;
+    //////////////////////////////////////////////////////////
+    // TOKEN FIELD
+    private final IForRegisterTokenEmailConfirmationServices tokenServices; // Email Token confirmation
+    private final IForRegisterTokenEmailConfirmationEntity iTokenRepository; // Token oluşturma
 
     //////////////////////////////////////////////////////////
     // MODEL MAPPER
@@ -63,7 +69,7 @@ public class RegisterServicesImpl implements IRegisterService<RegisterDto, Regis
                 registerDto.setRegisterSurname("surname " + i);
                 registerDto.setRegisterPassword(passwordEncoderBeanClass.passwordEncoderMethod().encode("root"));
                 registerDto.setRegisterEmail("hamitmizrak" + UUID.randomUUID().toString() + "@gmail.com");
-                registerDto.setRegisterIsActive(false); //mail ile aktifleştirelim
+                registerDto.setPageAuthorization(false); //mail ile aktifleştirelim
                 registerDto.setIsEnabled(true);
                 registerDto.setIsAccountNonExpired(true);
                 registerDto.setIsCredentialsNonExpired(true);
@@ -173,7 +179,6 @@ public class RegisterServicesImpl implements IRegisterService<RegisterDto, Regis
     @Override
     @Transactional
     public RegisterDto registerServiceUpdate(Long id, RegisterDto registerDto) {
-
         //Entity Instance
         RegisterEntity registerEntity = new RegisterEntity();
         registerEntity.setRegisterNickname(registerDto.getRegisterNickname());
@@ -198,5 +203,24 @@ public class RegisterServicesImpl implements IRegisterService<RegisterDto, Regis
     }
 
     //////////////////////////////////////////////////////
-    // EMAIL TOKEN
-}
+    // EMAIL TOKEN CONFIRMATION
+    // Kullanıcıyı aktif edecek
+    @Transactional // Create, delete, update için kullanmalısın
+    public void emailTokenConfirmation(ForRegisterTokenEmailConfirmationEntity tokenConfirmationEntity) {
+        // @OneToOne(1-1) ilişkideki veriyi almak
+        // TokenConfirmationEntity'den UserEntity almak
+        final RegisterEntity registerEntity = tokenConfirmationEntity.getRegisterEntity();
+        // üyeliği aktif et
+        // Embeddable eklediğim
+        registerEntity.getEmbeddableUserDetails().isAccountNonLocked(Boolean.TRUE);
+        iRegisterRepository.save(registerEntity);
+        // Mail onaylanması sonrasında database Tokenı sil
+        tokenServices.deleteToken(tokenConfirmationEntity.getId());
+    }
+
+    // TOKEN FIND
+    public Optional<ForRegisterTokenEmailConfirmationEntity> findTokenConfirmation(String token) {
+        return iTokenRepository.findTokenConfirmationEntityByToken(token);
+    }
+
+} //end class

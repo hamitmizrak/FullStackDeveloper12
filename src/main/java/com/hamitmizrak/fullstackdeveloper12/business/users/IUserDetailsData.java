@@ -7,19 +7,18 @@ public interface IUserDetailsData {
 
     // Kullanıcı başlangıçta kilitli yani sisteme giremez sadece mail ile onaylanırsa aktif olur
     // @Builder.Default
-
-    public Boolean isAccountNonLocked();
+    Boolean isAccountNonLocked(Boolean result);
 
     // Eğer yaptığımız uygulamada kullanıcı 1 yıl kullanmazsa hesabı pasif olsun
     // Kullanıcı Hesap Süresi Doldu mu ?
     // @Builder.Default
-    public Boolean isAccountNonExpired();
+    Boolean isAccountNonExpired(Boolean result);
 
     // Kullanıcı Hesap Bilgileri Süresi (Authorization)
     // @Builder.Default
-    public Boolean isCredentialsNonExpired();
+    Boolean isCredentialsNonExpired(Boolean result);
 
     // Kullanıcı Sistemde mi ?  eğer login olmuşsa
     // @Builder.Default
-    public Boolean isEnabled();
+    Boolean isEnabled(Boolean result);
 }

@@ -3,10 +3,7 @@ package com.hamitmizrak.fullstackdeveloper12.data.entity;
 import com.hamitmizrak.fullstackdeveloper12.audit.AuditingAwareBaseEntity;
 import com.hamitmizrak.fullstackdeveloper12.data.embedded.EmbeddableUserDetails;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.extern.log4j.Log4j2;
 import org.hibernate.annotations.CreationTimestamp;
 import java.io.Serializable;
@@ -45,6 +42,7 @@ public class RegisterEntity extends AuditingAwareBaseEntity implements Serializa
     @Temporal(TemporalType.TIMESTAMP) // jakarta.persistence
     private Date systemCreatedDate;
 
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Global Variable
     // NICKNAME
     private String registerNickname;
@@ -68,17 +66,18 @@ public class RegisterEntity extends AuditingAwareBaseEntity implements Serializa
     // PASSWORD
     private String registerPassword;
 
-    // ISACTIVE
-    private Boolean registerIsActive = false;
+    // PAGE AUTHORIZATION ( O Sayfaya yekisi var mı)
+    @Column(name = "page_authorization")
+    private Boolean pageAuthorization = false;
 
-    ///////////////////////////////////////////////
-
-    // @Embeddable
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // USER DETAILS (Mail Confirmation)
+    // @Embeddable
     @Embedded
+    @Getter @Setter
     private EmbeddableUserDetails embeddableUserDetails=new EmbeddableUserDetails();
 
-    ///////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // ROLES
     // ROLE ENTITY (RELATION)
     // NOT: @ManyToMany'de RegisterEntity RolesEntity ve 1 tane ara tablo daha oluşur adı(registers_roles)
@@ -97,9 +96,9 @@ public class RegisterEntity extends AuditingAwareBaseEntity implements Serializa
 	@ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
 	@JoinTable(name = "user_role",
 	joinColumns = {
-	            @JoinColumn(name = "user_id",referencedColumnName = "user_id")},
+	            @JoinColumn(name = "register_id",referencedColumnName = "register_id")},
 	            inverseJoinColumns = {
-	                            @JoinColumn(name = "roles_id",referencedColumnName = "roles_id")
+	                            @JoinColumn(name = "role_id",referencedColumnName = "role_id")
 	                            }
 	             )
 	 private List<RoleEntity> roles;

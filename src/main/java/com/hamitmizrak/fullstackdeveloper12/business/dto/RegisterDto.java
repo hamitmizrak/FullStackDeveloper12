@@ -2,17 +2,21 @@ package com.hamitmizrak.fullstackdeveloper12.business.dto;
 
 import com.hamitmizrak.fullstackdeveloper12.annotation.AnnotationUniqueEmailAddress;
 import com.hamitmizrak.fullstackdeveloper12.audit.AuditingAwareBaseDto;
+import com.hamitmizrak.fullstackdeveloper12.role.ERole;
 import jakarta.validation.constraints.*;
 import lombok.*;
 import lombok.extern.log4j.Log4j2;
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Date;
 
 // LOMBOK
 @Data
-@Log4j2
+@ToString
+@NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Log4j2
 
 // NOT: Validation işlemleri Dto yapalım.
 // NOT: Eğer kullanıcı boşluk yazarsa trim ile almam gerekecek
@@ -58,46 +62,17 @@ public class RegisterDto extends AuditingAwareBaseDto implements  Serializable {
     // @Positive
     private String registerPassword;
 
-    // ISACTIVE
-    private Boolean registerIsActive = false;
+    // PAGE AUTHORIZATION ( O Sayfaya yekisi var mı)
+    @Builder.Default
+    private Boolean pageAuthorization = false;
+
+    // ROLLES (ENUM)
+    private Collection<RoleDto> roles;
 
     ///////////////////////////////////////////////
     // CONSTRUCTOR (Parametresiz)
-    public RegisterDto() {
-    }
-
     // CONSTRUCTOR (Parametreli)
-    public RegisterDto(String registerNickname, String registerName, String registerSurname, String registerEmail, String registerPassword, Boolean registerIsActive) {
-        this.registerNickname = registerNickname;
-        this.registerName = registerName;
-        this.registerSurname = registerSurname;
-        this.registerEmail = registerEmail;
-        this.registerPassword = registerPassword;
-        this.registerIsActive = registerIsActive;
-    }
-
     // TOSTRING
-    @Override
-    public String toString() {
-        return "RegisterDto{" +
-                "registerId=" + registerId +
-                ", systemCreatedDate=" + systemCreatedDate +
-                ", registerNickname='" + registerNickname + '\'' +
-                ", registerName='" + registerName + '\'' +
-                ", registerSurname='" + registerSurname + '\'' +
-                ", registerEmail='" + registerEmail + '\'' +
-                ", registerPassword='" + registerPassword + '\'' +
-                ", registerIsActive=" + registerIsActive +
-                ", isAccountNonLocked=" + isAccountNonLocked +
-                ", isAccountNonExpired=" + isAccountNonExpired +
-                ", isCredentialsNonExpired=" + isCredentialsNonExpired +
-                ", isEnabled=" + isEnabled +
-                ", createdUser='" + createdUser + '\'' +
-                ", createdDate=" + createdDate +
-                ", lastUser='" + lastUser + '\'' +
-                ", lastDate=" + lastDate +
-                '}';
-    }
 
     ///////////////////////////////////////////////
     // USER DETAILS
@@ -120,6 +95,7 @@ public class RegisterDto extends AuditingAwareBaseDto implements  Serializable {
 
     // Kullanıcı Sistemde mi ?  eğer login olmuşsa
     // @Builder.Default
+    // Öneri SMS Api ile kullanıcıyı aktif edebilirsiniz.
     public Boolean isEnabled;
 
 } //end class
