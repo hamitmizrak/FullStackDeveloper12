@@ -22,6 +22,7 @@ import java.util.Set;
 @Builder
 
 // NOT: Eğer Entity'i camelCase yazarsanız RDBMS'de underscore yazarak gösterir.
+// NOT: relation için Id ayrıca yazıyorum. BaseEntity'den otomatik almadım
 
 // ENTITY
 @Entity(name = "Registers") // Sql JOIN için yazdım
@@ -32,6 +33,7 @@ public class RegisterEntity extends AuditingAwareBaseEntity implements Serializa
     // SERILEŞTIRME
     public static final Long serialVersionUID = 1L;
 
+    // relation için Id ayrıca yazıyorum. BaseEntity'den otomatik almadım
     // ID: import jakarta.persistence.Id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

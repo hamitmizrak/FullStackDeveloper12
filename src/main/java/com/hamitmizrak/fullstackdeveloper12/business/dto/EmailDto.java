@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Value;
 import java.io.Serializable;
+import java.util.Date;
 
 // LOMBOK
 @Data
@@ -38,6 +39,10 @@ public class EmailDto  extends BaseDto implements Serializable {
     @NotEmpty(message = "{email.text.validation.constraints.NotNull.message}")
     private String emailText;
 
+    /*
+    CC yani Copy Carbon, göndereceğiniz e-postanın bütün alıcıların birbirini görmesini ve iletişime geçebilmesini sağlar.
+    Fakat BCC bölümüne eklediğiniz alıcıyı sizin haricinizde kimse göremez ve iletişime geçemez.
+    */
     // EMAIL CC
     private String emailCc;// CC
     private String[] emailCcArray;
@@ -53,5 +58,9 @@ public class EmailDto  extends BaseDto implements Serializable {
     // URL
     @Builder.Default
     private String URL="http://localhost:4444/";
+
+    // DATE(SEND)
+    @Builder.Default
+    private Date sentDate=new Date(System.currentTimeMillis()); //NE ZAMAN
 
 } //end EmailDto

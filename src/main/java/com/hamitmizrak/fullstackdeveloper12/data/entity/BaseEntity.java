@@ -1,9 +1,12 @@
 package com.hamitmizrak.fullstackdeveloper12.data.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.hamitmizrak.fullstackdeveloper12.audit.AuditingAwareBaseDto;
+import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -13,15 +16,23 @@ import java.util.Date;
 @Setter
 
 // abstract CLASS
+@MappedSuperclass
+@JsonIgnoreProperties(value={},allowGetters = true) // json buradaki verileri takip etme
 abstract public class BaseEntity extends AuditingAwareBaseDto implements Serializable {
 
     // SERILEŞTIRME
     public static final Long serialVersionUID=1L;
 
-    // ID
+    // ID : import jakarta.persistence.Id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     protected  Long id;
 
     // DATE
     @Builder.Default // Lombok Default
-    protected Date systemDate=new Date(System.currentTimeMillis());
+    @CreationTimestamp
+    @Temporal(TemporalType.TIMESTAMP)
+    protected Date systemCreatedDate=new Date(System.currentTimeMillis());
+
 } //end class
