@@ -1,6 +1,9 @@
 package com.hamitmizrak.fullstackdeveloper12.business.services;
 
+import com.hamitmizrak.fullstackdeveloper12.data.entity.ForRegisterTokenEmailConfirmationEntity;
+
 import java.util.List;
+import java.util.Optional;
 
 // D: Dto
 // E: Entity
@@ -33,8 +36,5 @@ public interface IRegisterService<D,E> {
 
     // DELETE ID
     public D registerServiceDeleteById(Long id);
-
-    //////////////////////////////////////////////////
-    // EMAIL CONFIRMATION - TOKEN
 
 } //end interface

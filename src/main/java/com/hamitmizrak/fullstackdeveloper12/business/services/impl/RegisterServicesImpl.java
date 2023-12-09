@@ -15,20 +15,23 @@ import com.hamitmizrak.fullstackdeveloper12.exception.HamitMizrakException;
 import com.hamitmizrak.fullstackdeveloper12.exception.Resource404NotFoundException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.util.*;
-
 // NOT: @Transaction Create, Delete, Update
+
+// 3  5  0  4
 
 // LOMBOK
 @RequiredArgsConstructor
 @Log4j2
 
-// SERVICE
-// Asıl iş Yükünü yapan yer
+// SERVICE Asıl iş Yükünü yapan yer
 @Service
 @Component("registerServicesImpl") //Spring'in bir parçasıdır.
 public class RegisterServicesImpl implements IRegisterService<RegisterDto, RegisterEntity> {
@@ -39,6 +42,13 @@ public class RegisterServicesImpl implements IRegisterService<RegisterDto, Regis
     private final IRegisterRepository iRegisterRepository;
     private final IRoleRepository iRoleRepository;
     //////////////////////////////////////////////////////////
+    // EMAİL
+    @Autowired
+    private JavaMailSender mailSender; // Mail oluşturma
+
+    @Value("${spring.mail.username}") //application.properties
+    private String serverMailAddress;
+
     // TOKEN FIELD
     private final IForRegisterTokenEmailConfirmationServices tokenServices; // Email Token confirmation
     private final IForRegisterTokenEmailConfirmationEntity iTokenRepository; // Token oluşturma
@@ -97,12 +107,34 @@ public class RegisterServicesImpl implements IRegisterService<RegisterDto, Regis
     }
 
     //////////////////////////////////////////////////////////
+    // ÜYELİĞİ AKTİF ETMEK (MAIL GONDER VE TOKEN OLUŞTUR)
+    private RegisterDto mailSendMemberActive(RegisterDto registerDto,RegisterEntity registerEntity){
+
+        // MAIL GÖNDER VE TOKEN OLUŞTUR ÜYELİĞİ AKTİFLEŞTİR
+
+        // TOKEN OLUŞTUR
+        ForRegisterTokenEmailConfirmationEntity tokenConfirmationEntity = new ForRegisterTokenEmailConfirmationEntity(registerEntity);
+        String token = tokenServices.createToken(tokenConfirmationEntity);
+        SimpleMailMessage message = new SimpleMailMessage();
+        System.out.println("Mail Send Success ==> "+serverMailAddress);
+        // Set Mail
+        message.setFrom(this.serverMailAddress);
+        message.setTo(registerDto.getRegisterEmail());
+        message.setSentDate(new Date(System.currentTimeMillis()));
+        message.setSubject("Harika Üyeliğinizin aktif olmasına son bir adım kaldı");
+        //message.setBcc(this.serverMailAddress);
+        //message.setCc(this.serverMailAddress);
+        String mailContent = "<mark>Üyeliğinizi aktifleşmesine son bir adım lütfen linke tıklayınız.</mark>" + "http://localhost:4444/register/api/v1.0.0/confirm?token=" + token;
+        message.setText(mailContent);
+        // Send Mail
+        mailSender.send(message);
+        return registerDto;
+    }
+    //////////////////////////////////////////////////////////
     // ROLE CRUD
     // ROLE CREATE
-    // org.springframework.transaction.annotation.Transactional
-    // @Transaction Create, Delete, Update
     @Override
-    @Transactional
+    @Transactional  // @Transaction Create, Delete, Update (org.springframework.transaction.annotation.Transactional)
     public RegisterDto registerServiceCreate(Long rolesId, RegisterDto registerDto) {
         if (registerDto != null) {
 
@@ -125,6 +157,10 @@ public class RegisterServicesImpl implements IRegisterService<RegisterDto, Regis
             // DTO Set(ID, DATE)
             registerDto.setRegisterId(registerDto.getRegisterId());
             registerDto.setSystemCreatedDate(registerEntity.getSystemCreatedDate());
+
+            // Mail
+            // ÜYELİĞİ AKTİF ETMEK (MAIL GONDER VE TOKEN OLUŞTUR)
+            mailSendMemberActive(registerDto,registerEntity);
 
             // MAİL
             return registerDto;

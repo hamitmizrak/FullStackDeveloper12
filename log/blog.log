@@ -36,3 +36,101 @@
 2023-12-09T13:19:02.472+03:00  INFO 12984 --- [restartedMain] c.h.f.FullStackDeveloper12Application    : Started FullStackDeveloper12Application in 7.446 seconds (process running for 8.473)
 2023-12-09T13:19:02.478+03:00  INFO 12984 --- [restartedMain] c.h.f.runner.BlogCommandLineRunner2      : CommandLineRunner Çalıştı Sade
 2023-12-09T13:19:03.135+03:00  INFO 12984 --- [restartedMain] c.h.f.runner.BlogCommandLineRunner       : CommandLineRunner Çalıştı
+2023-12-09T13:51:45.952+03:00  INFO 12984 --- [http-nio-4444-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-12-09T13:51:45.954+03:00  INFO 12984 --- [http-nio-4444-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-12-09T13:51:45.954+03:00 DEBUG 12984 --- [http-nio-4444-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2023-12-09T13:51:45.955+03:00 DEBUG 12984 --- [http-nio-4444-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2023-12-09T13:51:45.955+03:00 DEBUG 12984 --- [http-nio-4444-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2023-12-09T13:51:45.959+03:00 DEBUG 12984 --- [http-nio-4444-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@668b3f16
+2023-12-09T13:51:45.960+03:00 DEBUG 12984 --- [http-nio-4444-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@12d2a680
+2023-12-09T13:51:45.960+03:00 DEBUG 12984 --- [http-nio-4444-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2023-12-09T13:51:45.960+03:00  INFO 12984 --- [http-nio-4444-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
+2023-12-09T13:51:45.979+03:00 DEBUG 12984 --- [http-nio-4444-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/", parameters={}
+2023-12-09T13:51:45.997+03:00 DEBUG 12984 --- [http-nio-4444-exec-1] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7]
+2023-12-09T13:51:46.242+03:00 DEBUG 12984 --- [http-nio-4444-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2023-12-09T13:51:46.268+03:00 DEBUG 12984 --- [http-nio-4444-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/js/template.js", parameters={}
+2023-12-09T13:51:46.268+03:00 DEBUG 12984 --- [http-nio-4444-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/css/style.css", parameters={}
+2023-12-09T13:51:46.274+03:00 DEBUG 12984 --- [http-nio-4444-exec-3] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2023-12-09T13:51:46.274+03:00 DEBUG 12984 --- [http-nio-4444-exec-2] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2023-12-09T13:51:46.285+03:00 DEBUG 12984 --- [http-nio-4444-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2023-12-09T13:51:46.285+03:00 DEBUG 12984 --- [http-nio-4444-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2023-12-09T13:51:46.865+03:00 DEBUG 12984 --- [http-nio-4444-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/favicon.ico", parameters={}
+2023-12-09T13:51:46.869+03:00 DEBUG 12984 --- [http-nio-4444-exec-5] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2023-12-09T13:51:46.872+03:00 DEBUG 12984 --- [http-nio-4444-exec-5] o.s.w.s.r.ResourceHttpRequestHandler     : Resource not found
+2023-12-09T13:51:46.873+03:00 DEBUG 12984 --- [http-nio-4444-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 404 NOT_FOUND
+2023-12-09T13:51:46.880+03:00 DEBUG 12984 --- [http-nio-4444-exec-5] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for GET "/error", parameters={}
+2023-12-09T13:51:46.884+03:00 DEBUG 12984 --- [http-nio-4444-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hamitmizrak.fullstackdeveloper12.error.CustomErrorHandleWebRequest#handleErrorMethod(WebRequest)
+2023-12-09T13:51:46.908+03:00 DEBUG 12984 --- [http-nio-4444-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json;q=0.8', given [image/avif, image/webp, image/apng, image/svg+xml, image/*, */*;q=0.8] and supported [application/json, application/*+json]
+2023-12-09T13:51:46.911+03:00 DEBUG 12984 --- [http-nio-4444-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Writing [ApiResult(path=/favicon.ico, message=No message available, error=null, status=404, createdDate=Sat D (truncated)...]
+2023-12-09T13:51:46.933+03:00 DEBUG 12984 --- [http-nio-4444-exec-5] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 404
+2023-12-09T13:51:48.299+03:00 DEBUG 12984 --- [http-nio-4444-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/", parameters={}
+2023-12-09T13:51:48.300+03:00 DEBUG 12984 --- [http-nio-4444-exec-6] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7]
+2023-12-09T13:51:48.304+03:00 DEBUG 12984 --- [http-nio-4444-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2023-12-09T13:51:48.320+03:00 DEBUG 12984 --- [http-nio-4444-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/js/template.js", parameters={}
+2023-12-09T13:51:48.319+03:00 DEBUG 12984 --- [http-nio-4444-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/css/style.css", parameters={}
+2023-12-09T13:51:48.321+03:00 DEBUG 12984 --- [http-nio-4444-exec-7] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2023-12-09T13:51:48.321+03:00 DEBUG 12984 --- [http-nio-4444-exec-4] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2023-12-09T13:51:48.325+03:00 DEBUG 12984 --- [http-nio-4444-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2023-12-09T13:51:48.325+03:00 DEBUG 12984 --- [http-nio-4444-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2023-12-09T13:51:52.526+03:00 DEBUG 12984 --- [http-nio-4444-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/swagger-ui", parameters={}
+2023-12-09T13:51:52.528+03:00 DEBUG 12984 --- [http-nio-4444-exec-8] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2023-12-09T13:51:52.529+03:00 DEBUG 12984 --- [http-nio-4444-exec-8] o.s.w.s.r.ResourceHttpRequestHandler     : Resource not found
+2023-12-09T13:51:52.529+03:00 DEBUG 12984 --- [http-nio-4444-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 404 NOT_FOUND
+2023-12-09T13:51:52.530+03:00 DEBUG 12984 --- [http-nio-4444-exec-8] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for GET "/error", parameters={}
+2023-12-09T13:51:52.531+03:00 DEBUG 12984 --- [http-nio-4444-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hamitmizrak.fullstackdeveloper12.error.CustomErrorHandleWebRequest#handleErrorMethod(WebRequest)
+2023-12-09T13:51:52.532+03:00 DEBUG 12984 --- [http-nio-4444-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json;q=0.8', given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7] and supported [application/json, application/*+json]
+2023-12-09T13:51:52.532+03:00 DEBUG 12984 --- [http-nio-4444-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Writing [ApiResult(path=/swagger-ui, message=No message available, error=null, status=404, createdDate=Sat De (truncated)...]
+2023-12-09T13:51:52.533+03:00 DEBUG 12984 --- [http-nio-4444-exec-8] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 404
+2023-12-09T13:51:57.494+03:00 DEBUG 12984 --- [http-nio-4444-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/swagger-ui.html", parameters={}
+2023-12-09T13:51:57.495+03:00 DEBUG 12984 --- [http-nio-4444-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springdoc.webmvc.ui.SwaggerWelcomeWebMvc#redirectToUi(HttpServletRequest)
+2023-12-09T13:51:57.515+03:00 DEBUG 12984 --- [http-nio-4444-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json;q=0.8', given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7] and supported [application/json, application/*+json]
+2023-12-09T13:51:57.515+03:00 DEBUG 12984 --- [http-nio-4444-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Nothing to write: null body
+2023-12-09T13:51:57.515+03:00 DEBUG 12984 --- [http-nio-4444-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 302 FOUND
+2023-12-09T13:51:57.522+03:00 DEBUG 12984 --- [http-nio-4444-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/swagger-ui/index.html", parameters={}
+2023-12-09T13:51:57.523+03:00 DEBUG 12984 --- [http-nio-4444-exec-10] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2023-12-09T13:51:57.526+03:00 DEBUG 12984 --- [http-nio-4444-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2023-12-09T13:51:57.540+03:00 DEBUG 12984 --- [http-nio-4444-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/swagger-ui/swagger-ui.css", parameters={}
+2023-12-09T13:51:57.541+03:00 DEBUG 12984 --- [http-nio-4444-exec-1] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2023-12-09T13:51:57.542+03:00 DEBUG 12984 --- [http-nio-4444-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/swagger-ui/index.css", parameters={}
+2023-12-09T13:51:57.542+03:00 DEBUG 12984 --- [http-nio-4444-exec-2] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2023-12-09T13:51:57.543+03:00 DEBUG 12984 --- [http-nio-4444-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/swagger-ui/swagger-ui-standalone-preset.js", parameters={}
+2023-12-09T13:51:57.543+03:00 DEBUG 12984 --- [http-nio-4444-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/swagger-ui/swagger-ui-bundle.js", parameters={}
+2023-12-09T13:51:57.543+03:00 DEBUG 12984 --- [http-nio-4444-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/swagger-ui/swagger-initializer.js", parameters={}
+2023-12-09T13:51:57.543+03:00 DEBUG 12984 --- [http-nio-4444-exec-5] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2023-12-09T13:51:57.543+03:00 DEBUG 12984 --- [http-nio-4444-exec-3] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2023-12-09T13:51:57.543+03:00 DEBUG 12984 --- [http-nio-4444-exec-6] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2023-12-09T13:51:57.546+03:00 DEBUG 12984 --- [http-nio-4444-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2023-12-09T13:51:57.546+03:00 DEBUG 12984 --- [http-nio-4444-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2023-12-09T13:51:57.553+03:00 DEBUG 12984 --- [http-nio-4444-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2023-12-09T13:51:57.554+03:00 DEBUG 12984 --- [http-nio-4444-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2023-12-09T13:51:57.560+03:00 DEBUG 12984 --- [http-nio-4444-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2023-12-09T13:51:57.762+03:00 DEBUG 12984 --- [http-nio-4444-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/v3/api-docs/swagger-config", parameters={}
+2023-12-09T13:51:57.763+03:00 DEBUG 12984 --- [http-nio-4444-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springdoc.webmvc.ui.SwaggerConfigResource#openapiJson(HttpServletRequest)
+2023-12-09T13:51:57.764+03:00 DEBUG 12984 --- [http-nio-4444-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json]
+2023-12-09T13:51:57.764+03:00 DEBUG 12984 --- [http-nio-4444-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Writing [{configUrl=/v3/api-docs/swagger-config, oauth2RedirectUrl=http://localhost:4444/swagger-ui/oauth2-re (truncated)...]
+2023-12-09T13:51:57.765+03:00 DEBUG 12984 --- [http-nio-4444-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2023-12-09T13:51:57.773+03:00 DEBUG 12984 --- [http-nio-4444-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/swagger-ui/favicon-32x32.png", parameters={}
+2023-12-09T13:51:57.773+03:00 DEBUG 12984 --- [http-nio-4444-exec-7] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2023-12-09T13:51:57.776+03:00 DEBUG 12984 --- [http-nio-4444-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2023-12-09T13:51:57.798+03:00 DEBUG 12984 --- [http-nio-4444-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/v3/api-docs", parameters={}
+2023-12-09T13:51:57.800+03:00 DEBUG 12984 --- [http-nio-4444-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springdoc.webmvc.api.OpenApiWebMvcResource#openapiJson(HttpServletRequest, String, Locale)
+2023-12-09T13:51:57.977+03:00  WARN 12984 --- [http-nio-4444-exec-8] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.hamitmizrak.fullstackdeveloper12.controller.api.impl.RoleApiImpl
+2023-12-09T13:51:58.053+03:00  WARN 12984 --- [http-nio-4444-exec-8] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.hamitmizrak.fullstackdeveloper12.controller.api.impl.RegisterApiImpl
+2023-12-09T13:51:58.103+03:00  WARN 12984 --- [http-nio-4444-exec-8] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.hamitmizrak.fullstackdeveloper12.controller.api.impl.EmailApiImpl
+2023-12-09T13:51:58.176+03:00  WARN 12984 --- [http-nio-4444-exec-8] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.hamitmizrak.fullstackdeveloper12.error.CustomErrorHandleWebRequest
+2023-12-09T13:51:58.210+03:00  INFO 12984 --- [http-nio-4444-exec-8] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 397 ms
+2023-12-09T13:51:58.223+03:00 DEBUG 12984 --- [http-nio-4444-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json, */*] and supported [application/json]
+2023-12-09T13:51:58.223+03:00 DEBUG 12984 --- [http-nio-4444-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Writing ["{"openapi":"3.0.1","info":{"title":"title bilgisi","description":"description bilgisi","termsOfServi (truncated)..."]
+2023-12-09T13:51:58.225+03:00 DEBUG 12984 --- [http-nio-4444-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2023-12-09T13:53:25.200+03:00 DEBUG 12984 --- [http-nio-4444-exec-6] o.s.web.servlet.DispatcherServlet        : POST "/email/api/v1/basic/email", parameters={}
+2023-12-09T13:53:25.201+03:00 DEBUG 12984 --- [http-nio-4444-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hamitmizrak.fullstackdeveloper12.controller.api.impl.EmailApiImpl#blogSendEmail(EmailDto)
+2023-12-09T13:53:25.230+03:00 DEBUG 12984 --- [http-nio-4444-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [EmailDto(emailTo=denememalatya4444@gmail.com, emailFrom=denememalatya4444@gmail.com, emailSubject=ko (truncated)...]
+2023-12-09T13:53:27.459+03:00 DEBUG 12984 --- [http-nio-4444-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2023-12-09T13:53:27.460+03:00 DEBUG 12984 --- [http-nio-4444-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Writing [EmailDto(emailTo=denememalatya4444@gmail.com, emailFrom=denememalatya4444@gmail.com, emailSubject=ko (truncated)...]
+2023-12-09T13:53:27.461+03:00 DEBUG 12984 --- [http-nio-4444-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2023-12-09T13:55:02.465+03:00 DEBUG 12984 --- [http-nio-4444-exec-4] o.s.web.servlet.DispatcherServlet        : POST "/email/api/v1/basic/email", parameters={}
+2023-12-09T13:55:02.465+03:00 DEBUG 12984 --- [http-nio-4444-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hamitmizrak.fullstackdeveloper12.controller.api.impl.EmailApiImpl#blogSendEmail(EmailDto)
+2023-12-09T13:55:02.466+03:00 DEBUG 12984 --- [http-nio-4444-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [EmailDto(emailTo=denememalatya4444@gmail.com, emailFrom=denememalatya4444@gmail.com, emailSubject=ko (truncated)...]
+2023-12-09T13:55:03.937+03:00 DEBUG 12984 --- [http-nio-4444-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2023-12-09T13:55:03.937+03:00 DEBUG 12984 --- [http-nio-4444-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Writing [EmailDto(emailTo=denememalatya4444@gmail.com, emailFrom=denememalatya4444@gmail.com, emailSubject=ko (truncated)...]
+2023-12-09T13:55:03.938+03:00 DEBUG 12984 --- [http-nio-4444-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK

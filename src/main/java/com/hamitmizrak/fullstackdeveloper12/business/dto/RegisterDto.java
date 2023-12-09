@@ -2,7 +2,6 @@ package com.hamitmizrak.fullstackdeveloper12.business.dto;
 
 import com.hamitmizrak.fullstackdeveloper12.annotation.AnnotationUniqueEmailAddress;
 import com.hamitmizrak.fullstackdeveloper12.audit.AuditingAwareBaseDto;
-import com.hamitmizrak.fullstackdeveloper12.role.ERole;
 import jakarta.validation.constraints.*;
 import lombok.*;
 import lombok.extern.log4j.Log4j2;
@@ -35,6 +34,7 @@ public class RegisterDto extends AuditingAwareBaseDto implements  Serializable {
     // DATE
     private Date systemCreatedDate;
 
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Global Variable
     // @NotEmpty:  Boş değilse
     // NICKNAME
