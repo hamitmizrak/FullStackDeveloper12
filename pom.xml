@@ -46,7 +46,7 @@
     <!-- start dependencies-->
     <dependencies>
         <!-- #### ÖNEMLİ KÜTÜPHANLER #################################################  -->
-        <!-- MAİL-->
+        <!-- E MAİL-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-mail</artifactId>

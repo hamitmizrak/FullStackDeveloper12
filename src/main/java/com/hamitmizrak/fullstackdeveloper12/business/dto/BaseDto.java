@@ -22,5 +22,5 @@ abstract public class BaseDto extends AuditingAwareBaseDto implements Serializab
 
     // DATE
     @Builder.Default // Lombok Default
-    protected Date systemDate=new Date(System.currentTimeMillis());
+    protected Date systemCreatedDate=new Date(System.currentTimeMillis());
 } //end class

@@ -8,7 +8,6 @@ import lombok.extern.log4j.Log4j2;
 import java.io.Serializable;
 import java.util.Date;
 
-// 3 4 4 4
 // LOMBOK
 @Data
 @Log4j2
@@ -26,7 +25,7 @@ public class RegisterDto extends AuditingAwareBaseDto implements  Serializable {
     // SERİLEŞTİRME
     public static final Long serialVersionUID = 1L;
 
-    // ID
+    // ID ( Relational )
     private Long registerId;
 
     // DATE
