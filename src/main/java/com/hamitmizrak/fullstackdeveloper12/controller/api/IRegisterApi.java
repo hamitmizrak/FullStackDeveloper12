@@ -4,7 +4,9 @@ import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 
+// INTERFACE (IRegisterApi)
 // D: Dto
+
 public interface IRegisterApi<D> {
 
     // SPEED DATA

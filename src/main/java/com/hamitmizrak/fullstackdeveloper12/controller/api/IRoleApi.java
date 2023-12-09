@@ -3,7 +3,9 @@ package com.hamitmizrak.fullstackdeveloper12.controller.api;
 import org.springframework.http.ResponseEntity;
 import java.util.List;
 
+// INTERFACE (IRoleApi)
 // D: Dto
+
 public interface IRoleApi<D> {
 
     // ROLES CREATE
