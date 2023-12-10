@@ -1,6 +1,6 @@
 package com.hamitmizrak.fullstackdeveloper12.data.embedded;
 
-import com.hamitmizrak.fullstackdeveloper12.business.users.IUserDetailsData;
+import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 import lombok.Getter;
 import lombok.Setter;
@@ -11,35 +11,30 @@ import lombok.Setter;
 
 // Embeddable
 @Embeddable
-public class EmbeddableUserDetails implements IUserDetailsData {
+public class EmbeddableUserDetails{
 
-    // Kullanıcı başlangıçta kilitli yani sisteme giremez sadece mail ile onaylanırsa aktif olur
+    // USER DETAILS
+    // Kullanıcı başlangıçta kilitli ancak mail ile aktifleştirebiliriz.
     // @Builder.Default
-    @Override
-    public Boolean isAccountNonLocked(Boolean result) {
-        return result;
-    }
+    @Column(name="locked")
+    public Boolean isAccountNonLocked=false;
 
     // Eğer yaptığımız uygulamada kullanıcı 1 yıl kullanmazsa hesabı pasif olsun
     // Kullanıcı Hesap Süresi Doldu mu ?
     // @Builder.Default
-    @Override
-    public Boolean isAccountNonExpired(Boolean result) {
-        return result;
-    }
+
+    @Column(name="account_expired")
+    public Boolean isAccountNonExpired=true;
 
     // Kullanıcı Hesap Bilgileri Süresi (Authorization)
     // @Builder.Default
-    @Override
-    public Boolean isCredentialsNonExpired(Boolean result) {
-        return result;
-    }
+
+    @Column(name="credentials_expired")
+    public Boolean isCredentialsNonExpired=true;
 
     // Kullanıcı Sistemde mi ?  eğer login olmuşsa
     // @Builder.Default
-    @Override
-    public Boolean isEnabled(Boolean result) {
-        return result;
-    }
+    @Column(name="enabled")
+    public Boolean isEnabled=true;
 
 } //end EmbeddableUserDetails

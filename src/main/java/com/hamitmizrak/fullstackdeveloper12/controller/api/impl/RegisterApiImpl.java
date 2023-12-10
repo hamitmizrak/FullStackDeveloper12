@@ -1,23 +1,19 @@
 package com.hamitmizrak.fullstackdeveloper12.controller.api.impl;
 
 import com.hamitmizrak.fullstackdeveloper12.business.dto.RegisterDto;
-import com.hamitmizrak.fullstackdeveloper12.business.dto.RoleDto;
 import com.hamitmizrak.fullstackdeveloper12.business.services.IRegisterService;
-import com.hamitmizrak.fullstackdeveloper12.business.services.IRoleService;
+import com.hamitmizrak.fullstackdeveloper12.business.services.impl.RegisterServicesImpl;
 import com.hamitmizrak.fullstackdeveloper12.controller.api.IRegisterApi;
-import com.hamitmizrak.fullstackdeveloper12.controller.api.IRoleApi;
-import com.hamitmizrak.fullstackdeveloper12.data.entity.RegisterEntity;
-import com.hamitmizrak.fullstackdeveloper12.data.repository.IRegisterRepository;
+import com.hamitmizrak.fullstackdeveloper12.data.entity.ForRegisterTokenEmailConfirmationEntity;
 import com.hamitmizrak.fullstackdeveloper12.error.ApiResult;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 // LOMBOK
 @RequiredArgsConstructor
@@ -35,6 +31,9 @@ public class RegisterApiImpl implements IRegisterApi<RegisterDto> {
 
     // ERROR
     private ApiResult apiResult;
+
+    // Register Services Impl
+    private final RegisterServicesImpl registerServicesImpl;
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // SPEED DATA
@@ -99,5 +98,36 @@ public class RegisterApiImpl implements IRegisterApi<RegisterDto> {
     public ResponseEntity<?> registerApiDelete(@PathVariable(name = "id", required = false) Long id) {
         return ResponseEntity.ok(iRegisterService.registerServiceDeleteById(id));
     }
+   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+   // EMAIL CONFIRMATION
+   // EMAIL CONFIRMATION
+   //http://localhost:4444/user/api/v1/confirm?token=ca478481-5f7a-406b-aaa4-2012ebe1afb4
+   @GetMapping("/confirm")
+   public ResponseEntity<String> emailTokenConfirmation(@RequestParam("token") String token) {
+       Optional<ForRegisterTokenEmailConfirmationEntity> tokenConfirmationEntity = registerServicesImpl.findTokenConfirmation(token);
+       tokenConfirmationEntity.ifPresent(registerServicesImpl::emailTokenConfirmation);
+       String html="<!doctype html>\n" +
+               "<html lang=\"en\">\n" +
+               "\n" +
+               "<head>\n" +
+               "  <title>Register</title>\n" +
+               "  <meta charset=\"utf-8\">\n" +
+               "  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">\n" +
+               "  <style>\n" +
+               "    body{\n" +
+               "        background-color: black;\n" +
+               "        color:white;\n" +
+               "    }\n" +
+               "  </style>\n" +
+               "</head>\n" +
+               "\n" +
+               "<body>\n" +
+               "\n" +
+               "    <p style='padding:4rem;'>Üyeliğiniz Aktif olunmuştur.  <a href='http://localhost:3000'>Ana sayfa için tıklayınız </a></p>\n" +
+               "  \n" +
+               "</body>\n" +
+               "</html>";
+       return ResponseEntity.ok(html);
+   }
 
 } //end class

@@ -27,8 +27,6 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.*;
 // NOT: @Transaction Create, Delete, Update
 
-// 3  5  0  4
-
 // LOMBOK
 @RequiredArgsConstructor
 @Log4j2
@@ -44,16 +42,18 @@ public class RegisterServicesImpl implements IRegisterService<RegisterDto, Regis
     private final IRegisterRepository iRegisterRepository;
     private final IRoleRepository iRoleRepository;
     //////////////////////////////////////////////////////////
-    // EMAİL
+    // Email Sender
     @Autowired
     private JavaMailSender mailSender; // Mail oluşturma
 
+    // Email Application.properties
     @Value("${spring.mail.username}") //application.properties
     private String serverMailAddress;
 
+    // Email Repository
     private final IEmailRepository iEmailRepository;
 
-    // TOKEN FIELD
+    // Email Token Field
     private final IForRegisterTokenEmailConfirmationServices tokenServices; // Email Token confirmation
     private final IForRegisterTokenEmailConfirmationEntity iTokenRepository; // Token oluşturma
 
@@ -115,7 +115,6 @@ public class RegisterServicesImpl implements IRegisterService<RegisterDto, Regis
     private RegisterDto mailSendMemberActive(RegisterDto registerDto,RegisterEntity registerEntity){
 
         // MAIL GÖNDER VE TOKEN OLUŞTUR ÜYELİĞİ AKTİFLEŞTİR
-
         // TOKEN OLUŞTUR
         ForRegisterTokenEmailConfirmationEntity tokenConfirmationEntity = new ForRegisterTokenEmailConfirmationEntity(registerEntity);
         String token = tokenServices.createToken(tokenConfirmationEntity);
@@ -173,8 +172,6 @@ public class RegisterServicesImpl implements IRegisterService<RegisterDto, Regis
             // Mail ******
             // ÜYELİĞİ AKTİF ETMEK (MAIL GONDER VE TOKEN OLUŞTUR)
             mailSendMemberActive(registerDto,registerEntity);
-
-            // MAİL
             return registerDto;
         }
         return null;
@@ -260,7 +257,7 @@ public class RegisterServicesImpl implements IRegisterService<RegisterDto, Regis
         final RegisterEntity registerEntity = tokenConfirmationEntity.getRegisterEntity();
         // üyeliği aktif et
         // Embeddable eklediğim
-        registerEntity.getEmbeddableUserDetails().isAccountNonLocked(Boolean.TRUE);
+        registerEntity.getEmbeddableUserDetails().setIsAccountNonLocked(Boolean.TRUE);
         iRegisterRepository.save(registerEntity);
         // Mail onaylanması sonrasında database Tokenı sil
         tokenServices.deleteToken(tokenConfirmationEntity.getId());

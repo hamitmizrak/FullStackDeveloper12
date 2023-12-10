@@ -72,9 +72,11 @@ public class RegisterEntity extends AuditingAwareBaseEntity implements Serializa
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // USER DETAILS (Mail Confirmation)
+    // @Getter @Setter
+    // @Embedded
     // @Embeddable
+    // @EmbeddedId
     @Embedded
-    @Getter @Setter
     private EmbeddableUserDetails embeddableUserDetails=new EmbeddableUserDetails();
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
