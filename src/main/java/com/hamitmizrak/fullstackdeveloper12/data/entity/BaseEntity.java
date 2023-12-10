@@ -1,7 +1,7 @@
 package com.hamitmizrak.fullstackdeveloper12.data.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.hamitmizrak.fullstackdeveloper12.audit.AuditingAwareBaseDto;
+import com.hamitmizrak.fullstackdeveloper12.audit.AuditingAwareBaseEntity;
 import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Getter;
@@ -18,7 +18,7 @@ import java.util.Date;
 // abstract CLASS
 @MappedSuperclass
 @JsonIgnoreProperties(value={},allowGetters = true) // json buradaki verileri takip etme
-abstract public class BaseEntity extends AuditingAwareBaseDto implements Serializable {
+abstract public class BaseEntity extends AuditingAwareBaseEntity implements Serializable {
 
     // SERILEŞTIRME
     public static final Long serialVersionUID=1L;

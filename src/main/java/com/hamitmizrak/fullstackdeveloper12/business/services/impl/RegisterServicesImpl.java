@@ -158,7 +158,7 @@ public class RegisterServicesImpl implements IRegisterService<RegisterDto, Regis
             registerDto.setRegisterId(registerDto.getRegisterId());
             registerDto.setSystemCreatedDate(registerEntity.getSystemCreatedDate());
 
-            // Mail
+            // Mail ******
             // ÜYELİĞİ AKTİF ETMEK (MAIL GONDER VE TOKEN OLUŞTUR)
             mailSendMemberActive(registerDto,registerEntity);
 
