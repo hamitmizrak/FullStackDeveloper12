@@ -5,9 +5,11 @@ import com.hamitmizrak.fullstackdeveloper12.bean.PasswordEncoderBeanClass;
 import com.hamitmizrak.fullstackdeveloper12.business.dto.RegisterDto;
 import com.hamitmizrak.fullstackdeveloper12.business.services.IForRegisterTokenEmailConfirmationServices;
 import com.hamitmizrak.fullstackdeveloper12.business.services.IRegisterService;
+import com.hamitmizrak.fullstackdeveloper12.data.entity.EmailEntity;
 import com.hamitmizrak.fullstackdeveloper12.data.entity.ForRegisterTokenEmailConfirmationEntity;
 import com.hamitmizrak.fullstackdeveloper12.data.entity.RegisterEntity;
 import com.hamitmizrak.fullstackdeveloper12.data.entity.RoleEntity;
+import com.hamitmizrak.fullstackdeveloper12.data.repository.IEmailRepository;
 import com.hamitmizrak.fullstackdeveloper12.data.repository.IForRegisterTokenEmailConfirmationEntity;
 import com.hamitmizrak.fullstackdeveloper12.data.repository.IRegisterRepository;
 import com.hamitmizrak.fullstackdeveloper12.data.repository.IRoleRepository;
@@ -48,6 +50,8 @@ public class RegisterServicesImpl implements IRegisterService<RegisterDto, Regis
 
     @Value("${spring.mail.username}") //application.properties
     private String serverMailAddress;
+
+    private final IEmailRepository iEmailRepository;
 
     // TOKEN FIELD
     private final IForRegisterTokenEmailConfirmationServices tokenServices; // Email Token confirmation
@@ -107,7 +111,7 @@ public class RegisterServicesImpl implements IRegisterService<RegisterDto, Regis
     }
 
     //////////////////////////////////////////////////////////
-    // ÜYELİĞİ AKTİF ETMEK (MAIL GONDER VE TOKEN OLUŞTUR)
+    // ÜYELİĞİ AKTİF ETMEK (MAIL GONDER, MAILI KAYDET VE TOKEN OLUŞTUR)
     private RegisterDto mailSendMemberActive(RegisterDto registerDto,RegisterEntity registerEntity){
 
         // MAIL GÖNDER VE TOKEN OLUŞTUR ÜYELİĞİ AKTİFLEŞTİR
@@ -115,19 +119,27 @@ public class RegisterServicesImpl implements IRegisterService<RegisterDto, Regis
         // TOKEN OLUŞTUR
         ForRegisterTokenEmailConfirmationEntity tokenConfirmationEntity = new ForRegisterTokenEmailConfirmationEntity(registerEntity);
         String token = tokenServices.createToken(tokenConfirmationEntity);
-        SimpleMailMessage message = new SimpleMailMessage();
+        SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
         System.out.println("Mail Send Success ==> "+serverMailAddress);
         // Set Mail
-        message.setFrom(this.serverMailAddress);
-        message.setTo(registerDto.getRegisterEmail());
-        message.setSentDate(new Date(System.currentTimeMillis()));
-        message.setSubject("Harika Üyeliğinizin aktif olmasına son bir adım kaldı");
+        simpleMailMessage.setFrom(this.serverMailAddress);
+        simpleMailMessage.setTo(registerDto.getRegisterEmail());
+        simpleMailMessage.setSentDate(new Date(System.currentTimeMillis()));
+        simpleMailMessage.setSubject("Harika Üyeliğinizin aktif olmasına son bir adım kaldı");
         //message.setBcc(this.serverMailAddress);
         //message.setCc(this.serverMailAddress);
         String mailContent = "<mark>Üyeliğinizi aktifleşmesine son bir adım lütfen linke tıklayınız.</mark>" + "http://localhost:4444/register/api/v1.0.0/confirm?token=" + token;
-        message.setText(mailContent);
+        simpleMailMessage.setText(mailContent);
         // Send Mail
-        mailSender.send(message);
+        mailSender.send(simpleMailMessage);
+
+        //Email Entity Database Save
+        EmailEntity emailEntity= new EmailEntity();
+        emailEntity.setEmailSubject(simpleMailMessage.getSubject());
+        emailEntity.setEmailText(simpleMailMessage.getText());
+        emailEntity.setEmailTo(registerDto.getRegisterEmail());
+        emailEntity.setEmailFrom(simpleMailMessage.getFrom());
+        iEmailRepository.save(emailEntity);
         return registerDto;
     }
     //////////////////////////////////////////////////////////

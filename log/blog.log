@@ -45,3 +45,97 @@
 2023-12-10T10:09:04.655+03:00  INFO 10432 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2023-12-10T10:09:04.697+03:00  INFO 10432 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2023-12-10T10:09:04.702+03:00  INFO 10432 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-12-10T10:12:05.495+03:00  INFO 7428 --- [restartedMain] c.h.f.FullStackDeveloper12Application    : Starting FullStackDeveloper12Application using Java 21 with PID 7428 (D:\spring\FullStackDeveloper12\target\classes started by 90553 in D:\spring\FullStackDeveloper12)
+2023-12-10T10:12:05.498+03:00  INFO 7428 --- [restartedMain] c.h.f.FullStackDeveloper12Application    : The following 1 profile is active: "frontend"
+2023-12-10T10:12:05.548+03:00  INFO 7428 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-12-10T10:12:05.548+03:00  INFO 7428 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-12-10T10:12:06.512+03:00  INFO 7428 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-12-10T10:12:06.578+03:00  INFO 7428 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 61 ms. Found 4 JPA repository interfaces.
+2023-12-10T10:12:07.146+03:00  INFO 7428 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 4444 (http)
+2023-12-10T10:12:07.153+03:00  INFO 7428 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-12-10T10:12:07.153+03:00  INFO 7428 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.15]
+2023-12-10T10:12:07.200+03:00  INFO 7428 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-12-10T10:12:07.200+03:00  INFO 7428 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1651 ms
+2023-12-10T10:12:07.310+03:00  INFO 7428 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-12-10T10:12:07.451+03:00  INFO 7428 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@150a72e
+2023-12-10T10:12:07.453+03:00  INFO 7428 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-12-10T10:12:07.463+03:00  INFO 7428 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/blog?createDatabaseIfNotExist=true&autoReconnect=true&allowPublicKeyRetrieval=true&useSSL=false'
+2023-12-10T10:12:07.531+03:00 DEBUG 7428 --- [restartedMain] o.s.w.f.ServerHttpObservationFilter      : Filter 'webMvcObservationFilter' configured for use
+2023-12-10T10:12:07.531+03:00 DEBUG 7428 --- [restartedMain] o.s.w.s.r.ResourceUrlEncodingFilter      : Filter 'resourceUrlEncodingFilter' configured for use
+2023-12-10T10:12:07.929+03:00  INFO 7428 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-12-10T10:12:09.141+03:00  INFO 7428 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-12-10T10:12:09.153+03:00  INFO 7428 --- [restartedMain] c.h.f.audit.AuditorAwareBeanClass        : auditor Aware bean Before başladı
+2023-12-10T10:12:09.155+03:00  INFO 7428 --- [restartedMain] c.h.f.bean.Locale18NBeanClass            : swagger Open Api Before Bean başladı
+2023-12-10T10:12:09.156+03:00  INFO 7428 --- [restartedMain] c.h.f.bean.ModelMapperBeanClass          : Model mapper bean Before başladı
+2023-12-10T10:12:09.156+03:00  INFO 7428 --- [restartedMain] c.h.f.bean.PasswordEncoderBeanClass      : password Encoder Before Bean başladı
+2023-12-10T10:12:09.157+03:00  INFO 7428 --- [restartedMain] c.h.f.bean.SwaggerOpenApiBeanClass       : swagger Open Api Before Bean başladı
+2023-12-10T10:12:09.503+03:00  INFO 7428 --- [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2023-12-10T10:12:09.882+03:00  INFO 7428 --- [restartedMain] c.h.f.runner.BlogCommandLineRunner       : blog CommandLineRunner After Bean Method başladı
+2023-12-10T10:12:10.020+03:00  WARN 7428 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-12-10T10:12:10.131+03:00 DEBUG 7428 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2023-12-10T10:12:10.161+03:00  INFO 7428 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-12-10T10:12:10.221+03:00 DEBUG 7428 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 20 mappings in 'requestMappingHandlerMapping'
+2023-12-10T10:12:10.633+03:00 DEBUG 7428 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2023-12-10T10:12:10.642+03:00 DEBUG 7428 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2023-12-10T10:12:11.034+03:00  INFO 7428 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-12-10T10:12:11.038+03:00  INFO 7428 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 16 endpoint(s) beneath base path '/actuator'
+2023-12-10T10:12:11.131+03:00  INFO 7428 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 4444 (http) with context path ''
+2023-12-10T10:12:11.145+03:00  INFO 7428 --- [restartedMain] c.h.f.FullStackDeveloper12Application    : Started FullStackDeveloper12Application in 6.07 seconds (process running for 6.793)
+2023-12-10T10:12:11.153+03:00  INFO 7428 --- [restartedMain] c.h.f.runner.BlogCommandLineRunner2      : CommandLineRunner Çalıştı Sade
+2023-12-10T10:12:18.002+03:00  INFO 7428 --- [restartedMain] c.h.f.runner.BlogCommandLineRunner       : CommandLineRunner Çalıştı
+2023-12-10T10:16:15.515+03:00  INFO 7428 --- [SpringApplicationShutdownHook] c.h.f.runner.BlogCommandLineRunner       : blog CommandLineRunner Before Bean Method bitti
+2023-12-10T10:16:15.517+03:00  INFO 7428 --- [SpringApplicationShutdownHook] c.h.f.bean.SwaggerOpenApiBeanClass       : swagger Open Api After Bean bitti
+2023-12-10T10:16:15.517+03:00  INFO 7428 --- [SpringApplicationShutdownHook] c.h.f.bean.PasswordEncoderBeanClass      : password Encoder After Bean bitti
+2023-12-10T10:16:15.517+03:00  INFO 7428 --- [SpringApplicationShutdownHook] c.h.f.bean.ModelMapperBeanClass          : Model mapper After bean bitti
+2023-12-10T10:16:15.518+03:00  INFO 7428 --- [SpringApplicationShutdownHook] c.h.f.bean.Locale18NBeanClass            : locale 18N After Bean Method bitti
+2023-12-10T10:16:15.518+03:00  INFO 7428 --- [SpringApplicationShutdownHook] c.h.f.audit.AuditorAwareBeanClass        : auditor Aware After bean bitti
+2023-12-10T10:16:15.518+03:00  INFO 7428 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-12-10T10:16:15.570+03:00  INFO 7428 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-12-10T10:16:15.576+03:00  INFO 7428 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-12-10T10:16:35.327+03:00  INFO 17640 --- [restartedMain] c.h.f.FullStackDeveloper12Application    : Starting FullStackDeveloper12Application using Java 21 with PID 17640 (D:\spring\FullStackDeveloper12\target\classes started by 90553 in D:\spring\FullStackDeveloper12)
+2023-12-10T10:16:35.329+03:00  INFO 17640 --- [restartedMain] c.h.f.FullStackDeveloper12Application    : The following 1 profile is active: "frontend"
+2023-12-10T10:16:35.376+03:00  INFO 17640 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-12-10T10:16:35.377+03:00  INFO 17640 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-12-10T10:16:36.478+03:00  INFO 17640 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-12-10T10:16:36.550+03:00  INFO 17640 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 64 ms. Found 4 JPA repository interfaces.
+2023-12-10T10:16:37.216+03:00  INFO 17640 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 4444 (http)
+2023-12-10T10:16:37.226+03:00  INFO 17640 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-12-10T10:16:37.226+03:00  INFO 17640 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.15]
+2023-12-10T10:16:37.278+03:00  INFO 17640 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-12-10T10:16:37.278+03:00  INFO 17640 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1901 ms
+2023-12-10T10:16:37.394+03:00  INFO 17640 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-12-10T10:16:37.542+03:00  INFO 17640 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@291be785
+2023-12-10T10:16:37.544+03:00  INFO 17640 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-12-10T10:16:37.552+03:00  INFO 17640 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/blog?createDatabaseIfNotExist=true&autoReconnect=true&allowPublicKeyRetrieval=true&useSSL=false'
+2023-12-10T10:16:37.613+03:00 DEBUG 17640 --- [restartedMain] o.s.w.f.ServerHttpObservationFilter      : Filter 'webMvcObservationFilter' configured for use
+2023-12-10T10:16:37.614+03:00 DEBUG 17640 --- [restartedMain] o.s.w.s.r.ResourceUrlEncodingFilter      : Filter 'resourceUrlEncodingFilter' configured for use
+2023-12-10T10:16:38.048+03:00  INFO 17640 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-12-10T10:16:39.374+03:00  INFO 17640 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-12-10T10:16:39.385+03:00  INFO 17640 --- [restartedMain] c.h.f.audit.AuditorAwareBeanClass        : auditor Aware bean Before başladı
+2023-12-10T10:16:39.387+03:00  INFO 17640 --- [restartedMain] c.h.f.bean.Locale18NBeanClass            : swagger Open Api Before Bean başladı
+2023-12-10T10:16:39.388+03:00  INFO 17640 --- [restartedMain] c.h.f.bean.ModelMapperBeanClass          : Model mapper bean Before başladı
+2023-12-10T10:16:39.388+03:00  INFO 17640 --- [restartedMain] c.h.f.bean.PasswordEncoderBeanClass      : password Encoder Before Bean başladı
+2023-12-10T10:16:39.390+03:00  INFO 17640 --- [restartedMain] c.h.f.bean.SwaggerOpenApiBeanClass       : swagger Open Api Before Bean başladı
+2023-12-10T10:16:39.842+03:00  INFO 17640 --- [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2023-12-10T10:16:40.270+03:00  INFO 17640 --- [restartedMain] c.h.f.runner.BlogCommandLineRunner       : blog CommandLineRunner After Bean Method başladı
+2023-12-10T10:16:40.439+03:00  WARN 17640 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-12-10T10:16:40.560+03:00 DEBUG 17640 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2023-12-10T10:16:40.591+03:00  INFO 17640 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-12-10T10:16:40.664+03:00 DEBUG 17640 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 20 mappings in 'requestMappingHandlerMapping'
+2023-12-10T10:16:41.087+03:00 DEBUG 17640 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2023-12-10T10:16:41.109+03:00 DEBUG 17640 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2023-12-10T10:16:41.546+03:00  INFO 17640 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-12-10T10:16:41.552+03:00  INFO 17640 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 16 endpoint(s) beneath base path '/actuator'
+2023-12-10T10:16:41.637+03:00  INFO 17640 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 4444 (http) with context path ''
+2023-12-10T10:16:41.651+03:00  INFO 17640 --- [restartedMain] c.h.f.FullStackDeveloper12Application    : Started FullStackDeveloper12Application in 6.697 seconds (process running for 8.285)
+2023-12-10T10:16:41.660+03:00  INFO 17640 --- [restartedMain] c.h.f.runner.BlogCommandLineRunner2      : CommandLineRunner Çalıştı Sade
+2023-12-10T10:27:52.626+03:00  WARN 17640 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=11m14s977ms573µs400ns).
+2023-12-10T10:27:52.678+03:00  INFO 17640 --- [SpringApplicationShutdownHook] c.h.f.runner.BlogCommandLineRunner       : blog CommandLineRunner Before Bean Method bitti
+2023-12-10T10:27:52.680+03:00  INFO 17640 --- [SpringApplicationShutdownHook] c.h.f.bean.SwaggerOpenApiBeanClass       : swagger Open Api After Bean bitti
+2023-12-10T10:27:52.680+03:00  INFO 17640 --- [SpringApplicationShutdownHook] c.h.f.bean.PasswordEncoderBeanClass      : password Encoder After Bean bitti
+2023-12-10T10:27:52.681+03:00  INFO 17640 --- [SpringApplicationShutdownHook] c.h.f.bean.ModelMapperBeanClass          : Model mapper After bean bitti
+2023-12-10T10:27:52.681+03:00  INFO 17640 --- [SpringApplicationShutdownHook] c.h.f.bean.Locale18NBeanClass            : locale 18N After Bean Method bitti
+2023-12-10T10:27:52.681+03:00  INFO 17640 --- [SpringApplicationShutdownHook] c.h.f.audit.AuditorAwareBeanClass        : auditor Aware After bean bitti
+2023-12-10T10:27:52.681+03:00  INFO 17640 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-12-10T10:27:54.478+03:00  INFO 17640 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-12-10T10:27:54.485+03:00  INFO 17640 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
