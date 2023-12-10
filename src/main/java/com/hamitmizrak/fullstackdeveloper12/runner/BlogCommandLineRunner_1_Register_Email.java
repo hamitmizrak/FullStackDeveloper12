@@ -17,7 +17,7 @@ import org.springframework.stereotype.Component;
 @Log4j2
 @Component
 // NOT: implement CommandLineRunner
-public class BlogCommandLineRunner2 implements CommandLineRunner {
+public class BlogCommandLineRunner_1_Register_Email implements CommandLineRunner {
 
     private final IRoleRepository iRoleRepository;
     private final IRegisterRepository iRegisterRepository;
