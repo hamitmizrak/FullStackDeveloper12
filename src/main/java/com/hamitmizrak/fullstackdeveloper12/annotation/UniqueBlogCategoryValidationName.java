@@ -10,8 +10,8 @@ import java.lang.annotation.Target;
 
 @Target({ ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)
-@Constraint(validatedBy = {UniqueCategoryValidation.class})
-public @interface UniqueCategoryName {
+@Constraint(validatedBy = {UniqueBlogCategoryValidation.class})
+public @interface UniqueBlogCategoryValidationName {
 
     String message() default "{blog.category.unique.validation.constraints.NotNull.message}";
     Class<?>[] groups() default {};

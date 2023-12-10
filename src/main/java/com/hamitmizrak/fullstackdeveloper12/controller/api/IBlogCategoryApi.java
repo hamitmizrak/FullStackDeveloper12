@@ -3,7 +3,7 @@ package com.hamitmizrak.fullstackdeveloper12.controller.api;
 import org.springframework.http.ResponseEntity;
 import java.util.List;
 
-public interface ICategoryApi<D> {
+public interface IBlogCategoryApi<D> {
 
     // ALL DELETE
     public ResponseEntity<String> categoryApiAllDelete();

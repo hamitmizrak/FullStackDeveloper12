@@ -1,10 +1,10 @@
 package com.hamitmizrak.fullstackdeveloper12.business.services.impl;
 
 import com.hamitmizrak.fullstackdeveloper12.bean.ModelMapperBeanClass;
-import com.hamitmizrak.fullstackdeveloper12.business.dto.CategoryDto;
-import com.hamitmizrak.fullstackdeveloper12.business.services.ICategoryServices;
-import com.hamitmizrak.fullstackdeveloper12.data.entity.CategoryEntity;
-import com.hamitmizrak.fullstackdeveloper12.data.repository.ICategoryRepository;
+import com.hamitmizrak.fullstackdeveloper12.business.dto.BlogCategoryDto;
+import com.hamitmizrak.fullstackdeveloper12.business.services.IBlogCategoryServices;
+import com.hamitmizrak.fullstackdeveloper12.data.entity.BlogCategoryEntity;
+import com.hamitmizrak.fullstackdeveloper12.data.repository.IBlogCategoryRepository;
 import com.hamitmizrak.fullstackdeveloper12.exception.HamitMizrakException;
 import com.hamitmizrak.fullstackdeveloper12.exception.Resource404NotFoundException;
 import lombok.RequiredArgsConstructor;
@@ -21,7 +21,7 @@ import java.util.List;
 
 // SERVICES
 @Service
-public class CategoryServicesImpl implements ICategoryServices<CategoryDto, CategoryEntity> {
+public class BlogCategoryServicesImpl implements IBlogCategoryServices<BlogCategoryDto, BlogCategoryEntity> {
 
     // Injection (Field) => 1.YOL
     /*
@@ -39,18 +39,17 @@ public class CategoryServicesImpl implements ICategoryServices<CategoryDto, Cate
     */
 
     // Injection (Lombok Constructor Field) => 3.YOL
-    private final ICategoryRepository iCategoryRepository;
+    private final IBlogCategoryRepository iCategoryRepository;
     private final ModelMapperBeanClass modelMapperBeanClass;
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
     // SPEED DATA
     @Override
     @Transactional
     public String categorySpeedData(Integer data) {
         if (data != null) {
             for (int i = 1; i <= data; i++) {
-                CategoryEntity categoryEntity = new CategoryEntity();
+                BlogCategoryEntity categoryEntity = new BlogCategoryEntity();
                 categoryEntity.setCategoryName("category" + i);
                 iCategoryRepository.save(categoryEntity);
             }//end for
@@ -71,22 +70,22 @@ public class CategoryServicesImpl implements ICategoryServices<CategoryDto, Cate
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // MODEL MAPPER
     @Override
-    public CategoryDto entityToDto(CategoryEntity categoryEntity) {
-        return modelMapperBeanClass.modelMapperMethod().map(categoryEntity, CategoryDto.class);
+    public BlogCategoryDto entityToDto(BlogCategoryEntity categoryEntity) {
+        return modelMapperBeanClass.modelMapperMethod().map(categoryEntity, BlogCategoryDto.class);
     }
 
     @Override
-    public CategoryEntity dtoToEntity(CategoryDto categoryDto) {
-        return modelMapperBeanClass.modelMapperMethod().map(categoryDto, CategoryEntity.class);
+    public BlogCategoryEntity dtoToEntity(BlogCategoryDto categoryDto) {
+        return modelMapperBeanClass.modelMapperMethod().map(categoryDto, BlogCategoryEntity.class);
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // CREATE
     @Override
     @Transactional // create, delete, update
-    public CategoryDto categoryServiceCreate(CategoryDto categoryDto) {
+    public BlogCategoryDto categoryServiceCreate(BlogCategoryDto categoryDto) {
         if (categoryDto != null) {
-            CategoryEntity categoryEntity = dtoToEntity(categoryDto);
+            BlogCategoryEntity categoryEntity = dtoToEntity(categoryDto);
             iCategoryRepository.save(categoryEntity);
             categoryDto.setCategoryId(categoryEntity.getCategoryId());
             categoryDto.setSystemCreatedDate(categoryEntity.getSystemCreatedDate());
@@ -98,12 +97,12 @@ public class CategoryServicesImpl implements ICategoryServices<CategoryDto, Cate
 
     // LIST
     @Override
-    public List<CategoryDto> categoryServiceList() {
-        Iterable<CategoryEntity> entityIterable = iCategoryRepository.findAll();
+    public List<BlogCategoryDto> categoryServiceList() {
+        Iterable<BlogCategoryEntity> entityIterable = iCategoryRepository.findAll();
         // Dto To entityb List
-        List<CategoryDto> categoryDtoList = new ArrayList<>();
-        for (CategoryEntity entity : entityIterable) {
-            CategoryDto categoryDto = entityToDto(entity);
+        List<BlogCategoryDto> categoryDtoList = new ArrayList<>();
+        for (BlogCategoryEntity entity : entityIterable) {
+            BlogCategoryDto categoryDto = entityToDto(entity);
             categoryDtoList.add(categoryDto);
         }
         log.info("Liste Sayısı: " + categoryDtoList.size());
@@ -112,7 +111,7 @@ public class CategoryServicesImpl implements ICategoryServices<CategoryDto, Cate
 
     // FIND
     @Override
-    public CategoryDto categoryServiceFindById(Long id) {
+    public BlogCategoryDto categoryServiceFindById(Long id) {
         // 1.YOL (FIND)
         /*
         Optional<CategoryEntity> findOptionalCategoryEntity=  iCategoryRepository.findById(id);
@@ -123,7 +122,7 @@ public class CategoryServicesImpl implements ICategoryServices<CategoryDto, Cate
         */
 
         // 2.YOL (FIND)
-        CategoryEntity findCategoryEntity = null;
+        BlogCategoryEntity findCategoryEntity = null;
         if (id != null) {
             findCategoryEntity = iCategoryRepository.findById(id)
                     .orElseThrow(() -> new Resource404NotFoundException(id + " nolu id yoktur"));
@@ -136,11 +135,11 @@ public class CategoryServicesImpl implements ICategoryServices<CategoryDto, Cate
     // UPDATE
     @Override
     @Transactional // create, delete, update
-    public CategoryDto categoryServiceUpdate(Long id, CategoryDto categoryDto) {
+    public BlogCategoryDto categoryServiceUpdate(Long id, BlogCategoryDto categoryDto) {
         // Önce Bul
-        CategoryDto categoryFindDto = categoryServiceFindById(id);
+        BlogCategoryDto categoryFindDto = categoryServiceFindById(id);
         if (categoryFindDto != null) {
-            CategoryEntity categoryEntity = dtoToEntity(categoryFindDto);
+            BlogCategoryEntity categoryEntity = dtoToEntity(categoryFindDto);
             categoryEntity.setCategoryName(categoryDto.getCategoryName());
             iCategoryRepository.save(categoryEntity);
             // Dönüştede ID ve Date Set et
@@ -151,9 +150,9 @@ public class CategoryServicesImpl implements ICategoryServices<CategoryDto, Cate
     // DELETE
     @Override
     @Transactional // create, delete, update
-    public CategoryDto categoryServiceDeleteById(Long id) {
+    public BlogCategoryDto categoryServiceDeleteById(Long id) {
         // Önce Bul
-        CategoryDto categoryFindDto = categoryServiceFindById(id);
+        BlogCategoryDto categoryFindDto = categoryServiceFindById(id);
         if (categoryFindDto != null) {
             iCategoryRepository.deleteById(id);
             // Dönüştede ID ve Date Set et

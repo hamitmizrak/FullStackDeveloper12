@@ -3,14 +3,14 @@ import java.util.List;
 
 // D: Dto
 // E: Entity
-public interface ICategoryServices<D, E> {
+public interface IBlogCategoryServices<D, E> {
 
     // Model Mapper
     public D entityToDto(E e);
 
     public E dtoToEntity(D d);
-    ///////////////////////////////////////////
 
+    ///////////////////////////////////////////
     // SPEED DATA Category
     public String categorySpeedData(Integer data);
 

@@ -1,6 +1,6 @@
 package com.hamitmizrak.fullstackdeveloper12.data.repository;
 
-import com.hamitmizrak.fullstackdeveloper12.data.entity.CategoryEntity;
+import com.hamitmizrak.fullstackdeveloper12.data.entity.BlogCategoryEntity;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import java.util.Optional;
@@ -10,8 +10,8 @@ import java.util.Optional;
 // PagingAndSortingRepository<RegisterEntity,Long>
 
 @Repository
-public interface ICategoryRepository extends CrudRepository<CategoryEntity,Long> {
+public interface IBlogCategoryRepository extends CrudRepository<BlogCategoryEntity,Long> {
 
     // Delivered Query (Kendi sorgumu yazdım)
-    Optional<CategoryEntity> findByCategoryName(String categoryName);
+    Optional<BlogCategoryEntity> findByCategoryName(String categoryName);
 }

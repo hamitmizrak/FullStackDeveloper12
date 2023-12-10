@@ -20,7 +20,7 @@ import java.util.Date;
 @Table(name = "category")
 
 // Category(1) Blog(N)
-public class CategoryEntity extends AuditingAwareBaseEntity implements Serializable {
+public class BlogCategoryEntity extends AuditingAwareBaseEntity implements Serializable {
 
     // serileştirme
     public static final Long serialVersionUID = 1L;

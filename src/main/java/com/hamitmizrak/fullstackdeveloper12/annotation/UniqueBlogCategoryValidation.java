@@ -1,6 +1,6 @@
 package com.hamitmizrak.fullstackdeveloper12.annotation;
 
-import com.hamitmizrak.fullstackdeveloper12.data.repository.ICategoryRepository;
+import com.hamitmizrak.fullstackdeveloper12.data.repository.IBlogCategoryRepository;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 import lombok.RequiredArgsConstructor;
@@ -9,10 +9,10 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 
 // Annotation
-public class UniqueCategoryValidation implements ConstraintValidator<UniqueCategoryName,String> {
+public class UniqueBlogCategoryValidation implements ConstraintValidator<UniqueBlogCategoryValidationName,String> {
 
     // Injection
-    private final ICategoryRepository iCategoryRepository;
+    private final IBlogCategoryRepository iCategoryRepository;
 
     // Database'de bu kategori isminden var mı ?
     @Override

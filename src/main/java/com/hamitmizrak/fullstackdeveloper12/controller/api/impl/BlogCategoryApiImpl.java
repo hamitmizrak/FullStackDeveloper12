@@ -1,8 +1,8 @@
 package com.hamitmizrak.fullstackdeveloper12.controller.api.impl;
 
-import com.hamitmizrak.fullstackdeveloper12.business.dto.CategoryDto;
-import com.hamitmizrak.fullstackdeveloper12.business.services.ICategoryServices;
-import com.hamitmizrak.fullstackdeveloper12.controller.api.ICategoryApi;
+import com.hamitmizrak.fullstackdeveloper12.business.dto.BlogCategoryDto;
+import com.hamitmizrak.fullstackdeveloper12.business.services.IBlogCategoryServices;
+import com.hamitmizrak.fullstackdeveloper12.controller.api.IBlogCategoryApi;
 import com.hamitmizrak.fullstackdeveloper12.utils.FrontendPortUrl;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -21,20 +21,12 @@ import java.util.List;
 @RestController
 @CrossOrigin(origins = FrontendPortUrl.REACT_FRONTEND_PORT_URL) // http://localhost:3000
 @RequestMapping("/category/api/v1")
-public class CategoryApiImpl implements ICategoryApi<CategoryDto> {
+public class BlogCategoryApiImpl implements IBlogCategoryApi<BlogCategoryDto> {
 
     // Injection
-    private final ICategoryServices iCategoryServices;
+    private final IBlogCategoryServices iCategoryServices;
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////
-    // ALL DELETE
-    // http://localhost:4444/category/api/v1/delete/all
-    @Override
-    @DeleteMapping(value="/delete/all")
-    public ResponseEntity<String> categoryApiAllDelete() {
-        return ResponseEntity.ok(iCategoryServices.categoryDeleteAll());
-    }
-
     // SPEED DATA
     // http://localhost:4444/category/api/v1/speed/10
     @Override
@@ -43,12 +35,20 @@ public class CategoryApiImpl implements ICategoryApi<CategoryDto> {
         return  ResponseEntity.ok(iCategoryServices.categorySpeedData(data));
     }
 
+    // ALL DELETE
+    // http://localhost:4444/category/api/v1/delete/all
+    @Override
+    @DeleteMapping(value="/delete/all")
+    public ResponseEntity<String> categoryApiAllDelete() {
+        return ResponseEntity.ok(iCategoryServices.categoryDeleteAll());
+    }
+
     ////////////////////////////////////////////////////////////////////////////////////////////////////
     // CREATE
     // http://localhost:4444/category/api/v1/create
     @Override
     @PostMapping("/create")
-    public ResponseEntity<?> categoryApiCreate(@Valid @RequestBody CategoryDto categoryDto) {
+    public ResponseEntity<?> categoryApiCreate(@Valid @RequestBody BlogCategoryDto categoryDto) {
         return ResponseEntity.ok(iCategoryServices.categoryServiceCreate(categoryDto));
     }
 
@@ -56,7 +56,7 @@ public class CategoryApiImpl implements ICategoryApi<CategoryDto> {
     // http://localhost:4444/category/api/v1/list
     @Override
     @GetMapping(value="/list")
-    public ResponseEntity<List<CategoryDto>> categoryApiList() {
+    public ResponseEntity<List<BlogCategoryDto>> categoryApiList() {
         return ResponseEntity.status(HttpStatus.OK).body(iCategoryServices.categoryServiceList());
     }
 
@@ -72,7 +72,7 @@ public class CategoryApiImpl implements ICategoryApi<CategoryDto> {
     // http://localhost:4444/category/api/v1/update/1
     @Override
     @PutMapping(value="/update/{id}")
-    public ResponseEntity<?> categoryApiUpdate(@PathVariable(name = "id") Long id, @Valid @RequestBody CategoryDto categoryDto) {
+    public ResponseEntity<?> categoryApiUpdate(@PathVariable(name = "id") Long id, @Valid @RequestBody BlogCategoryDto categoryDto) {
         return ResponseEntity.ok().body(iCategoryServices.categoryServiceUpdate(id,categoryDto));
     }
 

@@ -1,6 +1,6 @@
 package com.hamitmizrak.fullstackdeveloper12.business.dto;
 
-import com.hamitmizrak.fullstackdeveloper12.annotation.UniqueCategoryName;
+import com.hamitmizrak.fullstackdeveloper12.annotation.UniqueBlogCategoryValidationName;
 import com.hamitmizrak.fullstackdeveloper12.audit.AuditingAwareBaseDto;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
@@ -21,7 +21,7 @@ import java.util.Date;
 // Validation
 
 // CategoryDto(1) - BlogDto(N)
-public class CategoryDto extends AuditingAwareBaseDto implements Serializable {
+public class BlogCategoryDto extends AuditingAwareBaseDto implements Serializable {
 
     // SERİLEŞTİRME
     public static final Long serialVersionUID=1L;
@@ -36,7 +36,7 @@ public class CategoryDto extends AuditingAwareBaseDto implements Serializable {
 
     // CATEGORY NAME
     // kendi Anonotation'ı yazdım.
-    @UniqueCategoryName
+    @UniqueBlogCategoryValidationName
     @NotEmpty(message = "{blog.category.validation.constraints.NotNull.message}")
     @Size(min=2,message = "{blog.category.least.validation.constraints.NotNull.message}")
     private String categoryName;
