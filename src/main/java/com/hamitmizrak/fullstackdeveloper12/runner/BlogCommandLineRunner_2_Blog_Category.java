@@ -1,6 +1,9 @@
 package com.hamitmizrak.fullstackdeveloper12.runner;
 
+import com.hamitmizrak.fullstackdeveloper12.business.dto.RegisterDto;
 import com.hamitmizrak.fullstackdeveloper12.business.services.IRegisterService;
+import com.hamitmizrak.fullstackdeveloper12.data.entity.RoleEntity;
+import com.hamitmizrak.fullstackdeveloper12.role.ERole;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.boot.CommandLineRunner;
@@ -22,6 +25,15 @@ public class BlogCommandLineRunner_2_Blog_Category {
     public void blogCommandLineRunnerAfterBeanMethod(){
         log.info("blog CommandLineRunner After Bean Method başladı");
         System.out.println("blog CommandLineRunner After Bean Method başladı");
+    }
+
+    // Role ve Register Eklemek
+    private void blogAndBlogCategories() {
+        synchronized (this) {
+            // BlogCategories (Random categories)
+
+            // Blog
+        }
     }
 
     // Injection

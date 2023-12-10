@@ -61,7 +61,7 @@ public class BlogServicesImpl implements IBlogServices<BlogDto, BlogEntity> {
             BlogEntity blogEntity=dtoToEntity(blogDto);
             iBlogRepository.save(blogEntity);
             blogDto.setBlogId(blogEntity.getBlogId());
-            blogDto.setSystemCreatedDate(blogEntity.getBlogEntityEmbeddable().getSystemDate());
+            blogDto.setSystemCreatedDate(blogEntity.getSystemCreatedDate());
         }else{
             throw  new NullPointerException("blogdto null veri");
         }
