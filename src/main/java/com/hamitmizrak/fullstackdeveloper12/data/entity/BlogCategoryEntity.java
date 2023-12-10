@@ -7,6 +7,7 @@ import lombok.extern.log4j.Log4j2;
 import org.hibernate.annotations.CreationTimestamp;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 // LOMBOK
 @Data
@@ -16,13 +17,13 @@ import java.util.Date;
 @Log4j2
 
 // ENTITY
-@Entity(name = "Categories") // Sql JOIN için yazdım
-@Table(name = "category")
+@Entity(name = "BlogCategories") // Sql JOIN için yazdım
+@Table(name = "blogCategory")
 
 // Category(1) Blog(N)
 public class BlogCategoryEntity extends AuditingAwareBaseEntity implements Serializable {
 
-    // serileştirme
+    // SERILEŞTIRME
     public static final Long serialVersionUID = 1L;
 
     // ID
@@ -40,8 +41,19 @@ public class BlogCategoryEntity extends AuditingAwareBaseEntity implements Seria
     @Temporal(TemporalType.TIMESTAMP)
     private Date systemCreatedDate;
 
-    // Constructor (parametresiz)
     // Constructor (parametreli)
-    // toString
+    public BlogCategoryEntity(String categoryName) {
+        this.categoryName = categoryName;
+    }
+
+    // Constructor (parametreli)
+    public BlogCategoryEntity(String categoryName, List<BlogEntity> relationBlogEntityList) {
+        this.categoryName = categoryName;
+        this.relationBlogEntityList = relationBlogEntityList;
+    }
+
+    // RELATION
+    @OneToMany(mappedBy = "relationCategoryEntity",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    List<BlogEntity> relationBlogEntityList;
 
 } //end class
