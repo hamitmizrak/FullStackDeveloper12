@@ -2,8 +2,11 @@ package com.hamitmizrak.fullstackdeveloper12.controller.api.impl;
 
 import com.hamitmizrak.fullstackdeveloper12.business.dto.RegisterDto;
 import com.hamitmizrak.fullstackdeveloper12.business.services.ILoginServices;
+import com.hamitmizrak.fullstackdeveloper12.business.services.impl.CustomiseUserDetailsImpl;
 import com.hamitmizrak.fullstackdeveloper12.controller.api.ILoginApi;
 import com.hamitmizrak.fullstackdeveloper12.utils.FrontendPortUrl;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -20,6 +23,7 @@ public class LoginApiImpl implements ILoginApi<RegisterDto> {
 
     // INJECTION
     private final ILoginServices iLoginServices;
+    private final CustomiseUserDetailsImpl customiseUserDetails; //UserDetails
 
     @Override
     public ResponseEntity<?> root() {
@@ -34,15 +38,19 @@ public class LoginApiImpl implements ILoginApi<RegisterDto> {
         return ResponseEntity.ok(registerDto);
     }
 
-    // LOGOUT
+    // Basic authentication
     @Override
-    public ResponseEntity<RegisterDto> logout() {
+    public ResponseEntity<?> loginHandleAuthentication(String authorization) {
         return null;
     }
 
-    // USER ACTIVE
+    // LOGOUT
     @Override
-    public ResponseEntity<RegisterDto> userActive(RegisterDto registerDto) {
+    public ResponseEntity<?> logout(HttpServletRequest request, HttpServletResponse response) {
         return null;
     }
+
+    // LOGOUT
+
+
 }

@@ -1,6 +1,8 @@
 package com.hamitmizrak.fullstackdeveloper12.controller.api;
 
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.http.ResponseEntity;
 
 public interface ILoginApi<D> {
@@ -10,9 +12,10 @@ public interface ILoginApi<D> {
     // SIGN-IN
     public ResponseEntity<D> singIn(D d);
 
-    // LOGOUT
-    public ResponseEntity<D>logout();
+    // AUTHORIZATION
+    public ResponseEntity<?> loginHandleAuthentication(String authorization);
 
-    // USER ACTIVE
-    public ResponseEntity<D> userActive(D d);
+    // LOGOUT
+    public ResponseEntity<?>logout(HttpServletRequest request, HttpServletResponse response);
+
 }

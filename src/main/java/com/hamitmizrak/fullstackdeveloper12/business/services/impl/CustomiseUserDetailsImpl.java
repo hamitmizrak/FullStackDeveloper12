@@ -1,12 +1,12 @@
 package com.hamitmizrak.fullstackdeveloper12.business.services.impl;
 
-import com.hamitmizrak.fullstackdeveloper12.business.services.ICustomiseUserDetails;
 import com.hamitmizrak.fullstackdeveloper12.data.entity.RegisterEntity;
 import com.hamitmizrak.fullstackdeveloper12.data.entity.RoleEntity;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -14,6 +14,8 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 
+// UserDetails kendimize göre (customise) yapan Class
+// NOT: UserDetails interface eklendi
 
 // LOMBOK
 @RequiredArgsConstructor
@@ -21,10 +23,12 @@ import java.util.Set;
 
 // SERVICES
 @Service
-public class CustomiseUserDetailsImpl implements ICustomiseUserDetails {
+public class CustomiseUserDetailsImpl implements UserDetails  {
 
+    // INJECTION
     private final RegisterEntity registerEntity;
 
+    // Yetkilendirme
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         // ROLE
@@ -40,35 +44,40 @@ public class CustomiseUserDetailsImpl implements ICustomiseUserDetails {
         return simpleGrantedAuthorities;
     }
 
-
-    @Override
-    public String getEmail() {
-        return registerEntity.getRegisterEmail();
-    }
-
+    // Password
     @Override
     public String getPassword() {
         return registerEntity.getRegisterPassword();
     }
 
-    //////////////////////////////////////////////////////////////////////
+    // Email (Username)
     @Override
-    public Boolean isAccountNonLocked() {
+    public String getUsername() {
+        return registerEntity.getRegisterEmail();
+    }
+
+    // Kullanıcı Süresi
+    @Override
+    public boolean isAccountNonExpired() {
         return registerEntity.getEmbeddableUserDetails().isAccountNonExpired;
     }
 
+    // Kullanıcı Kiliti
     @Override
-    public Boolean isAccountNonExpired() {
-        return registerEntity.getEmbeddableUserDetails().isAccountNonExpired;
+    public boolean isAccountNonLocked() {
+        return registerEntity.getEmbeddableUserDetails().isAccountNonLocked;
     }
 
+    // Kimlik bilgilerini Kontrol Etmek
     @Override
-    public Boolean isCredentialsNonExpired() {
-        return registerEntity.getEmbeddableUserDetails().isAccountNonExpired;
+    public boolean isCredentialsNonExpired() {
+        return registerEntity.getEmbeddableUserDetails().isCredentialsNonExpired;
     }
 
+    // Kullanıcı Aktif mi
     @Override
-    public Boolean isEnabled() {
+    public boolean isEnabled() {
         return registerEntity.getEmbeddableUserDetails().isEnabled;
     }
-}
+
+} //end class

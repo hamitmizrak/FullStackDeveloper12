@@ -9,7 +9,4 @@ public interface ILoginServices<D> {
     // LOGOUT
     public D logout();
 
-    // USER ACTIVE
-    public D userActive(D d);
-
 }

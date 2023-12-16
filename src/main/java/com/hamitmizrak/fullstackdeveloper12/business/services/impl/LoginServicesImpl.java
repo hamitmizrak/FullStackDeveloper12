@@ -34,13 +34,13 @@ UserDetailsService: Sisteme Login Girmiş kullanıcı bilgilerini almak
 public class LoginServicesImpl implements UserDetailsService, ILoginServices  {
 
     // INJECTION
-    private IRegisterRepository iRegisterRepository;
+    private final IRegisterRepository iRegisterRepository;
 
     //////////////////////////////////////////////////////////////////////
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         RegisterEntity registerEntity=iRegisterRepository.findByRegisterEmail(email).orElseThrow(()-> new UsernameNotFoundException("Kullanıcı bulunamadı"));
-        return (UserDetails) new CustomiseUserDetailsImpl(registerEntity);
+        return new CustomiseUserDetailsImpl(registerEntity);
     }
 
     //////////////////////////////////////////////////////////////////////
@@ -53,12 +53,6 @@ public class LoginServicesImpl implements UserDetailsService, ILoginServices  {
     // LOGOUT
     @Override
     public Object logout() {
-        return null;
-    }
-
-    // USER ACTIVE
-    @Override
-    public Object userActive(Object o) {
         return null;
     }
 
