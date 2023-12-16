@@ -57,8 +57,8 @@ public class RegisterApiImpl implements IRegisterApi<RegisterDto> {
     // http://localhost:4444/register/api/v1.0.0/create
     @PostMapping("/create/{roles_id}")
     @Override
-    public ResponseEntity<?> registerApiCreate(@PathVariable(name = "roles_id") Long id, @Valid @RequestBody RegisterDto registerDto) {
-        return ResponseEntity.ok(iRegisterService.registerServiceCreate(id, registerDto)) ;
+    public ResponseEntity<?> registerApiCreate(@PathVariable(name = "roles_id") Long rolesId, @Valid @RequestBody RegisterDto registerDto) {
+        return ResponseEntity.ok(iRegisterService.registerServiceCreate(rolesId, registerDto)) ;
     }
 
     // REGISTER API LIST

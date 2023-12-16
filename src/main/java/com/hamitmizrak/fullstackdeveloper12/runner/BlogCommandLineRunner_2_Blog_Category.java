@@ -1,24 +1,14 @@
 package com.hamitmizrak.fullstackdeveloper12.runner;
 
-import com.hamitmizrak.fullstackdeveloper12.business.dto.BlogCategoryDto;
-import com.hamitmizrak.fullstackdeveloper12.business.services.IBlogCategoryServices;
-import com.hamitmizrak.fullstackdeveloper12.business.services.IBlogServices;
 import com.hamitmizrak.fullstackdeveloper12.data.entity.BlogCategoryEntity;
 import com.hamitmizrak.fullstackdeveloper12.data.entity.BlogEntity;
 import com.hamitmizrak.fullstackdeveloper12.data.repository.IBlogCategoryRepository;
 import com.hamitmizrak.fullstackdeveloper12.data.repository.IBlogRepository;
-import com.hamitmizrak.fullstackdeveloper12.exception.Resource404NotFoundException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
-
-
 
 // LOMBOK
 @RequiredArgsConstructor
@@ -56,6 +46,7 @@ public class BlogCommandLineRunner_2_Blog_Category {
             computerCategory.setCategoryName("Bilgisayar");
             iBlogCategoryRepository.save(computerCategory);
 
+            // Tekil Kategory
             BlogCategoryEntity tabletCategory=new BlogCategoryEntity();
             tabletCategory.setCategoryName("Tablet");
             iBlogCategoryRepository.save(tabletCategory);
@@ -76,7 +67,7 @@ public class BlogCommandLineRunner_2_Blog_Category {
             blogEntity2.setRelationCategoryEntity(tabletCategory);
             iBlogRepository.save(blogEntity2);
         };
-    }
+    } //end CommandLineRunner
 
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
