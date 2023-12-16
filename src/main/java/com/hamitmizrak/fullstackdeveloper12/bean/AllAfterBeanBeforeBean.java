@@ -15,11 +15,11 @@ public class AllAfterBeanBeforeBean {
 
 
     // Command Line Runner Bean Method
-    @Bean(initMethod = "blogCommandLineRunnerAfterBeanMethod",destroyMethod ="blogCommandLineRunnerBeforeBeanMethod")
+  /*  @Bean(initMethod = "blogCommandLineRunnerAfterBeanMethod",destroyMethod ="blogCommandLineRunnerBeforeBeanMethod")
     public BlogCommandLineRunner_2_Blog_Category blogCommandLineRunner(){
         return new BlogCommandLineRunner_2_Blog_Category();
     }
-
+*/
 
     // Model Mapper
     @Bean(initMethod = "modelMapperBeforeBeanMethod",destroyMethod ="modelMapperAfterBeanMethod")

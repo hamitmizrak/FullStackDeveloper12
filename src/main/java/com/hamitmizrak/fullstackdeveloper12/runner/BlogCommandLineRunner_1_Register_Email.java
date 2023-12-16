@@ -14,6 +14,8 @@ import org.springframework.stereotype.Component;
 // LOMBOK
 @RequiredArgsConstructor // Injection
 
+
+// Command Line Runner
 @Log4j2
 @Component
 // NOT: implement CommandLineRunner

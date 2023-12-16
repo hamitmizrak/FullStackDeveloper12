@@ -70,8 +70,8 @@ public class BlogCategoryServicesImpl implements IBlogCategoryServices<BlogCateg
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // MODEL MAPPER
     @Override
-    public BlogCategoryDto entityToDto(BlogCategoryEntity categoryEntity) {
-        return modelMapperBeanClass.modelMapperMethod().map(categoryEntity, BlogCategoryDto.class);
+    public BlogCategoryDto entityToDto(BlogCategoryEntity blogCategoryEntity) {
+        return modelMapperBeanClass.modelMapperMethod().map(blogCategoryEntity, BlogCategoryDto.class);
     }
 
     @Override
@@ -83,16 +83,16 @@ public class BlogCategoryServicesImpl implements IBlogCategoryServices<BlogCateg
     // CREATE
     @Override
     @Transactional // create, delete, update
-    public BlogCategoryDto categoryServiceCreate(BlogCategoryDto categoryDto) {
-        if (categoryDto != null) {
-            BlogCategoryEntity categoryEntity = dtoToEntity(categoryDto);
+    public BlogCategoryDto categoryServiceCreate(BlogCategoryDto blogCategoryDto) {
+        if (blogCategoryDto != null) {
+            BlogCategoryEntity categoryEntity = dtoToEntity(blogCategoryDto);
             iCategoryRepository.save(categoryEntity);
-            categoryDto.setCategoryId(categoryEntity.getCategoryId());
-            categoryDto.setSystemCreatedDate(categoryEntity.getSystemCreatedDate());
+            blogCategoryDto.setCategoryId(categoryEntity.getCategoryId());
+            blogCategoryDto.setSystemCreatedDate(categoryEntity.getSystemCreatedDate());
         } else {
             throw new NullPointerException(" CategoryDto null veri");
         }
-        return categoryDto;
+        return blogCategoryDto;
     }
 
     // LIST
