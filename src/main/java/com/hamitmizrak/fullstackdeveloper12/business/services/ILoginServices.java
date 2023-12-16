@@ -9,4 +9,7 @@ public interface ILoginServices<D> {
     // LOGOUT
     public D logout();
 
+    // IS LOGIN
+    public D isLogin();
+
 }
