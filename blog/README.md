@@ -1,3 +1,134 @@
+
+
+### `npm start`
+### `npm test`
+### `npm run build`
+### `npm run eject`
+### `npm run build` fails to minify
+
+## REACT JS INSTALL
+``sh
+npx create-react-app blog
+cd blog
+npm start
+
+#### backend with frontend connectivity
+npm install axios --save      
+
+#### for Router
+npm install react-router-dom --save  
+
+#### for language
+npm install i18next --save              
+npm install react-i18next --save  
+
+#### LocalStorage Bilgileri gizle
+npm install secure-ls --save 
+
+#### Redux
+npm install redux react-redux --save  
+
+#### middleWare
+npm install redux-thunk
+```
+----------------------------------------------------------------
+## TAILWIND INSTALL
+#### Package.json yoksa ekle, yoksa ekleme
+npm init -y
+
+#### D: Developer
+npm install -D tailwindcss 
+
+####  tailwind.config.js
+npx tailwindcss init 
+```sh 
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+    content: [
+      "./src/**/*.{js,jsx,ts,tsx}",
+    ],
+    theme: {
+
+        container: {
+            center: true
+        },
+
+        extend: {
+            colors: {
+                "hamitmizrak-red": "red",
+                "hamitmizrak-blue": "blue",
+                "hamitmizrak-yellow": "yellow",
+                "hamitmizrak-gray": "#f2f2f2",
+            },
+            fontFamily: {
+                font: ['Montserrat', 'sans-serif'],
+                open: ['Open Sans', 'sans-serif'],
+            }
+        },
+    },
+    plugins: [],
+}
+
+```
+
+
+#### dizin oluştur (src) ancak react zaten var tekrardan kurma
+css eklemek => tailwind_input.css
+npx tailwindcss -i ./src/tailwind_input.css -o ./src/index.css --watch
+npm run watch
+
+## NOT: package.json olduğu dizine bunları ekliyoruz.
+#### for React JS , Tailwind
+npm install -D tailwindcss
+npx tailwindcss init
+
+---
+tailwind.config.js
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+content: [
+"./src/**/*.{js,jsx,ts,tsx}",
+],
+theme: {
+
+        container: {
+            center: true
+        },
+
+        extend: {
+            colors: {
+                "hamitmizrak-red": "red",
+                "hamitmizrak-blue": "blue",
+                "hamitmizrak-yellow": "yellow",
+                "hamitmizrak-gray": "#f2f2f2",
+            },
+            fontFamily: {
+                font: ['Montserrat', 'sans-serif'],
+                open: ['Open Sans', 'sans-serif'],
+            }
+        },
+    },
+    plugins: [],
+}
+
+
+---
+index.css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+--- 
+App.js
+export default function App() {
+return (
+<h1 className="text-3xl font-bold underline">
+Hello world!
+</h1>
+)
+}
+
+------------------------------------------------------------------------------
 # Spring Boot & React JS
 ![](https://komarev.com/ghpvc/?username=hamitmizrak)
 ## _N-Tier Architecture_
@@ -51,17 +182,7 @@ Spring Boot And React JS
 
 ---
 
-## REACT INSTALL
-``sh
-npx create-react-app blog
-cd blog
-npm start
 
-npm install axios --save
-npm install react-router-dom --save
-npm install i18next --save
-npm install react-i18next --save
-```
 
 ---
 Support

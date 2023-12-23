@@ -22,13 +22,11 @@ public class EmbeddableUserDetails{
     // Eğer yaptığımız uygulamada kullanıcı 1 yıl kullanmazsa hesabı pasif olsun
     // Kullanıcı Hesap Süresi Doldu mu ?
     // @Builder.Default
-
     @Column(name="account_expired")
     public Boolean isAccountNonExpired=true;
 
     // Kullanıcı Hesap Bilgileri Süresi (Authorization)
     // @Builder.Default
-
     @Column(name="credentials_expired")
     public Boolean isCredentialsNonExpired=true;
 

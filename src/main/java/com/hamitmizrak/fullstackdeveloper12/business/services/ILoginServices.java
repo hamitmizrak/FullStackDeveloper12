@@ -1,15 +1,27 @@
 package com.hamitmizrak.fullstackdeveloper12.business.services;
 
+import com.hamitmizrak.fullstackdeveloper12.error.ApiResult;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.security.core.userdetails.UserDetails;
+
 // D: Dto
 public interface ILoginServices<D> {
 
+    // YETKILENDIRME
+    public UserDetails loadUserByUsername(String email);
+
     // SIGN-IN
-    public D singIn(D d);
+    public Boolean singIn(D d);
+
+    // IS LOGIN ?
+    public D isLogin();
 
     // LOGOUT
-    public D logout();
+    public D logout(HttpServletRequest request, HttpServletResponse response);
 
-    // IS LOGIN
-    public D isLogin();
+    //////////////////////////////
+    // BASIC AUTHORIZATION
+    public Object basicAuthentication(String authorization);
 
 }

@@ -49,6 +49,9 @@ public class RegisterDto extends AuditingAwareBaseDto implements  Serializable {
     @NotEmpty(message = "{register.surname.validation.constraints.NotNull.message}")
     private String registerSurname;
 
+    // IMAGE
+    private String image;
+
     // EMAIL
     @NotEmpty(message = "{register.email.validation.constraints.NotNull.message}")
     @Email(message = "{register.email.validation.constraints.regex.message}")

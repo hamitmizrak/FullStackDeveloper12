@@ -18,7 +18,6 @@ import java.util.Set;
 // NOT: UserDetails interface eklendi
 
 // LOMBOK
-@RequiredArgsConstructor
 @Log4j2
 
 // SERVICES
@@ -26,7 +25,15 @@ import java.util.Set;
 public class CustomiseUserDetailsImpl implements UserDetails  {
 
     // INJECTION
-    private final RegisterEntity registerEntity;
+    private  RegisterEntity registerEntity;
+
+    public CustomiseUserDetailsImpl() {
+        registerEntity=new RegisterEntity();
+    }
+
+    public CustomiseUserDetailsImpl(RegisterEntity registerEntity) {
+        this.registerEntity = registerEntity;
+    }
 
     // Yetkilendirme
     @Override

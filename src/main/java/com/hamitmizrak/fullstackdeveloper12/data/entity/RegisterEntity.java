@@ -53,6 +53,9 @@ public class RegisterEntity extends AuditingAwareBaseEntity implements Serializa
     // SURNAME
     private String registerSurname;
 
+    // IMAGE
+    private String image;
+
     // EMAIL
     @Column(
             name = "register_email",

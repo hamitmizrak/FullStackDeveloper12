@@ -52,6 +52,7 @@ public class BlogDto extends AuditingAwareBaseDto implements Serializable {
 
     // IMAGE
     @NotEmpty(message = "{blog.title.validation.constraints.NotNull.message}")
-    private String image;
+    @Builder.Default
+    private String image="resim.png";
 
 } //end class

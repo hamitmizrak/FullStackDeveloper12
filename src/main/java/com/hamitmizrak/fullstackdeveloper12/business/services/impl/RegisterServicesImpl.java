@@ -81,6 +81,7 @@ public class RegisterServicesImpl implements IRegisterService<RegisterDto, Regis
                 registerDto.setRegisterNickname("nick name " + i);
                 registerDto.setRegisterName("name " + i);
                 registerDto.setRegisterSurname("surname " + i);
+                registerDto.setImage("image.png");
                 registerDto.setRegisterPassword(passwordEncoderBeanClass.passwordEncoderMethod().encode("root"));
                 registerDto.setRegisterEmail("hamitmizrak" + UUID.randomUUID().toString() + "@gmail.com");
                 registerDto.setPageAuthorization(false); //mail ile aktifleştirelim
@@ -229,6 +230,7 @@ public class RegisterServicesImpl implements IRegisterService<RegisterDto, Regis
         registerEntity.setRegisterNickname(registerDto.getRegisterNickname());
         registerEntity.setRegisterName(registerDto.getRegisterName());
         registerEntity.setRegisterSurname(registerDto.getRegisterSurname());
+        registerEntity.setImage(registerDto.getImage());
         registerEntity.setRegisterEmail(registerDto.getRegisterEmail());
         registerEntity.setRegisterPassword(registerDto.getRegisterPassword());
         iRegisterRepository.save(registerEntity);

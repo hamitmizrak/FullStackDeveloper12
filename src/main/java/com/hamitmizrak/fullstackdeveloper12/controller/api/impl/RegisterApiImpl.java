@@ -45,7 +45,7 @@ public class RegisterApiImpl implements IRegisterApi<RegisterDto> {
     }
 
     // ALL DELETE
-    // http://localhost:4444/register/api/v1.0.0/speed/data
+    // http://localhost:4444/register/api/v1.0.0/delete/all
     @Override
     @GetMapping("/all/delete")
     public ResponseEntity<?> registerApiAllDelete() {
