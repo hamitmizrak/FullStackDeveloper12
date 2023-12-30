@@ -12,7 +12,11 @@ function BlogMain() {
 
     // RETURN
   return (
-    <React.Fragment>BlogMain</React.Fragment>
+    <React.Fragment>BlogMain
+
+<p>lorem*100</p>
+
+    </React.Fragment>
   ) //end Return
 }// end Function
 
