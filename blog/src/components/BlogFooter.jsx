@@ -6,7 +6,11 @@ import React, { Component } from 'react';
 //I18N
 import { withTranslation } from 'react-i18next';
 
+// Tailwind React Material
 import { Typography } from "@material-tailwind/react";
+
+// Default Validation 
+import PropTypes from 'prop-types';
 
 // CLASS BlogHeader
 class BlogFooter extends Component {
@@ -54,7 +58,8 @@ class BlogFooter extends Component {
                 <div className="mx-auto w-full max-w-7xl px-8">
                     <div className="grid grid-cols-1 justify-between gap-4 md:grid-cols-2">
                         <Typography variant="h5" className="mb-6">
-                            Blog Project
+                            {/*Default Props*/}
+                            {this.props.footer_name}
                         </Typography>
                         <div className="grid grid-cols-3 justify-between gap-4">
                             {LINKS.map(({ title, items }) => (
@@ -150,3 +155,14 @@ class BlogFooter extends Component {
 
 //EXPORT
 export default withTranslation()(BlogFooter);
+
+// Default Değerler (Class)
+BlogFooter.defaultProps={
+    footer_name:'Blog Project44',
+}
+
+// Default Validations (Class)
+BlogFooter.propTypes={
+    footer_name:PropTypes.string.isRequired,
+    //footer_name:PropTypes.number.isRequired,
+}
