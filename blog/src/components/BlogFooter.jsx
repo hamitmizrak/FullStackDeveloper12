@@ -27,7 +27,7 @@ class BlogFooter extends Component {
         //RETURN
         return (
             <div>
-                
+                Blog Footer
             </div>
         ); // end return
     } //end render

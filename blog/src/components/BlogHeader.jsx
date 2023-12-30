@@ -27,7 +27,7 @@ class BlogHeader extends Component {
         //RETURN
         return (
             <div>
-                
+                Blog Header
             </div>
         ); // end return
     } //end render

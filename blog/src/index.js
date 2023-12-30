@@ -6,7 +6,7 @@ import ReactDOM from 'react-dom/client';
 // BrowserRouter => http://localhost:3000/
 // HashRouter    => http://localhost:3000/#
 import {BrowserRouter} from "react-router-dom";
-import BlogRouter from "../BlogRouter";
+import BlogRouter from "./BlogRouter";
 
 // Index.CSS
 import './index.css';
