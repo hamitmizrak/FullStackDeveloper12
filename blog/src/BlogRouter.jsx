@@ -21,7 +21,7 @@ function BlogRouter() {
     return (
         <React.Fragment>
             {/* Blog Header */}
-            <BlogHeader></BlogHeader>
+            <BlogHeader logo="fa-solid fa-road-barrier"></BlogHeader>
 
             {/* Blog Main */}
             <div className="container">
@@ -44,7 +44,7 @@ function BlogRouter() {
             </div>  {/*  Main */}
 
             {/* Blog Footer */}
-            <BlogFooter></BlogFooter>
+            <BlogFooter copy="&copy; Bütün Haklar Saklıdır."></BlogFooter>
         </React.Fragment>
     ) //end Return
 } //end BlogRouter
