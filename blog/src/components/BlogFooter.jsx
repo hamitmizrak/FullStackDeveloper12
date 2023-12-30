@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { withTranslation } from 'react-i18next';
 
 // CLASS BlogHeader
-class BlogHeader extends Component {
+class BlogFooter extends Component {
 
     // Display
     static displayName="Blog Header"
@@ -34,4 +34,4 @@ class BlogHeader extends Component {
 } //end class BlogHeader
 
 //EXPORT
-export default withTranslation()(BlogHeader) ;
+export default withTranslation()(BlogFooter) ;
