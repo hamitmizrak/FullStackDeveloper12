@@ -1,4 +1,7 @@
-//rcc
+//rcc 
+
+// i18n 
+// Dark mode
 
 //REACT
 import React, { Component } from 'react';
