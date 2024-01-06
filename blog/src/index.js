@@ -1,3 +1,6 @@
+// Eğer ES5 üzerinden ilerlemek istiyorsanız katı mod olan
+// "use strict";
+
 // REACT
 import React from 'react';
 import ReactDOM from 'react-dom/client';
@@ -8,7 +11,10 @@ import ReactDOM from 'react-dom/client';
 import {BrowserRouter} from "react-router-dom";
 import BlogRouter from "./BlogRouter";
 
-// Index.CSS
+// Dil Seçeneği (Ekledim)
+import './internationalization/i18nlanguage'
+
+// Index CSS
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 

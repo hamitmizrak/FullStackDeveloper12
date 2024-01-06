@@ -1,5 +1,4 @@
-//rcc 
-
+//rcc
 // i18n 
 // Dark mode
 
@@ -15,6 +14,7 @@ import { Typography } from "@material-tailwind/react";
 // Default Validation 
 import PropTypes from 'prop-types';
 
+////////////////////////////////////////////////////////////////////////////////////////
 // CLASS BlogHeader
 class BlogFooter extends Component {
 
@@ -57,19 +57,19 @@ class BlogFooter extends Component {
 
         //RETURN
         return (
-            <footer className="relative w-full bg-blue-300 text-white">
+            <footer className="relative w-full  bg-hamitmizrak-antrasit text-hamitmizrak-white">
                 <div className="mx-auto w-full max-w-7xl px-8">
                     <div className="grid grid-cols-1 justify-between gap-4 md:grid-cols-2">
                         <Typography variant="h5" className="mb-6">
                             {/*Default Props*/}
                             {this.props.footer_name}
                         </Typography>
-                        <div className="grid grid-cols-3 justify-between gap-4">
+                        <div className="grid grid-cols-3 justify-between  gap-4 ">
                             {LINKS.map(({ title, items }) => (
                                 <ul key={title}>
                                     <Typography
                                         variant="small"
-                                        color="blue-gray"
+                                        color="text-hamitmizrak-white"
                                         className="mb-3 font-medium opacity-40"
                                     >
                                         {title}
@@ -79,7 +79,7 @@ class BlogFooter extends Component {
                                             <Typography
                                                 as="a"
                                                 href="#"
-                                                color="gray"
+                                                color="text-hamitmizrak-white"
                                                 className="py-1.5 font-normal transition-colors hover:text-blue-gray-900"
                                             >
                                                 {link}
@@ -90,7 +90,6 @@ class BlogFooter extends Component {
                             ))}
                         </div>
                     </div>
-
 
                     <div className="mt-12 flex w-full flex-col items-center justify-center border-t border-blue-gray-50 py-4 md:flex-row md:justify-between">
                         <Typography
