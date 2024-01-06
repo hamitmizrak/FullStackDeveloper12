@@ -18,6 +18,9 @@ import './internationalization/i18nlanguage'
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 
+// Dark Mode
+import './dark.css'
+
 // ROOT
 const root = ReactDOM.createRoot(document.getElementById('root'));
 

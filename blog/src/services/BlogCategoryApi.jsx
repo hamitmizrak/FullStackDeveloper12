@@ -1,8 +1,8 @@
 // Blog Category Const Api
 import axios from "axios";
 
-// PERSIST
-const BLOG_CATEGORY_PERSIST_URL = "blog/category/api/v1";
+// PERSIST (Dikkat: Root unutma(/)
+const BLOG_CATEGORY_PERSIST_URL = "/blog/category/api/v1";
 
 // CLASS
 class BlogCategoryApi {

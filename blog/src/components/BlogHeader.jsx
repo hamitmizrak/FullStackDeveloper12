@@ -11,6 +11,10 @@ import { withTranslation } from 'react-i18next'
 // Dil için (Reusability)
 import OtherLanguageReusability from "../internationalization/OtherLanguageReusability";
 
+// Dark Mode
+import '../dark.css'
+import DarkMode from "./DarkMode/DarkMode";
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // npm i @headlessui/react
 // npm i @heroicons/react
@@ -35,6 +39,8 @@ import {
 } from '@heroicons/react/24/outline'
 
 import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
+
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // Navbar
@@ -170,6 +176,20 @@ function BlogHeader({ props, t, i18n }) {
                                 className="relative"
                                 data-te-dropdown-ref=""
                                 data-te-dropdown-alignment="end">
+
+                                {/*Dark Mode için*/}
+                                  {/* Second dropdown trigger */}
+                                  <a
+                                    className="hidden-arrow flex items-center whitespace-nowrap transition duration-150 ease-in-out motion-reduce:transition-none"
+                                    href="#"
+                                    id="dropdownMenuButton2"
+                                    role="button"
+                                    data-te-dropdown-toggle-ref=""
+                                    aria-expanded="false">
+                                    {/* Dil */}
+                                    <DarkMode/>
+                                </a>
+                                
 
                                 {/* Second dropdown trigger */}
                                 <a
