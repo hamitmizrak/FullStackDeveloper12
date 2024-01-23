@@ -11,7 +11,7 @@ class RegisterApi {
     // SPEED DATA
     // http://localhost:4444/register/api/v1.0.0/speed/data
     //@GetMapping("/speed/data")
-    registerApiSpeedData(key) {
+    registerApiSpeedData(id) {
         return axios.get(`${REGISTER_PERSIST_URL}/speed/data/${id}`);
     }
 
@@ -27,7 +27,7 @@ class RegisterApi {
     // http://localhost:4444/register/api/v1.0.0/create
     //@PostMapping("/create/{roles_id}")
     registerApiCreate(rolesId, registerDto) {
-        return axios.post(`${REGISTER_PERSIST_URL}/create`, categoryDto);
+        return axios.post(`${REGISTER_PERSIST_URL}/create`, registerDto);
     }
 
     // REGISTER API LIST

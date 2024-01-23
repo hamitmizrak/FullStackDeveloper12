@@ -38,7 +38,7 @@ function BlogRouter() {
                     <Route path={"/index"} element={<BlogMain/>} />
 
                     {/* Blog Category */}
-                    <Route path={"/blog/category/list"} element={<BlogCategoryList/>} />
+                    <Route path={"/miuul/spa/list"} element={<BlogCategoryList/>} />
                     <Route path={"/blog/category/create"} element={<BlogCategoryCreate/>} />
                     <Route path={"/blog/category/view/:id"} element={<BlogCategoryView/>} />
                     <Route path={"/blog/category/update/:id"} element={<BlogCategoryUpdate/>} />

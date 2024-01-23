@@ -44,6 +44,12 @@ import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // Navbar
+const blogCategory = [
+    { name: 'BlogCategoryList', description: 'Blog Category List', href: '/blog/category/list', icon: ChartPieIcon },
+    { name: 'BlogCategoryCreate', description: 'Blog Category Create', href: '/blog/category/create', icon: CursorArrowRaysIcon },
+]
+
+
 const products = [
     { name: 'Analytics', description: 'Get a better understanding of your traffic', href: '#', icon: ChartPieIcon },
     { name: 'Engagement', description: 'Speak directly to your customers', href: '#', icon: CursorArrowRaysIcon },
@@ -51,6 +57,7 @@ const products = [
     { name: 'Integrations', description: 'Connect with third-party tools', href: '#', icon: SquaresPlusIcon },
     { name: 'Automations', description: 'Build strategic funnels that will convert', href: '#', icon: ArrowPathIcon },
 ]
+
 const callsToAction = [
     { name: 'Watch demo', href: '#', icon: PlayCircleIcon },
     { name: 'Contact sales', href: '#', icon: PhoneIcon },
@@ -158,14 +165,49 @@ function BlogHeader({ props, t, i18n }) {
                                 className="list-style-none mr-auto flex flex-col pl-0 lg:flex-row"
                                 data-te-navbar-nav-ref="">
 
-                                {/* Admin */}
+                                {/* Admin */}  {/* Register */}
                                 {/*Eğer adminse, login veya register görünmesin*/}
                                 {
-                                    (isAdmin) ? admin() : loginAndRegister() 
+                                    (isAdmin) ? admin() : loginAndRegister()
                                 }
+                                <Popover className="relative">
+                                    <Popover.Button className="flex items-center gap-x-1 text-sm font-semibold leading-6 ">
+                                        {t('blog')}
+                                        <ChevronDownIcon className="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
+                                    </Popover.Button>
 
-                                {/* Register */}
-                                {/* {register()} */}
+                                    <Transition
+                                        as={Fragment}
+                                        enter="transition ease-out duration-200"
+                                        enterFrom="opacity-0 translate-y-1"
+                                        enterTo="opacity-100 translate-y-0"
+                                        leave="transition ease-in duration-150"
+                                        leaveFrom="opacity-100 translate-y-0"
+                                        leaveTo="opacity-0 translate-y-1"
+                                    >
+                                        <Popover.Panel className="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5">
+                                            <div className="p-4">
+                                                {blogCategory.map((item) => (
+                                                    <div
+                                                        key={item.name}
+                                                        className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50"
+                                                    >
+                                                        <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+                                                            <item.icon className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" aria-hidden="true" />
+                                                        </div>
+                                                        <div className="flex-auto">
+                                                            <Link to={item.href} className="block font-semibold ">
+                                                                {item.name}
+                                                                <span className="absolute inset-0" />
+                                                            </Link>
+                                                            <p className="mt-1 text-gray-600">{item.description}</p>
+                                                        </div>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </Popover.Panel>
+                                    </Transition>
+                                </Popover>
                             </ul>
                         </div>
 
@@ -178,8 +220,8 @@ function BlogHeader({ props, t, i18n }) {
                                 data-te-dropdown-alignment="end">
 
                                 {/*Dark Mode için*/}
-                                  {/* Second dropdown trigger */}
-                                  <a
+                                {/* Second dropdown trigger */}
+                                <a
                                     className="hidden-arrow flex items-center whitespace-nowrap transition duration-150 ease-in-out motion-reduce:transition-none"
                                     href="#"
                                     id="dropdownMenuButton2"
@@ -187,9 +229,9 @@ function BlogHeader({ props, t, i18n }) {
                                     data-te-dropdown-toggle-ref=""
                                     aria-expanded="false">
                                     {/* Dil */}
-                                    <DarkMode/>
+                                    <DarkMode />
                                 </a>
-                                
+
 
                                 {/* Second dropdown trigger */}
                                 <a
@@ -232,11 +274,11 @@ function BlogHeader({ props, t, i18n }) {
                     </div>
 
                     <Popover.Group className="hidden  lg:flex lg:gap-x-12">
-                        <Link to="" className="text-md font-semibold leading-6 ">
+                        <Link to="" className="text-sm font-semibold leading-6 ">
                             {t('home')}
                         </Link>
 
-                        <Link to="" className="text-md font-semibold leading-6 ">
+                        <Link to="" className="text-sm font-semibold leading-6 ">
                             {t('about')}
                         </Link>
 
@@ -337,11 +379,11 @@ function BlogHeader({ props, t, i18n }) {
                         <div className="mt-6 flow-root ">
                             <div className="-my-6 divide-y divide-gray-500/10">
                                 <div className="space-y-2 py-6 ">
+
                                     {/* Mobil Screen */}
                                     <Disclosure as="div" className="-mx-3">
                                         {({ open }) => (
                                             <React.Fragment>
-
                                                 <Link
                                                     to=""
                                                     className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7  hover:bg-gray-50"
