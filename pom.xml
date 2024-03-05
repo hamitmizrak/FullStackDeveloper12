@@ -19,9 +19,9 @@
     <description>FullStackDeveloper12</description>
 
     <!--
-   war: java EE için kullanalım. JSP,servlet,html,css3
-   jar: Spring Boot için kullanalım
-   -->
+    war: java EE için kullanalım. JSP,servlet,html,css3
+    jar: Spring Boot için kullanalım
+    -->
     <!--apache tomcat manuel için war ekliyorum-->
     <!--<packaging>war</packaging>-->
     <packaging>jar</packaging>
@@ -30,6 +30,7 @@
     <properties>
         <encoding>UTF-8</encoding>
         <java.version>17</java.version>
+
         <!--for maven-->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -52,8 +53,6 @@
             <artifactId>jacoco-maven-plugin</artifactId>
             <version>0.8.10</version>
         </dependency>
-
-
 
         <!-- #### ÖNEMLİ KÜTÜPHANLER #################################################  -->
         <!-- E MAİL-->
@@ -360,9 +359,7 @@
         <defaultGoal>spring-boot:run</defaultGoal>
         <finalName>${project.artifactId}</finalName>
 
-
       <plugins>
-
           <!--
           <plugin>
               <groupId>org.apache.maven.plugins</groupId>
@@ -381,15 +378,14 @@
               </configuration>
           </plugin>-->
 
-
           <!--Sonarqube Scanner-->
           <plugin>
               <groupId>org.sonarsource.scanner.maven</groupId>
               <artifactId>sonar-maven-plugin</artifactId>
               <version>3.3.0.603</version>
           </plugin>
-          <!--Sonarqube Scanner-->
 
+          <!--Sonarqube Scanner-->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
