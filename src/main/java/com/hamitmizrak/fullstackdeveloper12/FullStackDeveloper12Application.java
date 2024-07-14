@@ -3,6 +3,8 @@ package com.hamitmizrak.fullstackdeveloper12;
 import jakarta.annotation.PostConstruct;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 import java.util.TimeZone;
@@ -34,7 +36,10 @@ import java.util.TimeZone;
   }
 )
 // @SpringBootApplication
-public class FullStackDeveloper12Application {
+//public class FullStackDeveloper12Application {
+
+// Apache Tomcat için: extends SpringBootServletInitializer
+public class FullStackDeveloper12Application extends SpringBootServletInitializer {
 
     @PostConstruct
     public void init() {
@@ -60,5 +65,12 @@ public class FullStackDeveloper12Application {
         // Main
         SpringApplication.run(FullStackDeveloper12Application.class, args);
     } //end PSVM
+
+    // Apache Tomcat
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder
+                                                         application) {
+        return application.sources(FullStackDeveloper12Application.class);
+    }
 
 } //end class

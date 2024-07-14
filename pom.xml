@@ -23,19 +23,19 @@
     jar: Spring Boot için kullanalım
     -->
     <!--apache tomcat manuel için war ekliyorum-->
-    <!--<packaging>war</packaging>-->
-    <packaging>jar</packaging>
+    <packaging>war</packaging>
+    <!--<packaging>jar</packaging>-->
 
     <!--properties-->
     <properties>
         <encoding>UTF-8</encoding>
-        <java.version>17</java.version>
+        <java.version>19</java.version>
 
         <!--for maven-->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <maven.compiler.target>17</maven.compiler.target>
-        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>19</maven.compiler.target>
+        <maven.compiler.source>19</maven.compiler.source>
 
         <!--Version-->
         <modelmapper.version>2.4.4</modelmapper.version>
@@ -138,11 +138,18 @@
             <scope>provided</scope>
         </dependency>
 
+
+
         <!--apache Tomcat-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-tomcat</artifactId>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>commons-digester</groupId>
+            <artifactId>commons-digester</artifactId>
+            <version>2.1</version>
         </dependency>
 
         <!-- #### MVC / API #################################################  -->
@@ -355,26 +362,25 @@
 
     <!--build-->
     <build>
-        <!--manuel deployment için-->
+        <!--apache tomcat manuel deployment için-->
         <defaultGoal>spring-boot:run</defaultGoal>
         <finalName>${project.artifactId}</finalName>
 
       <plugins>
-          <!--
           <plugin>
               <groupId>org.apache.maven.plugins</groupId>
               <artifactId>maven-resources-plugin</artifactId>
               <version>3.0.2</version>
           </plugin>
 
-          &lt;!&ndash; for maven target 21 &ndash;&gt;
-          <plugin>
+          <!-- for maven target 21 -->
+         <!-- <plugin>
               <groupId>org.apache.maven.plugins</groupId>
               <artifactId>maven-compiler-plugin</artifactId>
               <version>3.8.1</version>
               <configuration>
-                  <source>17</source>
-                  <target>17</target>
+                  <source>19</source>
+                  <target>19</target>
               </configuration>
           </plugin>-->
 
