@@ -1,7 +1,7 @@
 // Blog Category Const Api
 import axios from "axios";
 
-// PERSIST (Dikkat: Root unutma(/)
+// PERSISTENCE DATA => Dikkat persist url'in başına Rootu yazmayı unutma (/)
 const BLOG_CATEGORY_PERSIST_URL = "/blog/category/api/v1";
 
 // CLASS
